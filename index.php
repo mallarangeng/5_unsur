@@ -19,7 +19,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><font class="merah"><strong>LIMA UNSUR</strong></font></a>
+          <a href="index.php" class="navbar-brand"><font class="merah">LIMA UNSUR</font></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
