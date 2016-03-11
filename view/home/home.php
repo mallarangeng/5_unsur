@@ -24,3 +24,4 @@
       </tr>
     </tbody>
   </table>
+ <a class="btn btn-info btn-xs" href="?r=laporan&pg=laporan_form" role="button">Tambah Laporan</a>

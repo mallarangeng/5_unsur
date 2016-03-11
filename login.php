@@ -19,7 +19,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><font class="merah">LOGIN LIMA UNSUR</font></a>
+          <a href="index.php" class="navbar-brand"><font class="info_color">LOGIN LIMA UNSUR</font></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -45,7 +45,7 @@
   <h3></h3>
 
 
-        <form role="form" class="form-horizontal col-md-4">
+        <form role="form" class="form-horizontal col-md-3">
   <div class="form-group">
     <label for="email">ID DESA / KELOMPOK</label>
     <input type="email" class="form-control" id="email">

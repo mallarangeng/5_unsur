@@ -19,7 +19,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><font class="merah">LIMA UNSUR</font></a>
+          <a href="index.php" class="navbar-brand"><font class="info_color">LIMA UNSUR</font></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -48,7 +48,7 @@
               <a href="#teamppg">Laporan I</a>
             </li>
              <li>
-              <a href="#contact">Laporan II</a>
+              <a href="?r=kelompok&pg=kelompok">Kelompok</a>
             </li>
           </ul>
 
@@ -73,7 +73,8 @@
 <p>
 <br>
 <p>
-  <h3>Dashboard </h3>
+  <h3> <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard </h3>
+  <hr>
       <?php
                                 if (!isset($_GET['r'])){
                                     include('view/home/home.php');

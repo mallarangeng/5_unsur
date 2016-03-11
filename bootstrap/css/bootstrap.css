@@ -6,6 +6,15 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /* @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200); */
+
+/*!
+ *  UNTUK MERUBAH LINK  HOVER ADA PADA BARIS 1114
+ *  
+ * 
+ */
+
+
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1103,23 +1112,23 @@ textarea {
 }
 a {
  /*color: #337ab7; */
-  color: #8c1515;
+  color: #5bc0de;
   text-decoration: none;
 }
 a:hover {
-  color: #8c1515;
+  color: #5bc0de;
   text-decoration: underline;
 }
 a:focus {
-  color: #8c1515;
+  color: #5bc0de;
   text-decoration: underline;
 }
 a:focus {
-  color: #8c1515;
+  color: #5bc0de;
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-  color: #8c1515;
+  color: #5bc0de;
 }
 figure {
   margin: 0;
