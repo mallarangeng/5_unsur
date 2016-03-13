@@ -4,6 +4,7 @@ $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 ?>
+<div class="table-responsive"> 
  <table class="table table-hover">
     <thead>
       <tr>
@@ -36,7 +37,7 @@ $kelompok = new kelompok();
         <td><?php echo $data['penjab']; ?></td>
         <td><?php echo $data['password']; ?></td>
         <td>john@example.com</td>
-        <td><a href=""><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
 <?php
 }
@@ -45,4 +46,5 @@ $kelompok = new kelompok();
 
     </tbody>
   </table>
+</div>
  <a class="btn btn-info btn-xs" href="?r=kelompok&pg=kelompok_form" role="button">Tambah Data</a>

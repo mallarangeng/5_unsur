@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
@@ -49,7 +49,7 @@
 class Kelompok {
   // Tampilkan data data bank 
   function tampilKelompok() {
-      $query = mysql_query("SELECT * FROM kelompok");
+      $query = mysql_query("SELECT * FROM kelompok ORDER BY parent,id_kelompok");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -60,21 +60,26 @@ class Kelompok {
       $data[]=$row;
       return $data;
   }
-      function tampilKoor() {
-      $query = mysql_query("SELECT id_koor, nm_koor, ket,
-      (SELECT SUM(kredit) AS total_kredit FROM transaksi WHERE transaksi.id_koor=koordinator.id_koor)total_kredit,
-      (SELECT SUM(debit) AS total_debit FROM transaksi WHERE transaksi.id_koor=koordinator.id_koor)total_debit
-      FROM koordinator");
-      while($row=mysql_fetch_array($query))
-      $data[]=$row;
-      return $data;
-  }
+  function bacaKelompok($id_kelompok)
+          {
+        $query=mysql_query("SELECT * FROM kelompok WHERE id_kelompok='$_GET[id_kelompok]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
 
    function tambahKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level)
     {
       $query="INSERT INTO kelompok (id_kelompok,nm_kelompok,parent,alamat,nohp,penjab,password,level)
       VALUES('$id_kelompok','$nm_kelompok','$parent','$alamat','$nohp','$penjab','$password','$level')";
       $hasil= mysql_query($query);
+    }
+    function updateKelompok ($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level)
+    {
+      $query=mysql_query("UPDATE kelompok SET nm_kelompok='$nm_kelompok', parent='$parent',
+        alamat='$alamat', nohp='$nohp', penjab='$penjab', password='$password', level='$level' WHERE id_kelompok='$id_kelompok'");
     }
 
   }
@@ -113,7 +118,7 @@ class Kelompok {
         }
       }
 
-      function updateTrans ($kd_trans,$kd_admin,$id_koor,$tanggal,$kredit,$debit,$ket)
+    function updateTrans ($kd_trans,$kd_admin,$id_koor,$tanggal,$kredit,$debit,$ket)
     {
       $query=mysql_query("UPDATE transaksi SET kd_admin='$kd_admin', id_koor='$id_koor',tanggal='$tanggal',kredit='$kredit',
         debit='$debit',ket='$ket'WHERE kd_trans='$kd_trans'");
