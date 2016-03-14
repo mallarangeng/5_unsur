@@ -88,14 +88,22 @@ class Kelompok {
   /**
   * 
   */
-  class Trans
+  class Laporan
   {
-    function tambahTrans($kd_admin,$id_koor,$tanggal,$kredit,$debit,$ket)
+    function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
-      $query="INSERT INTO transaksi (kd_trans,kd_admin,id_koor,tanggal,kredit,debit,ket)
-      VALUES('$kd_trans','$kd_admin','$id_koor','$tanggal','$kredit','$debit','$ket')";
+      $query="INSERT INTO laporan (id_lap,id_kelompok,tanggal,ket,date_on,stat)
+      VALUES('$id_lap','$id_kelompok','$tanggal','$ket','$date_on','$stat')";
       $hasil= mysql_query($query);
-    }    
+    }
+    function tampilLap() {
+      $query = mysql_query("SELECT * FROM laporan");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+
+
     function tampilTrans2($id_koor) {
       $query = mysql_query("SELECT kd_trans, kd_admin, id_koor,tanggal,kredit,debit,ket 
       (SELECT COUNT(kode_file) AS tot_arsip FROM datafile Where transaksi.kd_trans=datafile.kd_trans ) tot_arsip,
@@ -126,52 +134,7 @@ class Kelompok {
     }
     
   }
-  class Datafile  {
-  
-      function tambahDatafile($kd_trans,$nama_file,$gambar)
-      {
-          $query="INSERT INTO datafile(kd_trans,nama_file,gambar)
-          VALUES('$kd_trans','$nama_file','$gambar')";
-          move_uploaded_file($_FILES['gambar']['tmp_name'],"file_gambar/".$gambar);
-          $hasil= mysql_query($query);
-      }
-  
-  function tampilDatafile($kd_trans)
-     {
-          $query = mysql_query("SELECT * FROM datafile WHERE kd_trans='$_GET[kd_trans]'");
-          while($row=mysql_fetch_array($query))
-          $data[]=$row;
-          return $data;
-    }
-  
-  function bacaDatafile ($field,$kode_file)
-    {
-        $query=mysql_query("SELECT * FROM datafile WHERE kode_file='$kode_file'");
-        $data=mysql_fetch_array($query);
-        if ($field == 'kode_file') return $data['kode_file'];
-        else if ($field == 'kd_trans') return $data['kd_trans'];
-        else if ($field == 'nama_file') return $data['nama_file'];
-        else if ($field == 'gambar') return $data['gambar'];
-    }
-  function updateDatafile ($kode_file,$kd_trans,$nama_file,$gambar)
-    {
-      if (empty($gambar)){
-      $query=mysql_query("UPDATE datafile SET
-      kd_trans='$kd_trans',nama_file='$nama_file'WHERE kode_file='$kode_file'");
-      $hasil= mysql_query($query);
-        echo"<meta http-equiv='refresh' content='0;url=?r=datafile&pg=file_data&kd_trans=".$_GET['kd_trans']."'>";
-    }
-    
-  else 
-    {
-  $query=mysql_query("UPDATE datafile SET
-  kd_trans='$kd_trans',nama_file='$nama_file',gambar='$gambar' WHERE kode_file='$kode_file'");
-  move_uploaded_file($_FILES['gambar']['tmp_name'],"file_gambar/".$gambar);
-  $hasil= mysql_query($query);
-     echo"<meta http-equiv='refresh' content='0;url=?r=datafile&pg=file_data&kd_trans=".$_GET['kd_trans']."'>";
-  }
-  }
-}
+
 function rupiah($nilai, $pecahan = 0) {
     return number_format($nilai, $pecahan, ',', '.');
 }

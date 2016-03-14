@@ -1,10 +1,16 @@
 <?php
+//error_reporting(0);
 session_start();
-include_once 'class/class_5u.php';
+include'class/class_5u.php';
+include'class/function.php';
 $db = new Database();
+// koneksi ke MySQL via method
 $db->connectMySQL();
+// script untuk user taruh sisi bos hahha semangat untuk kodingya
 $user = new User();
-$kelompok = new kelompok();
+$laporan = new laporan();
+#session nama lengkap
+//$nm_lengkap = $_SESSION['fullname'];
 if (!$user->get_sesi())
 {
 header("location:login.php");
@@ -14,7 +20,6 @@ if ($_GET['r'] == 'logout')
 $user->user_logout();
 header("location:login.php");
 }
-
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +35,22 @@ header("location:login.php");
   	<link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
 	<script src="jquery/jquery-ui.js"></script>
  	<link href="images/logo.png" rel="shortcut icon" />
+  <!--  datepicker -->
+  <link rel="stylesheet" href="datepicker/jquery-ui.css">
+  <script src="datepicker/jquery-1.10.2.js"></script>
+  <script src="datepicker/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd"
+    });
+  });
+  </script>
+  <!-- close   datepicker -->
+
 </head>
 
 
@@ -47,9 +68,9 @@ header("location:login.php");
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
           	   <li>
-              <a href="">Laporan</a>
+              <a href="?r=laporan&pg=laporan">Laporan</a>
             </li>
-            <!--
+            
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Profile &nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
@@ -61,7 +82,7 @@ header("location:login.php");
                
                </ul>
             </li>
-          -->
+          
               <li>
               <a href="#teamppg">Laporan I</a>
             </li>
@@ -72,10 +93,10 @@ header("location:login.php");
 
           <ul class="nav navbar-nav navbar-right">
                        <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Hendri Mamang !<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Hy &nbsp;<strong><?php echo $_SESSION['nm_kelompok'];?> </strong><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
                 <li><a href="">About</a></li>
-                <li><a href="?r=logout">Setting</a></li>
+                <li><a href="?r=logout">Logout</a></li>
                 </ul>
             </li>
           </ul>

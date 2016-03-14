@@ -1,9 +1,13 @@
 <?php  
-include'class/class_5u.php';
+error_reporting(0);
+session_start();
+include_once'class/class_5u.php';
+// instance objek db dan user
+$user = new User();
 $db = new Database();
+// koneksi ke MySQL via method
 $db->connectMySQL();
-$kelompok = new kelompok();
-$user = new user();
+// cek apakah user login atau tidak via method
 if($user->get_sesi()) {
   header("location:index.php");
 }

@@ -5,11 +5,19 @@ $db->connectMySQL();
 $kelompok = new kelompok();
 
 ?>
+
  <form role="form" action="" method="post" class="form-horizontal col-md-4">
+    <div class="form-group">
+    <label>Kode Kelompok</label>
+    <input name="id_kelompok" type="text" value="<?php echo kdauto("kelompok","2016"); ?>" class="form-control" required>
+  </div>
   <div class="form-group">
     <label>Nama Kelompok</label>
     <input name="nm_kelompok" type="text" class="form-control" required>
   </div>
+
+  
+
     <div class="form-group">
     <label>Parent / Desa / Daerah</label>
     <select required class="form-control" name="parent">
@@ -70,6 +78,6 @@ $kelompok = new kelompok();
   $_POST['penjab'],
   $password=md5($_POST['password']),
   $_POST['level']);
-   echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
+   echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
   }
 ?>
