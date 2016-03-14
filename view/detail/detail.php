@@ -7,16 +7,14 @@ $laporan = new laporan();
 $detail = new detail();
 ?>
  
- <table class="table table-bordered">
+ <table class="table table-hover">
     <thead>
       <tr>
-        <th>No</th>
+        
         <th>Kendala</th>
         <th>Solusi</th>
         
-        <th>Status</th>
-        <th>Publis</th>
-        <th>Edit</th>
+       
       </tr>
     </thead>
     <tbody>
@@ -28,13 +26,14 @@ $detail = new detail();
 
 
       <tr>
-        <td><?php echo $c=$c+1;?></td>
-        <td><?php echo $data['kendala']; ?></td>
-        <td><?php echo $data['solusi']; ?></td>
+        <td class="warning"><strong><?php echo $b=$b+1;?></strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
+        <td class="success"><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?> </small>
+          <br>
+          <a class="btn btn-warning btn-xs" href="?r=detail&pg=notulen_edit&id_detail=<?php echo $data['id_detail']; ?>&id_lap=<?php echo $_GET['id_lap']; ?>">Edit</a>
+<?php echo $data['publis']; ?>
+        </td>
         
-        <td><?php echo $data['stat']; ?></td>
-        <td><?php echo $data['publis']; ?></td>
-        <td><a href="?r=laporan&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        
       </tr>
 <?php
 }

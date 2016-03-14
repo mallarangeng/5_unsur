@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
@@ -146,6 +146,20 @@ class Kelompok {
       $data[]=$row;
       return $data;
   }
+  function bacaDetail($id_detail)
+          {
+        $query=mysql_query("SELECT * FROM detail WHERE id_detail='$_GET[id_detail]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+       function updateDetail ($id_detail,$id_lap,$kendala,$solusi,$ket,$stat,$publis)
+    {
+      $query=mysql_query("UPDATE detail SET id_lap='$id_lap', kendala='$kendala',solusi='$solusi',ket='$ket',stat='$stat',
+        publis='$publis'WHERE id_detail='$id_detail'");
+    }
   }
 
 function rupiah($nilai, $pecahan = 0) {
