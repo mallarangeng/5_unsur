@@ -14,17 +14,17 @@
   class User
   {
     
-    function cek_login($kd_admin, $password) 
+    function cek_login($nm_kelompok, $password) 
       {
-        $password = md5($password);
-        $result = mysql_query("SELECT * FROM admin WHERE kd_admin='$kd_admin' AND password='$password'");
+        //$password = md5($password);
+        $result = mysql_query("SELECT * FROM kelompok WHERE nm_kelompok='$nm_kelompok' AND password='$password'");
         $user_data = mysql_fetch_array($result);
         $no_rows = mysql_num_rows($result);
         if ($no_rows == 1) 
         {
           $_SESSION['login'] = TRUE;
-          $_SESSION['kd_admin'] = $user_data['kd_admin'];
-          $_SESSION['nm_admin'] = $user_data['nm_admin'];
+          $_SESSION['id_kelompok'] = $user_data['id_kelompok'];
+          $_SESSION['nm_kelompok'] = $user_data['nm_kelompok'];
           return TRUE;
         }
           else 

@@ -1,7 +1,8 @@
 <?php
 include'class/class_5u.php';
 $db = new Database();
-$db->connectMySQL();
+$kelompok = new kelompok();
+
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
