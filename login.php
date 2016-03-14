@@ -1,9 +1,9 @@
 <?php  
 include'class/class_5u.php';
 $db = new Database();
+$db->connectMySQL();
 $kelompok = new kelompok();
 $user = new user();
-$db->connectMySQL();
 if($user->get_sesi()) {
   header("location:index.php");
 }
@@ -70,11 +70,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <form role="form" action="?op=in" method="post" class="form-horizontal col-md-3">
   <div class="form-group">
     <label for="email">ID DESA / KELOMPOK <font color="#d44c48"> <?php if($_GET['r']=='error') { echo "USER / PASSWORD SALAH"; } ?></font></label>
-    <input type="text" name="id_kelompok" class="form-control" id="id_kelomok">
+    <input type="text" name="id_kelompok" class="form-control">
   </div>
   <div class="form-group">
     <label for="pwd">PASSWORD</label>
-    <input type="password" class="form-control" name="password" id="password"><br>
+    <input type="password" class="form-control" name="password"><br>
     <button type="submit" class="btn btn-info">Masuk</button>
   </div>
 

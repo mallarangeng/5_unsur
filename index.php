@@ -1,7 +1,19 @@
 <?php
-include'class/class_5u.php';
+session_start();
+include_once 'class/class_5u.php';
 $db = new Database();
+$db->connectMySQL();
+$user = new User();
 $kelompok = new kelompok();
+if (!$user->get_sesi())
+{
+header("location:login.php");
+}
+if ($_GET['r'] == 'logout')
+{
+$user->user_logout();
+header("location:login.php");
+}
 
 ?>
 <html>
@@ -63,7 +75,7 @@ $kelompok = new kelompok();
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Hendri Mamang !<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
                 <li><a href="">About</a></li>
-                <li><a href="">Setting</a></li>
+                <li><a href="?r=logout">Setting</a></li>
                 </ul>
             </li>
           </ul>

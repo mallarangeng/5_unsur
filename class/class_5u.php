@@ -14,10 +14,10 @@
   class User
   {
     
-    function cek_login($nm_kelompok, $password) 
+    function cek_login($id_kelompok, $password) 
       {
-        //$password = md5($password);
-        $result = mysql_query("SELECT * FROM kelompok WHERE nm_kelompok='$nm_kelompok' AND password='$password'");
+        $password = md5($password);
+        $result = mysql_query("SELECT * FROM kelompok WHERE id_kelompok='$id_kelompok' AND password='$password'");
         $user_data = mysql_fetch_array($result);
         $no_rows = mysql_num_rows($result);
         if ($no_rows == 1) 
@@ -25,6 +25,7 @@
           $_SESSION['login'] = TRUE;
           $_SESSION['id_kelompok'] = $user_data['id_kelompok'];
           $_SESSION['nm_kelompok'] = $user_data['nm_kelompok'];
+          $_SESSION['level'] = $user_data['level'];
           return TRUE;
         }
           else 
