@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="900973";
+  private $dbPass="";
   private $dbName="limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
@@ -96,30 +96,24 @@ class Kelompok {
       VALUES('$id_lap','$id_kelompok','$tanggal','$ket','$date_on','$stat')";
       $hasil= mysql_query($query);
     }
-    function tampilLap() {
+    function tampilLap2() {
       $query = mysql_query("SELECT * FROM laporan");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
   }
-
-
-    function tampilTrans2($id_koor) {
-      $query = mysql_query("SELECT kd_trans, kd_admin, id_koor,tanggal,kredit,debit,ket 
-      (SELECT COUNT(kode_file) AS tot_arsip FROM datafile Where transaksi.kd_trans=datafile.kd_trans ) tot_arsip,
-      FROM transaksi WHERE id_koor='$_GET[id_koor]' ORDER BY tanggal ");
-  }
-
-      function tampilTrans($id_koor) {
-      $query = mysql_query("SELECT * FROM transaksi WHERE id_koor='$_GET[id_koor]' ORDER BY tanggal");
+  function tampilLap() {
+      $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,
+      (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE laporan.id_lap=detail.id_lap)tot_poin
+      FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
-  }
+    }
 
-    function bacaTrans($kd_trans)
+    function bacaLap($id_lap)
           {
-        $query=mysql_query("SELECT * FROM transaksi WHERE kd_trans='$_GET[kd_trans]'");
+        $query=mysql_query("SELECT * FROM laporan WHERE id_lap='$_GET[id_lap]'");
         $data=mysql_fetch_array($query);
         $data[]=$row;
         if(isset($data)){
@@ -127,12 +121,31 @@ class Kelompok {
         }
       }
 
-    function updateTrans ($kd_trans,$kd_admin,$id_koor,$tanggal,$kredit,$debit,$ket)
+    function updateLap ($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
-      $query=mysql_query("UPDATE transaksi SET kd_admin='$kd_admin', id_koor='$id_koor',tanggal='$tanggal',kredit='$kredit',
-        debit='$debit',ket='$ket'WHERE kd_trans='$kd_trans'");
+      $query=mysql_query("UPDATE laporan SET id_kelompok='$id_kelompok', tanggal='$tanggal',ket='$ket',date_on='$date_on',
+        stat='$stat'WHERE id_lap='$id_lap'");
     }
     
+  }
+  /**
+  * 
+  */
+  class Detail
+  {
+    
+    function tambahDetail($id_detail,$id_lap,$kendala,$solusi,$ket,$stat,$publis)
+    {
+      $query="INSERT INTO detail (id_detail,id_lap,kendala,solusi,ket,stat,publis)
+      VALUES('$id_detail','$id_lap','$kendala','$solusi','$ket','$stat','$publis')";
+      $hasil= mysql_query($query);
+    }
+      function tampilDetail() {
+      $query = mysql_query("SELECT * FROM detail WHERE id_lap='$_GET[id_lap]'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
   }
 
 function rupiah($nilai, $pecahan = 0) {

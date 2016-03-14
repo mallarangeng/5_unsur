@@ -40,6 +40,6 @@ $laporan = new laporan();
   $_POST['ket'],
   $_POST['date_on'],
   $_POST['stat']);
-   echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan_form'>";
+   echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
   }
 ?>

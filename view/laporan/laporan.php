@@ -28,14 +28,15 @@ $laporan = new laporan();
         <td><?php echo $c=$c+1;?></td>
         <td><?php echo $data['tanggal']; ?></td>
         <td><?php echo $data['ket']; ?></td>
-        <td><a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge">4</span> Point </a>
+        <td><a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>
         </td>
         <td><button class="btn btn-success btn-xs" disabled="disabled" type="button">Telah dilaporkan</button></td>
-        <td><a href="?r=laporan&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
 <?php
 }
 }
+
 ?>
 
     </tbody>

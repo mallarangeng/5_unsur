@@ -92,9 +92,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <hr>
         <div class="row">
           <div class="col-lg-12">
-                 <strong><span class="navy">PPG Support</span></strong><br/>
-                    Jika Mengalami masalah dan kendala silahkan hubungi kami
-                    WhastApp / Telp&nbsp;<strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+              <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
+                    <small>Jika Mengalami masalah, kendala atau kesulitan dalam penggunaan aplikasi silahkan hubungi kami
+                    WhastApp / Telp&nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
                 </address>
 
           </div>

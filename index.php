@@ -133,12 +133,18 @@ header("location:login.php");
         <hr>
         <div class="row">
           <div class="col-lg-12">
+            <!--
             <ul class="list-unstyled">
               <li class="pull-right"><a href="#top"></a></li>          
             </ul>
             <p><a href="" rel="nofollow"	>PPG Tangerang Barat  <?php echo date('Y'); ?></a> Design Build With <a href="https://github.com/twbs/bootstrap" target="_blank" rel="nofollow">Framework Bootstrap</a></p>
 
           </div>
+        -->
+            <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
+                    <small>Jika Mengalami masalah, kendala atau kesulitan dalam penggunaan aplikasi silahkan hubungi kami
+                    WhastApp / Telp&nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+                </address>
         </div>
 
       </footer> 
