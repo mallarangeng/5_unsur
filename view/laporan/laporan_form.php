@@ -4,7 +4,6 @@ $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
-
 ?>
 
  <form role="form" action="" method="post" class="form-horizontal col-md-4">
@@ -16,12 +15,12 @@ $laporan = new laporan();
   </div>
   <div class="form-group">
     <label>Keterangan</label>
-    <input name="ket" type="text" class="form-control" required>
+    <input name="ket" type="text" class="form-control" value="Musyawarah 5 Unsur" required>
     <input name="date_on" type="hidden" value="<?php echo date('Y-m-d'); ?>" class="form-control" required>
   </div>
   <div class="form-group">
     <label>Status</label>
-    <input name="stat" type="text" class="form-control" required>
+    <input name="stat" type="text" class="form-control" placeholder="Optional..">
   </div>
     
   <div class="form-group">

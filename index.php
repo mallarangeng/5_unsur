@@ -9,6 +9,8 @@ $db->connectMySQL();
 // script untuk user taruh sisi bos hahha semangat untuk kodingya
 $user = new User();
 $laporan = new laporan();
+$menu = new menu();
+
 #session nama lengkap
 //$nm_lengkap = $_SESSION['fullname'];
 if (!$user->get_sesi())
@@ -65,27 +67,22 @@ header("location:login.php");
             <span class="icon-bar"></span>
           </button>
         </div>
+        <!--
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-          	   <li>
-              <a href="?r=laporan&pg=laporan">Laporan</a>
-            </li>
-            
+
+           <li><a href="index.php?page=pem_show">Menu</a></li>
+           
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Profile &nbsp;<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Setting<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="index.php?r=transaksi&pg=rekap_data">Visi</a></li>
-                 <li><a href="index.php?r=transaksi&pg=rekap_data">Struktur Org</a></li>
-                <li class="divider"></li>
-                <li><a href="index.php?page=pem_show">Misi</a></li>
-                
+             
+                <li><a href="index.php?page=pem_show">User</a></li>
                
                </ul>
             </li>
-          
-              <li>
-              <a href="#teamppg">Laporan I</a>
-            </li>
+     
+  
              <li>
               <a href="?r=kelompok&pg=kelompok">Kelompok</a>
             </li>
@@ -102,6 +99,7 @@ header("location:login.php");
           </ul>
 
         </div>
+      -->
       </div>
     </div>
       <!--BODY
@@ -111,9 +109,31 @@ header("location:login.php");
       <br>
 <p>
 <br>
-<p>
-  <h3> <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard </h3>
-  <hr>
+  <br>
+  <ol class="breadcrumb">
+    <li><a href=""><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp;<?php echo $_SESSION['nm_kelompok'];?> </strong></a></li>
+     <li><a href="?r=logout"><span class="glyphicon glyphicon-off " aria-hidden="true"></span>&nbsp;Logout</a></li>
+
+  </ol>
+  <ol class="breadcrumb">
+     <?php
+            $arrayMenu = $menu->menuNavigasi();
+          if(isset($arrayMenu) && $arrayMenu !=NULL){
+            foreach($arrayMenu as $data){
+          ?>    
+            
+            
+  <li><a href="?r=<?php echo $data['folder']?>&pg=<?php echo $data['link']?>"><span class="glyphicon <?php echo $data['icon']?>" aria-hidden="true"></span>&nbsp;<?php echo $data['title']?></a></li>
+  
+                <?php
+            }
+          }
+      ?>
+   
+     <!--
+      <li class="active">Data</li>
+    -->
+</ol>
       <?php
                                 if (!isset($_GET['r'])){
                                     include('view/home/home.php');
@@ -130,7 +150,6 @@ header("location:login.php");
 
       <footer>
       <div class="container-fluid">
-        <hr>
         <div class="row">
           <div class="col-lg-12">
             <!--
@@ -144,8 +163,14 @@ header("location:login.php");
             <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
                     <small>Jika Mengalami masalah, kendala atau kesulitan dalam penggunaan aplikasi silahkan hubungi kami
                     WhastApp / Telp&nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+                    <br>
+                     <?php echo date('Y'); ?> Copy Right  <a href="https://www.instagram.com/generuspap/" target="_blank">@generuspap</a>
                 </address>
+              <hr>
+
+        
         </div>
+
 
       </footer> 
     </div>

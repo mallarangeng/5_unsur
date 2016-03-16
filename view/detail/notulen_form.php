@@ -1,4 +1,4 @@
- <?php
+<?php
 include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
@@ -25,11 +25,19 @@ $detail = new detail();
     <input name="ket" type="text" class="form-control" placeholder="Optional ... " required>
     <input name="stat" type="hidden">
   </div>
-    <div class="form-group">
-    <label for="email">Publis</label>
-      <select required class="form-control" name="publis">
-	  <option value="Y">Publis</option>
-	  <option value="N">Tidak</option>
+  <div class="form-group">
+    <label>Status</label>
+    <select required class="form-control" name="stat">
+    <option value="Selesai">Selesai</option>
+    <option value="Proses">Proses</option>
+  </select>
+  
+  </div>
+      <div class="form-group">
+    <label for="email">Share</label>
+  <select required class="form-control" name="publis">
+	  <option value="Bagikan">Bagikan</option>
+	  <option value="Sembunyikan">Sembunyikan</option>
 	</select>
     <br>
      <input type="submit" name="simpan" value="Simpan" class="btn btn-info">&nbsp;

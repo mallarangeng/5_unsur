@@ -22,18 +22,29 @@ $detail = new detail();
       $arraydetail=$detail->tampilDetail();
       if (count($arraydetail)) {
       foreach($arraydetail as $data) {
+        if($data['stat']=='Selesai'){
+                  $aa='primary';
+                }else if($data['stat']=='Proses'){
+                  $aa='danger';
+                }
+        if($data['publis']=='Bagikan'){
+                  $bb='success';
+                }else if($data['publis']=='Sembunyikan'){
+                  $bb='default';
+                }
     ?>
 
 
       <tr>
         <td class="warning"><strong><?php echo $b=$b+1;?></strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
-        <td class="success"><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?> </small>
-          <br>
-          <a class="btn btn-warning btn-xs" href="?r=detail&pg=notulen_edit&id_detail=<?php echo $data['id_detail']; ?>&id_lap=<?php echo $_GET['id_lap']; ?>">Edit</a>
-<?php echo $data['publis']; ?>
+        <td class="success"><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?> </small>      
         </td>
-        
-        
+      </tr>
+      <tr>
+        <td class="warning"><a class="btn btn-warning btn-xs" href="?r=detail&pg=notulen_edit&id_detail=<?php echo $data['id_detail']; ?>&id_lap=<?php echo $_GET['id_lap']; ?>">Edit</a></td>
+        <td class="success"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
+
+
       </tr>
 <?php
 }
@@ -44,3 +55,21 @@ $detail = new detail();
   </table>
 
  <a class="btn btn-info btn-xs" href="?r=detail&pg=notulen_form&id_lap=<?php echo $_GET['id_lap'] ?>" role="button">Tambah Notulen</a>
+ <p>
+  <br>
+
+<!--
+<dl class="dl-horizontal">
+  <dt><span class="label label-warning">Edit</span></dt>
+  <dd>&nbsp;<small>Digunakan Untuk Mengubah isi point musyawarah</small></dd>
+  <dt><span class="label label-primary">Selesai</span></dt>
+  <dd>&nbsp;<small>Jika Kendala dalam musyawarah terselesaikan</small></dd>
+  <dt><span class="label label-danger">Proses</span></dt>
+  <dd>&nbsp;<small>Jika Kendala dalam musyawarah Belum terselesaikan</small></dd>
+  <dt><span class="label label-default">Disembunyikan</span></dt>
+  <dd>&nbsp;<small>Point musyawarah bersifat private tidak bisa dibaca oleh KBM atau 5 Unsur kelompok kelompok lain</small></dd>
+  <dt><span class="label label-success">Dibagikan</span></dt>
+  <dd>&nbsp;<small>Point musyawarah bersifat public dapat dibaca oleh KBM atau 5 Unsur kelompok kelompok lain</small></dd>
+</dl>
+-->
+  

@@ -97,7 +97,7 @@ class Kelompok {
       $hasil= mysql_query($query);
     }
     function tampilLap2() {
-      $query = mysql_query("SELECT * FROM laporan");
+      $query = mysql_query("SELECT * FROM laporan ORDER BY tanggal ASC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -140,8 +140,15 @@ class Kelompok {
       VALUES('$id_detail','$id_lap','$kendala','$solusi','$ket','$stat','$publis')";
       $hasil= mysql_query($query);
     }
+
       function tampilDetail() {
       $query = mysql_query("SELECT * FROM detail WHERE id_lap='$_GET[id_lap]'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+    function timelineDetail() {
+      $query = mysql_query("SELECT * FROM detail limit 5");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -160,6 +167,74 @@ class Kelompok {
       $query=mysql_query("UPDATE detail SET id_lap='$id_lap', kendala='$kendala',solusi='$solusi',ket='$ket',stat='$stat',
         publis='$publis'WHERE id_detail='$id_detail'");
     }
+  }
+  /**
+  * 
+  */
+  class Menu
+  {
+      function tampilMenu(){
+    $query = mysql_query("SELECT * FROM menu ORDER BY id_menu,parent");
+    while($row=mysql_fetch_array($query))
+      $data[]=$row;
+    if(isset($data)){
+      return $data;
+    }
+  }
+    
+      function tambahMenu($id_menu,$title, $folder,$link, $level,$parent, $icon, $urut) {
+    $query = "INSERT INTO menu (id_menu,title, folder, link,level, parent, icon, urut)
+              VALUES ('$id_menu','$title', '$folder', '$link', '$level', '$parent', '$icon', '$urut')";
+    $hasil = mysql_query($query);
+  }
+
+    function comboParent(){
+    $query =  mysql_query("select id_menu,title from menu where parent='0'");
+    while($row=mysql_fetch_array($query))
+      $data[]=$row;
+    if(isset($data)){
+      return $data;
+    }
+  }
+    function bacaMenu($id_menu)
+      {
+      $query=mysql_query("SELECT * FROM menu WHERE id_menu='$_GET[id_menu]'");
+      $data=mysql_fetch_array($query);
+      $data[]=$row;
+      if(isset($data)){
+        return $data;
+      }
+    }
+     function updateMenu ($id_menu,$title, $folder,$link, $level,$parent, $icon, $urut)
+    {
+      $query=mysql_query("UPDATE menu SET title='$title', folder='$folder',link='$link',level='$level',parent='$parent',
+        icon='$icon',urut='$urut'  WHERE id_menu='$id_menu'");
+    }
+      function menuNavigasi($user){
+        $menu = mysql_query("SELECT * FROM menu WHERE parent='0' AND level='$_SESSION[level]' ORDER BY urut ASC");
+    while($row=mysql_fetch_array($menu))
+      $data[]=$row;
+    if (isset($data)){
+      return($data);
+    }
+  }
+  function subMenuNavigasi($menu){
+    $smenu = mysql_query("select * from menu where parent='$menu'");
+    //$smenu = mysql_query("SELECT a.username,b.id_menu,b.baca,b.tulis,c.* FROM ms_user a, ms_menu_user b, ms_menu c WHERE a.username=b.username AND b.id_menu=c.id_menu AND a.username ='$user' AND b.baca='Y' AND c.parent='$menu' AND a.blokir='N' ORDER BY urut ASC");
+    $ada    = mysql_num_rows($smenu);
+    if($ada==0){
+      $data[]=$ada;
+      if (isset($data)){
+        return false;
+      } 
+    }else{
+      while($row=mysql_fetch_array($smenu))
+        $data[]=$row;
+      if (isset($data)){
+        return($data);
+      }
+    }
+  }
   }
 
 function rupiah($nilai, $pecahan = 0) {

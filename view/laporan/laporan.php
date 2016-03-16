@@ -31,7 +31,7 @@ $laporan = new laporan();
       <tr>
         <td><?php echo $c=$c+1;?></td>
         
-        <td><strong><?php echo tgl_eng_to_ind($data['tanggal']);?></strong><br><?php echo $data['ket']; ?>
+        <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br><?php echo $data['ket']; ?>
         <p>
           <a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
           &nbsp;<a class="btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
