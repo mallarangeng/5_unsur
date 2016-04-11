@@ -50,7 +50,7 @@ $datak  = $kelompok->bacaKelompok($id_kelompok);
   </div>
     <div class="form-group">
     <label>Password</label>
-    <input type="password" name="password" class="form-control" value=" <?php echo $datak['password']; ?>" required>
+    <input type="password" name="password" class="form-control" value="" required>
     <input type="hidden" name="id_kelompok" class="form-control" value=" <?php echo $datak['id_kelompok']; ?>" required>
   </div>
     
@@ -70,7 +70,7 @@ $datak  = $kelompok->bacaKelompok($id_kelompok);
   $_POST['alamat'],
   $_POST['nohp'],
   $_POST['penjab'],
-  $password=md5($_POST['password']),
+  $_POST['password'],
   $_POST['level']);
    echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
   }

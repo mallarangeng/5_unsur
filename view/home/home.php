@@ -7,9 +7,19 @@ $laporan = new laporan();
 $detail = new detail();
 ?>
  
-<h2 ><small><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline Lima Unsur</small><hr></h2>
-<dl>
-      <?php
+<h2 ><small><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</small></h2>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        
+        <th></th>
+        <th></th>
+        
+       
+      </tr>
+    </thead>
+    <tbody>
+    <?php
       $arraydetail=$detail->timelineDetail();
       if (count($arraydetail)) {
       foreach($arraydetail as $data) {
@@ -24,15 +34,23 @@ $detail = new detail();
                   $bb='default';
                 }
     ?>
-  <dt><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;Pondok Makmur&nbsp;&nbsp;
-      <small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;12 Januari 2016</small>
-  </dt>
-  <dd><font class="text-info"><cite title="Source Title">Kendala</cite>&nbsp;:&nbsp;<?php echo $data['kendala']; ?></font><br>
-    <font class="text-success"><cite title="Source Title">Solusi</cite>&nbsp;:&nbsp;<?php echo $data['solusi']; ?></font><hr></dd>
-  <?php
-}
-}
 
-  ?>
-</dl>
+
+      <tr>
+        <td><font class="hijaumuda"><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;<?php echo $data['nm_kelompok']; ?></font></td>
+        <td >&nbsp;&nbsp;
+      <small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small></td>
+      </tr>
+      <tr>
+        <td><small>Kendala :<?php echo $data['kendala']; ?></small></td>
+        <td ><small>Solusi :<?php echo $data['solusi']; ?> </small>      
+        </td>
+      </tr>
+      <?php
+}
+}
+?>
+
+    </tbody>
+  </table>
 <input type="button" name="" value="Baca semua hasil musyawarah" class="btn btn-danger btn-xs"><p>

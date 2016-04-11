@@ -73,12 +73,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form role="form" action="?op=in" method="post" class="form-horizontal col-md-3">
   <div class="form-group">
-    <label for="email">ID DESA / KELOMPOK <font color="#d44c48"> <?php if($_GET['r']=='error') { echo "USER / PASSWORD SALAH"; } ?></font></label>
-    <input type="text" name="id_kelompok" class="form-control">
+    <label for="email">USER ID<font color="#d44c48"> <?php if($_GET['r']=='error') { echo "USER / PASSWORD SALAH"; } ?></font></label>
+    <input type="text" name="id_kelompok" class="form-control" required>
   </div>
   <div class="form-group">
     <label for="pwd">PASSWORD</label>
-    <input type="password" class="form-control" name="password"><br>
+    <input type="password" class="form-control" name="password" required><br>
     <button type="submit" class="btn btn-info">Masuk</button>
   </div>
 
@@ -87,20 +87,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
   </div>
 
-      <footer>
+    <footer>
       <div class="container-fluid">
         <hr>
         <div class="row">
           <div class="col-lg-12">
               <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
-                    <small>Jika Mengalami masalah, kendala atau kesulitan dalam penggunaan aplikasi silahkan hubungi kami
-                    WhastApp / Telp&nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+                    <small>Customer Support - WhastApp &nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
                 </address>
 
           </div>
         </div>
 
-      </footer> 
+      </footer>
+      <hr>
+  
     </div>
 
 

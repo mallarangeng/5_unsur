@@ -16,6 +16,7 @@ $kelompok = new kelompok();
         <th>No Hp</th>
         <th>Penjab</th>
         <th>Password</th>
+        
         <th>Level</th>
         <th>Aksi</th>
       </tr>
@@ -36,8 +37,9 @@ $kelompok = new kelompok();
         <td><?php echo $data['nohp']; ?></td>
         <td><?php echo $data['penjab']; ?></td>
         <td><?php echo $data['password']; ?></td>
-        <td>john@example.com</td>
-        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><?php echo $data['level']; ?></td>
+       
+        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>&direct=kelompok"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
 <?php
 }

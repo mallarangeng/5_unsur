@@ -67,12 +67,22 @@ header("location:login.php");
             <span class="icon-bar"></span>
           </button>
         </div>
-        <!--
+        
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-
-           <li><a href="index.php?page=pem_show">Menu</a></li>
+             <?php
+            $arrayMenu = $menu->menuNavigasi();
+          if(isset($arrayMenu) && $arrayMenu !=NULL){
+            foreach($arrayMenu as $data){
+          ?>    
            
+           <li><a href="?r=<?php echo $data['folder']?>&pg=<?php echo $data['link']?>"><span class="glyphicon <?php echo $data['icon']?>" aria-hidden="true"></span>&nbsp;<?php echo $data['title']?></a></li>
+              <?php
+            }
+          }
+      ?>
+      <li><a href="?r=logout"><span class="glyphicon glyphicon-off " aria-hidden="true"></span>&nbsp;Logout</a></li>
+           <!--
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Setting<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
@@ -98,8 +108,10 @@ header("location:login.php");
             </li>
           </ul>
 
+        -->
+
         </div>
-      -->
+      
       </div>
     </div>
       <!--BODY
@@ -109,31 +121,12 @@ header("location:login.php");
       <br>
 <p>
 <br>
-  <br>
-  <ol class="breadcrumb">
-    <li><a href=""><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp;<?php echo $_SESSION['nm_kelompok'];?> </strong></a></li>
-     <li><a href="?r=logout"><span class="glyphicon glyphicon-off " aria-hidden="true"></span>&nbsp;Logout</a></li>
 
-  </ol>
-  <ol class="breadcrumb">
-     <?php
-            $arrayMenu = $menu->menuNavigasi();
-          if(isset($arrayMenu) && $arrayMenu !=NULL){
-            foreach($arrayMenu as $data){
-          ?>    
-            
-            
-  <li><a href="?r=<?php echo $data['folder']?>&pg=<?php echo $data['link']?>"><span class="glyphicon <?php echo $data['icon']?>" aria-hidden="true"></span>&nbsp;<?php echo $data['title']?></a></li>
+<h2 ><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp;Hi : <?php echo $_SESSION['level'];?> <?php echo $_SESSION['nm_kelompok'];?> </strong></small></h2><hr>
+     
+
   
-                <?php
-            }
-          }
-      ?>
-   
-     <!--
-      <li class="active">Data</li>
-    -->
-</ol>
+
       <?php
                                 if (!isset($_GET['r'])){
                                     include('view/home/home.php');
@@ -150,31 +143,18 @@ header("location:login.php");
 
       <footer>
       <div class="container-fluid">
+        <hr>
         <div class="row">
           <div class="col-lg-12">
-            <!--
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top"></a></li>          
-            </ul>
-            <p><a href="" rel="nofollow"	>PPG Tangerang Barat  <?php echo date('Y'); ?></a> Design Build With <a href="https://github.com/twbs/bootstrap" target="_blank" rel="nofollow">Framework Bootstrap</a></p>
+              <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
+                    <small>Customer Support - WhastApp &nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+                </address>
 
           </div>
-        -->
-            <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
-                    <small>Jika Mengalami masalah, kendala atau kesulitan dalam penggunaan aplikasi silahkan hubungi kami
-                    WhastApp / Telp&nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
-                    <br>
-                     <?php echo date('Y'); ?> Copy Right  <a href="https://www.instagram.com/generuspap/" target="_blank">@generuspap</a>
-                </address>
-              <hr>
-
-        
         </div>
 
-
-      </footer> 
+      </footer>
+      <hr>
     </div>
-
-
 </body>
 </html>

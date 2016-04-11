@@ -25,6 +25,7 @@
           $_SESSION['login'] = TRUE;
           $_SESSION['id_kelompok'] = $user_data['id_kelompok'];
           $_SESSION['nm_kelompok'] = $user_data['nm_kelompok'];
+          $_SESSION['parent'] = $user_data['parent'];
           $_SESSION['level'] = $user_data['level'];
           return TRUE;
         }
@@ -55,6 +56,12 @@ class Kelompok {
       $data[]=$row;
       return $data;
   }
+    function tampilKelompokdesa() {
+      $query = mysql_query("SELECT * FROM kelompok WHERE parent='$_SESSION[id_kelompok]'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
   function tampilDesa() {
       $query = mysql_query("SELECT * FROM kelompok WHERE parent='0'");
       while($row=mysql_fetch_array($query))
@@ -77,7 +84,7 @@ class Kelompok {
       VALUES('$id_kelompok','$nm_kelompok','$parent','$alamat','$nohp','$penjab','$password','$level')";
       $hasil= mysql_query($query);
     }
-    function updateKelompok ($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level)
+    function updateKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level)
     {
       $query=mysql_query("UPDATE kelompok SET nm_kelompok='$nm_kelompok', parent='$parent',
         alamat='$alamat', nohp='$nohp', penjab='$penjab', password='$password', level='$level' WHERE id_kelompok='$id_kelompok'");
@@ -102,10 +109,24 @@ class Kelompok {
       $data[]=$row;
       return $data;
   }
+      function tampilLapdesa($tanggal) {
+      $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE parent='$_SESSION[id_kelompok]' AND tanggal LIKE'$_GET[periode]%'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+    function laporanBulanan() {
+      $query = mysql_query("SELECT CONCAT(YEAR(tanggal),'-',mid(tanggal,6,2)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan
+      FROM laporan GROUP BY YEAR(tanggal),MONTH(tanggal)");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
   function tampilLap() {
       $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,
       (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE laporan.id_lap=detail.id_lap)tot_poin
-      FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]'");
+      FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]' ORDER BY tanggal ASC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -148,7 +169,7 @@ class Kelompok {
       return $data;
   }
     function timelineDetail() {
-      $query = mysql_query("SELECT * FROM detail limit 5");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

@@ -78,6 +78,6 @@ $kelompok = new kelompok();
   $_POST['penjab'],
   $password=md5($_POST['password']),
   $_POST['level']);
-   echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
+   echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
   }
 ?>
