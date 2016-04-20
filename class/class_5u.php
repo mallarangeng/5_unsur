@@ -89,6 +89,14 @@ class Kelompok {
       $query=mysql_query("UPDATE kelompok SET nm_kelompok='$nm_kelompok', parent='$parent',
         alamat='$alamat', nohp='$nohp', penjab='$penjab', password='$password', level='$level' WHERE id_kelompok='$id_kelompok'");
     }
+  function desaShow() {
+      $query = mysql_query("SELECT id_kelompok, nm_kelompok, penjab,
+      (SELECT COUNT(id_lap) AS tot_lap FROM laporan WHERE tanggal LIKE'$_GET[periode]%')tot_lap
+       FROM kelompok WHERE parent='0' AND aktif='0'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
 
   }
 
@@ -97,6 +105,7 @@ class Kelompok {
   */
   class Laporan
   {
+    
     function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
       $query="INSERT INTO laporan (id_lap,id_kelompok,tanggal,ket,date_on,stat)
@@ -116,9 +125,17 @@ class Kelompok {
       $data[]=$row;
       return $data;
   }
+     function tampilLapdaerah($tanggal) {
+      $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE parent='$_GET[desa]' AND tanggal LIKE'$_GET[periode]%'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
     function laporanBulanan() {
       $query = mysql_query("SELECT CONCAT(YEAR(tanggal),'-',mid(tanggal,6,2)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan
-      FROM laporan GROUP BY YEAR(tanggal),MONTH(tanggal)");
+      FROM laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+      WHERE parent='$_SESSION[id_kelompok]' GROUP BY YEAR(tanggal),MONTH(tanggal)");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

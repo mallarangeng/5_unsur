@@ -148,6 +148,7 @@ header("location:login.php");
           <div class="col-lg-12">
               <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
                     <small>Customer Support - WhastApp &nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
+                    <br><strong>&copy;generuspap <?php echo date('Y'); ?></strong>
                 </address>
 
           </div>

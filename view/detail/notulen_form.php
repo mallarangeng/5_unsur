@@ -12,17 +12,17 @@ $detail = new detail();
     <label for="email">Kendala</label>
     <input type="hidden" name="id_detail" value="<?php echo kdauto("detail",""); ?>">
     <input type="hidden" name="id_lap" value="<?php echo $_GET['id_lap'] ?>">
-    <textarea class="form-control" name="kendala" rows="3" placeholder="Masukan kendala disni..."></textarea>
+    <textarea class="form-control" name="kendala" rows="3" placeholder="Masukan kendala disni..." required></textarea>
   </div>
 
   <div class="form-group">
     <label for="pwd">Solusi Alternatif / Saran</label>
-    <textarea class="form-control" rows="3" name="solusi" placeholder="Masukan saran / solusi alternatif .."></textarea>
+    <textarea class="form-control" rows="3" name="solusi" placeholder="Masukan saran / solusi alternatif .." required></textarea>
     
   </div>
   <div class="form-group">
-    <label>Keterangan</label>
-    <input name="ket" type="text" class="form-control" placeholder="Optional ... " required>
+    <label>Keterangan Tambahan Jika diperlukan</label>
+    <input name="ket" type="text" class="form-control" placeholder="Optional ... ">
     <input name="stat" type="hidden">
   </div>
   <div class="form-group">

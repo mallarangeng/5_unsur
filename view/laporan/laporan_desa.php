@@ -41,6 +41,12 @@ $laporan = new laporan();
 <?php
 }
 }
+else {{
+  echo '<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  Data untuk periode bulan ini belum dikirim
+</div>';
+}}
 
 ?>
 

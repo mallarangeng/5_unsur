@@ -36,7 +36,12 @@ $laporan = new laporan();
 <?php
 }
 }
-
+else {{
+  echo '<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  Hasil musyawarah belum dikirim
+</div>';
+}}
 ?>
 
     </tbody>
