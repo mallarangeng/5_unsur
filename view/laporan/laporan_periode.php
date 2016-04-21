@@ -31,7 +31,7 @@ $laporan = new laporan();
       <tr>
         <td><?php echo $c=$c+1;?></td>
         
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<a href="?r=laporan&pg=laporan_desa&periode=<?php echo $data['tahun_bulan']; ?>"><?php echo $data['tahun_bulan']; ?>&nbsp; Lihat</a></td>
+        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<strong><a href="?r=laporan&pg=laporan_desa&periode=<?php echo $data['tahun_bulan']; ?>"><?php echo $data['tahun_bulan']; ?>&nbsp; LIHAT</a></strong></td>
       </tr>
 <?php
 }

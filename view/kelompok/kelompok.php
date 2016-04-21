@@ -39,7 +39,7 @@ $kelompok = new kelompok();
         <td><?php echo $data['password']; ?></td>
         <td><?php echo $data['level']; ?></td>
        
-        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>&direct=kelompok"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
 <?php
 }

@@ -34,25 +34,20 @@ $laporan = new laporan();
         <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br><?php echo $data['ket']; ?>
         <p>
           <a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
-          &nbsp;<a class="kirim-laporan btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>&nbsp;<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
-          &nbsp;
-          
-          <input type="submit" name="update" value="<?php echo $cc; ?>" class="btn <?php echo $aa; ?> btn-xs" <?php echo $bb; ?> >
-          
+          &nbsp;<a class="btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
+          &nbsp;<!--<button type="button" class="btn btn-danger btn-xs" data-id="<?php echo $data['id_lap']; ?>"data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
+          <a class="btn <?php echo $aa; ?> btn-xs  <?php echo $bb; ?>" href="?r=laporan&pg=laporan_send&id_lap=<?php echo $data['id_lap']; ?>"><?php echo $cc; ?></a>
         </td>
       </tr>
 <?php
 }
 }
-
 ?>
 
     </tbody>
   </table>
  <a class="btn btn-info btn-xs" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
-
-
- <!--  Modal untuk kirim data -->
+ <!--  Modal untuk kirim data 
  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -60,7 +55,7 @@ $laporan = new laporan();
         <strong>KIRIM LAPORAN</strong>
       </div>
       <div class="modal-body">
-        <p>Kirimkan Hasil musyawarah anda kepada desa dan daerah ?</p>
+        <p>Kirimkan Hasil musyawarah anda kepada desa dan daerah ? </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -69,4 +64,16 @@ $laporan = new laporan();
     </div>
   </div>
 </div>
-<!--  akhir Modal untuk kirim data -->
+ -->
+
+<script>
+$("#datat_sales").on("click",".kirim-laporan",function(e){
+        e.preventDefault();
+            {id_lap:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+        //alert("sd");
+    });
+</script>

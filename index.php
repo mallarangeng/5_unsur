@@ -36,6 +36,7 @@ header("location:login.php");
     <script type="text/javascript"></script>
   	<link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
 	<script src="jquery/jquery-ui.js"></script>
+  <script src="scripts/aplikasi.js"></script>
  	<link href="images/logo.png" rel="shortcut icon" />
   <!--  datepicker -->
   <link rel="stylesheet" href="datepicker/jquery-ui.css">
@@ -141,19 +142,10 @@ header("location:login.php");
   
       </div>
 
-      <footer>
+ <footer>
       <div class="container-fluid">
         <hr>
-        <div class="row">
-          <div class="col-lg-12">
-              <strong><span class="navy">PPG Tangerang Barat</span></strong><br/>
-                    <small>Customer Support - WhastApp &nbsp;</small><strong><abbr title="Phone">0857</abbr> 1588 7704</strong>
-                    <br><strong>&copy;generuspap <?php echo date('Y'); ?></strong>
-                </address>
-
-          </div>
-        </div>
-
+        <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704<br>Instagram : @generuspap</small>
       </footer>
       <hr>
     </div>

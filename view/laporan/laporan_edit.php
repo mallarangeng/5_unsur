@@ -29,7 +29,6 @@ $datal  = $laporan->bacaLap($id_lap);
      <input type="button" name="batal" value="Batal"  onClick="history.back()" class="btn btn-danger">
   </div>
 </form>
-
 <?php
   if($_POST['update']){
   $laporan->updateLap(

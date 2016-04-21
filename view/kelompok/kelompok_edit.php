@@ -13,7 +13,7 @@ $datak  = $kelompok->bacaKelompok($id_kelompok);
     <div class="form-group">
     <label>Parent / Desa / Daerah</label>
     <select required class="form-control" name="parent">
-	  <option value="0"><?php echo $datak['nm_kelompok']; ?></option>
+	  <option value="<?php echo $datak['parent']; ?>"><?php echo $datak['nm_kelompok']; ?></option>
     <?php
       $arraykelompok=$kelompok->tampilDesa();
       if (count($arraykelompok)) {
@@ -50,28 +50,44 @@ $datak  = $kelompok->bacaKelompok($id_kelompok);
   </div>
     <div class="form-group">
     <label>Password</label>
-    <input type="password" name="password" class="form-control" value="" required>
-    <input type="hidden" name="id_kelompok" class="form-control" value=" <?php echo $datak['id_kelompok']; ?>" required>
+    <input type="password" name="password" class="form-control" value="" placeholder="Kosongkan jika tidak dirubah">
+    <input type="hidden" name="id_kelompok" class="form-control" value="<?php echo $datak['id_kelompok']; ?>" required>
+    <input type="hidden" name="aktif" class="form-control" value="0" required>
   </div>
     
   <div class="form-group">
-    <input type="submit" name="update" value="Simpan" class="btn btn-info">
+    <input type="submit" name="update" value="Update" class="btn btn-info">
     &nbsp;
      <input type="button" name="batal" value="Batal"  onClick="history.back()" class="btn btn-danger">
   </div>
 </form>
-
 <?php
-  if($_POST['update']){
-  $kelompok->updateKelompok(
-  $_POST['id_kelompok'],  
-  $_POST['nm_kelompok'],
-  $_POST['parent'],
-  $_POST['alamat'],
-  $_POST['nohp'],
-  $_POST['penjab'],
-  $_POST['password'],
-  $_POST['level']);
-   echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
+if($_POST['update']){
+  $id_kelompok=$_POST[id_kelompok];  
+  $nm_kelompok=$_POST['nm_kelompok'];
+  $parent=$_POST['parent'];
+  $alamat=$_POST['alamat'];
+  $nohp=$_POST['nohp'];
+  $penjab=$_POST['penjab'];
+  $password=$_POST['password'];
+  $level=$_POST['level'];
+  if (empty($password)){
+  $kelompok->updateKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level);
+  echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
   }
-?>
+  else {
+
+  $id_kelompok=$_POST[id_kelompok];  
+  $nm_kelompok=$_POST['nm_kelompok'];
+  $parent=$_POST['parent'];
+  $alamat=$_POST['alamat'];
+  $nohp=$_POST['nohp'];
+  $penjab=$_POST['penjab'];
+  $password=md5($_POST['password']);
+  $level=$_POST['level'];
+  $kelompok->updateKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level);
+  echo"<meta http-equiv='refresh' content='0;url=?r=kelompok&pg=kelompok'>";
+}
+  }
+  ?>
+

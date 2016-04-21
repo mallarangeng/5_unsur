@@ -3,13 +3,12 @@ include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
-
 ?>
 
  <form role="form" action="" method="post" class="form-horizontal col-md-4">
     <div class="form-group">
     <label>Kode Kelompok</label>
-    <input name="id_kelompok" type="text" value="<?php echo kdauto("kelompok","2016"); ?>" class="form-control" required>
+    <input name="id_kelompok" type="text" value="<?php echo kdauto("kelompok","2016"); ?>" class="form-control" readonly>
   </div>
   <div class="form-group">
     <label>Nama Kelompok</label>
@@ -66,7 +65,6 @@ $kelompok = new kelompok();
      <input type="button" name="batal" value="Batal"  onClick="history.back()" class="btn btn-danger">
   </div>
 </form>
-
 <?php
   if($_POST['simpan']){
   $kelompok->tambahKelompok(

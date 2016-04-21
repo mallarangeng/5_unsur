@@ -6,7 +6,10 @@ $kelompok = new kelompok();
 $laporan = new laporan();
 $detail = new detail();
 ?>
- 
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Warning!&nbsp;</strong>Untuk keamanan data silahkan lakukan penggantian password !
+</div>
 <h2 ><small><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</small></h2>
 <table class="table table-hover">
     <thead>
