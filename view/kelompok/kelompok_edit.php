@@ -13,7 +13,7 @@ $datak  = $kelompok->bacaKelompok($id_kelompok);
     <div class="form-group">
     <label>Parent / Desa / Daerah</label>
     <select required class="form-control" name="parent">
-	  <option value="<?php echo $datak['parent']; ?>"><?php echo $datak['nm_kelompok']; ?></option>
+	  <option value="<?php echo $datak['parent']; ?>"><?php echo $_GET['desa']; ?></option>
     <?php
       $arraykelompok=$kelompok->tampilDesa();
       if (count($arraykelompok)) {

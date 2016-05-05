@@ -9,7 +9,7 @@ $kelompok = new kelompok();
     <thead>
       <tr>
         <th>No</th>
-        <th>Id Kelompok</th>
+       
         <th>Nama Kelompok</th>
         <th>Parent</th>
         <th>Alamat</th>
@@ -26,7 +26,7 @@ $kelompok = new kelompok();
 
       <tr>
         <td><?php echo $c=$c+1;?></td>
-        <td><?php echo $data['id_kelompok']; ?></td>
+        
         <td><?php echo $data['nm_kelompok']; ?></td>
         <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['alamat']; ?></td>

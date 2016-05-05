@@ -5,7 +5,7 @@ $db->connectMySQL();
 $kelompok = new kelompok();
 $datak  = $kelompok->bacaKelompok($id_kelompok);
 if ($_SESSION['id_kelompok']!=$datak['id_kelompok']) {
-    die ("<font color='#FF0000'>Akses User Tidak Sah</font>");
+    die ("<font color='#FF0000'>Akses User   Tidak Sah</font>");
  } else {
     echo ('<font color="#66CC00">Data Valid</font>');
   } 

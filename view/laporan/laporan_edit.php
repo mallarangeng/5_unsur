@@ -5,6 +5,11 @@ $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
 $datal  = $laporan->bacaLap($id_lap);
+if ($_SESSION['id_kelompok']!=$datal['id_kelompok']) {
+    die ("<font color='#FF0000'>Akses User Tidak Sah</font>");
+ } else {
+    echo ('<font color="#66CC00">Data Valid</font>');
+  }
 ?>
  <form role="form" action="" method="post" class="form-horizontal col-md-4">
     <div class="form-group">

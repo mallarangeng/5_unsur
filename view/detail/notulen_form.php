@@ -29,7 +29,7 @@ $detail = new detail();
     <label>Status</label>
     <select required class="form-control" name="stat">
     <option value="Selesai">Selesai</option>
-    <option value="Proses">Proses</option>
+    <option value="Pending">Pending</option>
   </select>
   
   </div>

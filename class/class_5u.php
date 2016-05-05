@@ -49,12 +49,12 @@
     }
 
 class Kelompok {
-  // Tampilkan data data bank 
+  // Tampilkan data data kelompok
   function tampilKelompok() {
-      $query = mysql_query("SELECT * FROM kelompok ORDER BY parent,id_kelompok");
-      while($row=mysql_fetch_array($query))
-      $data[]=$row;
-      return $data;
+          $query = mysql_query("Select k1.*,k2.nm_kelompok as desa from kelompok as k1 left join kelompok as k2 on k1.parent= k2.id_kelompok ORDER BY parent");
+          while($row=mysql_fetch_array($query))
+          $data[]=$row;
+          return $data;
   }
     function profile() {
       $query = mysql_query("SELECT * FROM kelompok WHERE id_kelompok='$_SESSION[id_kelompok]'");
@@ -108,7 +108,9 @@ class Kelompok {
 
   function desaShow() {
       $query = mysql_query("SELECT id_kelompok, nm_kelompok, penjab,nohp,
-      (SELECT COUNT(id_lap) AS tot_lap FROM laporan WHERE tanggal LIKE'$_GET[periode]%')tot_lap
+      (SELECT COUNT(parent) AS tot_klp FROM kelompok WHERE parent !='0' AND aktif='0')tot_klp,
+      (SELECT COUNT(id_lap) AS tot_lap FROM laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE  tanggal LIKE'$_GET[periode]%' AND stat='1') tot_lap
        FROM kelompok WHERE parent='0' AND aktif='0'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
@@ -118,17 +120,31 @@ class Kelompok {
   }
 
   /**
-  * 
+  * class object laporan 
   */
   class Laporan
   {
     
     function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
+      if($_POST){
+      # Cek nomor faktur di database
+      $tanggal=$_POST['tanggal'];#ambil strin tanggal dari parameter 
+      $periode=substr($tanggal,0,7);
+      $cek_period=mysql_num_rows(mysql_query
+      ("SELECT tanggal FROM laporan WHERE tanggal LIKE'$periode%' AND id_kelompok='$_SESSION[id_kelompok]' "));
+      # Kalau nomor faktur sudah ada
+      if ($cek_period > 0){
+        echo "<script type='text/javascript'>window.alert('Laporan Musyawrah untuk periode ini sudah pernah dibuat !')</script>";
+      }
+      # Kalau nomor faktur belum ada silahkan di simpan
+else{
       $query="INSERT INTO laporan (id_lap,id_kelompok,tanggal,ket,date_on,stat)
       VALUES('$id_lap','$id_kelompok','$tanggal','$ket','$date_on','$stat')";
       $hasil= mysql_query($query);
     }
+     }
+   }
     function tampilLap2() {
       $query = mysql_query("SELECT * FROM laporan ORDER BY tanggal ASC");
       while($row=mysql_fetch_array($query))
@@ -186,9 +202,23 @@ class Kelompok {
 
     function updateLap ($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
+      if($_POST){
+      # Cek nomor faktur di database
+      $tanggal=$_POST['tanggal'];#ambil strin tanggal dari parameter 
+      $periode=substr($tanggal,0,7);
+      $cek_period=mysql_num_rows(mysql_query
+      ("SELECT tanggal FROM laporan WHERE tanggal LIKE '$periode%' AND id_kelompok='$_SESSION[id_kelompok]' "));
+      # Kalau nomor faktur sudah ada
+      if ($cek_period > 1){
+        echo "<script type='text/javascript'>window.alert('Laporan Musyawrah untuk periode ini sudah pernah dibuat !')</script>";
+      }
+      # Kalau nomor faktur belum ada silahkan di simpan
+else{
       $query=mysql_query("UPDATE laporan SET id_kelompok='$id_kelompok', tanggal='$tanggal',ket='$ket',date_on='$date_on',
         stat='$stat'WHERE id_lap='$id_lap'");
     }
+  }
+}
     
   }
   /**
@@ -205,13 +235,13 @@ class Kelompok {
     }
 
       function tampilDetail() {
-      $query = mysql_query("SELECT * FROM detail WHERE id_lap='$_GET[id_lap]'");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.id_lap='$_GET[id_lap]'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
   }
         function tampilDetailPending() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='Proses' AND a.id_kelompok='$_SESSION[id_kelompok]'");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='Pending' AND a.id_kelompok='$_SESSION[id_kelompok]'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -224,7 +254,7 @@ class Kelompok {
   }
   function bacaDetail($id_detail)
           {
-        $query=mysql_query("SELECT * FROM detail WHERE id_detail='$_GET[id_detail]'");
+        $query=mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.id_detail='$_GET[id_detail]'");
         $data=mysql_fetch_array($query);
         $data[]=$row;
         if(isset($data)){
@@ -291,6 +321,8 @@ class Kelompok {
     $smenu = mysql_query("select * from menu where parent='$menu'");
     //$smenu = mysql_query("SELECT a.username,b.id_menu,b.baca,b.tulis,c.* FROM ms_user a, ms_menu_user b, ms_menu c WHERE a.username=b.username AND b.id_menu=c.id_menu AND a.username ='$user' AND b.baca='Y' AND c.parent='$menu' AND a.blokir='N' ORDER BY urut ASC");
     $ada    = mysql_num_rows($smenu);
+    //ini asalah
+    #ini adalah 
     if($ada==0){
       $data[]=$ada;
       if (isset($data)){

@@ -24,7 +24,7 @@ $detail = new detail();
       foreach($arraydetail as $data) {
         if($data['stat']=='Selesai'){
                   $aa='primary';
-                }else if($data['stat']=='Proses'){
+                }else if($data['stat']=='Pending'){
                   $aa='danger';
                 }
         if($data['publis']=='Bagikan'){
@@ -62,7 +62,7 @@ $detail = new detail();
   <dd>&nbsp;<small>Digunakan Untuk Mengubah isi point musyawarah</small></dd>
   <dt><span class="label label-primary">Selesai</span></dt>
   <dd>&nbsp;<small>Jika Kendala dalam musyawarah terselesaikan</small></dd>
-  <dt><span class="label label-danger">Proses</span></dt>
+  <dt><span class="label label-danger">Pending</span></dt>
   <dd>&nbsp;<small>Jika Kendala dalam musyawarah Belum terselesaikan</small></dd>
   <dt><span class="label label-default">Disembunyikan</span></dt>
   <dd>&nbsp;<small>Point musyawarah bersifat private tidak bisa dibaca oleh KBM atau 5 Unsur kelompok kelompok lain</small></dd>

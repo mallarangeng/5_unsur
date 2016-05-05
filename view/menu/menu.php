@@ -5,7 +5,7 @@ $db->connectMySQL();
 $menu = new menu();
 ?>
 <div class="table-responsive"> 
- <table class="table table-hover">
+ <table class="table table-striped table-bordered" id="example">
     <thead>
       <tr>
         <th>No</th>

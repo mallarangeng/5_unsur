@@ -6,6 +6,11 @@ $kelompok = new kelompok();
 $laporan = new laporan();
 $detail = new detail();
 $data  = $detail->bacaDetail($id_detail);
+if ($_SESSION['id_kelompok']!=$data['id_kelompok']) {
+    die ("<font color='#FF0000'>Akses User Tidak Sah</font>");
+ } else {
+    echo ('<font color="#66CC00">Data Valid</font>');
+  }
 ?>
 
  <form role="form" action="" method="post" class="form-horizontal col-md-4">
@@ -31,7 +36,7 @@ $data  = $detail->bacaDetail($id_detail);
     <select required class="form-control" name="stat">
       <option value="<?php echo $data['stat']; ?>"><?php echo $data['stat']; ?></option>
     <option value="Selesai">Selesai</option>
-    <option value="Proses">Proses</option>
+    <option value="Pending">Pending</option>
   </select>
   
   </div>

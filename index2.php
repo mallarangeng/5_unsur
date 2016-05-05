@@ -23,38 +23,26 @@ $user->user_logout();
 header("location:login.php");
 }
 ?>
-<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
-	<!--<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">-->
-	<title>DataTables - Bootstrap</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.tableTools.css">
-	
-	<script type="text/javascript" language="javascript" src="bootstrap/js/jquery-1.11.3.js"></script>
-	<script type="text/javascript" language="javascript" src="bootstrap/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" language="javascript" src="bootstrap/js/dataTables.bootstrap.js"></script>
-	<script type="text/javascript" language="javascript" src="bootstrap/js/dataTables.tableTools.js"></script>
-	<!--<script type="text/javascript" language="javascript" src="../resources/syntax/shCore.js"></script>
-	<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>-->
-  <link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PPG Tangerang Barat</title>
+<!--
+<link id="favicon" rel="shortcut icon" href="images/favicon/favicon.png" />
+-->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
   <link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css" />
-
+    <script src="bootstrap/js/jquery-1.10.2.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
-    <link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
-  <script src="jquery/jquery-ui.js"></script>
+  	<link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
+	<script src="jquery/jquery-ui.js"></script>
   <script src="scripts/aplikasi.js"></script>
-  <link href="images/logo.png" rel="shortcut icon" />
-
-<!--  datepicker -->
+ 	<link href="images/logo.png" rel="shortcut icon" />
+  <!--  datepicker -->
   <link rel="stylesheet" href="datepicker/jquery-ui.css">
- 
+  <script src="datepicker/jquery-1.10.2.js"></script>
   <script src="datepicker/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script>
@@ -69,29 +57,10 @@ header("location:login.php");
   <!-- close   datepicker -->
 
 </head>
-<style type="text/css">
-div.dataTables_length{
-	float:left !important;
-}
-</style>
+
 
 <body>
-<script type="text/javascript" language="javascript" class="init">
-$(document).ready(function() {
-	$('#example').dataTable( {
-		 "lengthMenu": [[10,15, 25, 50, -1], [10,15, 25, 50, "All"]],
-        "dom": 'T<"clear">lfrtip',
-        "tableTools": {
-            "sSwfPath": "img/copy_csv_xls_pdf.swf"
-        }
-    } );
-} );
-</script>
-<style type="text/css" class="init"></style>
-
-
-
-<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a href="index.php" class="navbar-brand"><font class="info_color">LIMA UNSUR</font></a>
@@ -150,24 +119,32 @@ $(document).ready(function() {
     </div>
       <!--BODY
       !-->
-<div class="container-fluid">
-    <br>
+    
+    <div class="container-fluid">
+      <br>
 <p>
 <br>
 
 <h2 ><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp;Hi : <?php echo $_SESSION['level'];?> <?php echo $_SESSION['nm_kelompok'];?> </strong></small></h2><hr>
+     
+
   
-		 <?php
+
+      <?php
                                 if (!isset($_GET['r'])){
-                                    include('view/kelompok/kelompok.php');
+                                    include('view/home/home.php');
                                 }else{
                                     $r  = $_GET['r'];
                                     $pg = $_GET['pg'];
                                         include "view/".$r.'/'.$pg.".php";
                                 }
                             ?>
-</div>
-<footer>
+
+
+  
+      </div>
+
+ <footer>
       <div class="container-fluid">
         <hr>
         <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704</small>

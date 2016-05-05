@@ -30,7 +30,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PPG Tangerang Barat</title>
-<link id="favicon" rel="shortcut icon" href="images/favicon/favicon.png" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
   <link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css" />
@@ -96,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       <footer>
       <div class="container-fluid">
         <hr>
-        <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704<br>Instagram : @generuspap</small>
+        <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704</small>
       </footer>
       <hr>
   

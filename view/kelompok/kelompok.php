@@ -4,13 +4,15 @@ $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 ?>
-<div class="table-responsive"> 
- <table class="table table-hover">
+
+<body>
+ <table id="example" class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>No</th>
+        
         <th>Id Kelompok</th>
         <th>Nama Kelompok</th>
+        <th>Nama Desa</th>
         <th>Parent</th>
         <th>Alamat</th>
         <th>No Hp</th>
@@ -29,9 +31,9 @@ $kelompok = new kelompok();
     ?>
 
       <tr>
-        <td><?php echo $c=$c+1;?></td>
         <td><?php echo $data['id_kelompok']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?></td>
+        <td><?php echo $data['desa']; ?></td>
         <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['alamat']; ?></td>
         <td><?php echo $data['nohp']; ?></td>
@@ -39,7 +41,7 @@ $kelompok = new kelompok();
         <td><?php echo $data['password']; ?></td>
         <td><?php echo $data['level']; ?></td>
        
-        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a href="?r=kelompok&pg=kelompok_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>&desa=<?php echo $data['desa']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
 <?php
 }
@@ -48,5 +50,4 @@ $kelompok = new kelompok();
 
     </tbody>
   </table>
-</div>
  <a class="btn btn-info btn-xs" href="?r=kelompok&pg=kelompok_form" role="button">Tambah Data</a>
