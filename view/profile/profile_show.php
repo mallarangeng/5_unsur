@@ -3,6 +3,16 @@ include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
+
+
+#cegah akses tanpa melalui login
+$user = new User();
+$id_kelompok = $_SESSION['id_kelompok'];
+if (!$user->get_sesi())
+{
+header("location:index.html");
+}
+#close akses tanpa login
 ?>
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

@@ -5,6 +5,15 @@ $db = new Database();
 $db->connectMySQL();
 $menu = new menu();
 
+#cegah akses tanpa melalui login
+$user = new User();
+$id_kelompok = $_SESSION['id_kelompok'];
+if (!$user->get_sesi())
+{
+header("location:index.html");
+}
+#close akses tanpa login
+
 ?>
 
  <form role="form" action="" method="post" class="form-horizontal col-md-4">

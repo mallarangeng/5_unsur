@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PPG Tangerang Barat</title>
+<title>Lima Unsur</title>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
   <link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css" />
@@ -53,12 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-       
-          </ul>
-
-        </div>
+      
       </div>
     </div>
       <!--BODY

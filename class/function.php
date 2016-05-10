@@ -1,4 +1,9 @@
 <?php
+  function base_url ()
+    {
+      return sprintf("http://localhost/apps/limaunsur/");
+      #panggil fungsi ini dengan cara di (echo base_url();)
+    }
 function kdauto($tabel, $inisial){
 	$struktur	= mysql_query("SELECT * FROM $tabel");
 	$field		= mysql_field_name($struktur,0);

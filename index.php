@@ -31,7 +31,7 @@ header("location:login.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
 	<!--<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">-->
-	<title>DataTables - Bootstrap</title>
+	<title>Lima Unsur</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.tableTools.css">
@@ -56,7 +56,7 @@ header("location:login.php");
   <link rel="stylesheet" href="datepicker/jquery-ui.css">
  
   <script src="datepicker/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="resources/demos/style.css">
   <script>
   $(function() {
     $( "#datepicker" ).datepicker({
@@ -159,7 +159,7 @@ $(document).ready(function() {
   
 		 <?php
                                 if (!isset($_GET['r'])){
-                                    include('view/kelompok/kelompok.php');
+                                    include('view/home/home.php');
                                 }else{
                                     $r  = $_GET['r'];
                                     $pg = $_GET['pg'];

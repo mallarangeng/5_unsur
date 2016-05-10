@@ -3,6 +3,14 @@ include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
+#cegah akses tanpa melalui login
+$user = new User();
+$id_kelompok = $_SESSION['id_kelompok'];
+if (!$user->get_sesi())
+{
+header("location:index.html");
+}
+#close akses tanpa login
 ?>
 <div class="table-responsive"> 
  <table class="table table-hover">

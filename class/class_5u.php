@@ -16,6 +16,9 @@
     
     function cek_login($id_kelompok, $password) 
       {
+        #untuk memastikan user id yang di input adalah tipe data integer karena id_kelomok terdiri dari angka
+        #untuk salah satu pencegahan sql injection
+        $id_kelompok = (int)$_POST['id_kelompok'];
         $password = md5($password);
         $result = mysql_query("SELECT * FROM kelompok WHERE id_kelompok='$id_kelompok' AND password='$password'");
         $user_data = mysql_fetch_array($result);
