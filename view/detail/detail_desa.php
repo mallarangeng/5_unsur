@@ -6,13 +6,6 @@ $kelompok = new kelompok();
 $laporan = new laporan();
 $detail = new detail();
 #cegah akses tanpa melalui login
-$user = new User();
-$id_kelompok = $_SESSION['id_kelompok'];
-if (!$user->get_sesi())
-{
-header("location:index.html");
-}
-#close akses tanpa login
 ?>
  
  <table class="table table-hover">
@@ -30,13 +23,16 @@ header("location:index.html");
       $arraydetail=$detail->tampilDetail();
       if (count($arraydetail)) {
       foreach($arraydetail as $data) {
-        if($data['stat']=='Selesai'){
-                  $aa='primary';
+       if($data['stat']=='Selesai'){
+                  $aa='success';
                 }else if($data['stat']=='Pending'){
                   $aa='danger';
                 }
+                else if($data['stat']=='Progres'){
+                  $aa='warning';
+                }
         if($data['publis']=='Bagikan'){
-                  $bb='success';
+                  $bb='info';
                 }else if($data['publis']=='Sembunyikan'){
                   $bb='default';
                 }
@@ -44,12 +40,12 @@ header("location:index.html");
 
 
       <tr>
-        <td class="warning"><strong><?php echo $b=$b+1;?></strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
-        <td class="success"><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?> </small>      
+        <td class=""><strong><?php echo $b=$b+1;?> )</strong>&nbsp;<?php echo $data['kendala']; ?></td>
+        <td class="success"><strong><?php echo $c=$c+1;?> )</strong>&nbsp;<?php echo $data['solusi']; ?>      
         </td>
       </tr>
       <tr>
-        <td class="warning"></td>
+        <td class=""></td>
         <td class="success"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
 
 
@@ -61,8 +57,6 @@ header("location:index.html");
 
     </tbody>
   </table>
- <p>
-  <br>
 
 <!--
 <dl class="dl-horizontal">

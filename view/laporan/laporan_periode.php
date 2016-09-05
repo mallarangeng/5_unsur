@@ -17,8 +17,7 @@ header("location:index.html");
  <table class="table table-hover">
     <thead>
       <tr>
-        <th>NO</th>
-        <th>PERIODE LAPORAN</th>
+        <th> <button type="button" class="btn btn-success">&laquo;DATA PERIODE LAPORAN &raquo;</button></th>
       </tr>
     </thead>
     <tbody>
@@ -38,9 +37,10 @@ header("location:index.html");
     ?>
 
       <tr>
-        <td><?php echo $c=$c+1;?></td>
-        
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<strong><a href="?r=laporan&pg=laporan_desa&periode=<?php echo $data['tahun_bulan']; ?>"><?php echo $data['tahun_bulan']; ?>&nbsp; LIHAT</a></strong></td>
+              
+        <td>
+          <a class="btn btn-info" href="?r=laporan&pg=laporan_desa&periode=<?php echo $data['tahun_bulan']; ?>" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<?php echo $data['tahun_bulan']; ?> &nbsp;LIHAT LAPORAN</a>
+        </td>
       </tr>
 <?php
 }

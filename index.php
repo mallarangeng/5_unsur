@@ -10,7 +10,6 @@ $db->connectMySQL();
 $user = new User();
 $laporan = new laporan();
 $menu = new menu();
-
 #session nama lengkap
 //$nm_lengkap = $_SESSION['fullname'];
 if (!$user->get_sesi())
@@ -50,7 +49,7 @@ header("location:login.php");
     <link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
   <script src="jquery/jquery-ui.js"></script>
   <script src="scripts/aplikasi.js"></script>
-  <link href="images/logo.png" rel="shortcut icon" />
+    <!--<link href="images/logo.png" rel="shortcut icon" /> -->
 
 <!--  datepicker -->
   <link rel="stylesheet" href="datepicker/jquery-ui.css">
@@ -155,7 +154,7 @@ $(document).ready(function() {
 <p>
 <br>
 
-<h2 ><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp;Hi : <?php echo $_SESSION['level'];?> <?php echo $_SESSION['nm_kelompok'];?> </strong></small></h2><hr>
+<h2 ><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span><strong>&nbsp; <?php echo $_SESSION['level'];?> <?php echo $_SESSION['nm_kelompok'];?> </strong></small></h2><hr>
   
 		 <?php
                                 if (!isset($_GET['r'])){
@@ -167,12 +166,6 @@ $(document).ready(function() {
                                 }
                             ?>
 </div>
-<footer>
-      <div class="container-fluid">
-        <hr>
-        <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704</small>
-      </footer>
-      <hr>
-    </div>
-</body>
+      <div class="well well-sm">&copy;ppg-tangbar.com&nbsp;<?php echo date('Y'); ?><br>Whatsapp : 085715887704</div>
+      </body>
 </html>

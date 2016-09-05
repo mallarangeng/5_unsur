@@ -18,9 +18,9 @@ header("location:index.html");
     <thead>
       <tr>
         
-        <th>Id Kelompok</th>
-        <th>Nama Kelompok</th>
         <th>Nama Desa</th>
+        <th>Nama Kelompok</th>
+        <th>Id Kelompok</th>
         <th>Parent</th>
         <th>Alamat</th>
         <th>No Hp</th>
@@ -39,9 +39,9 @@ header("location:index.html");
     ?>
 
       <tr>
-        <td><?php echo $data['id_kelompok']; ?></td>
+       <td><?php echo $data['desa']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?></td>
-        <td><?php echo $data['desa']; ?></td>
+        <td><?php echo $data['id_kelompok']; ?></td>
         <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['alamat']; ?></td>
         <td><?php echo $data['nohp']; ?></td>

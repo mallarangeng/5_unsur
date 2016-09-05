@@ -16,13 +16,11 @@ header("location:index.html");
  <table class="table table-hover">
     <thead>
       <tr>
-        <th>No</th>
-       
+        <th>No</th>       
         <th>Nama Kelompok</th>
-        <th>Parent</th>
         <th>Alamat</th>
-        <th>No Hp</th>
         <th>Penjab</th>
+        <th>No Hp</th>
       </tr>
     </thead>
     <tbody>
@@ -31,21 +29,17 @@ header("location:index.html");
       if (count($arraykelompok)) {
       foreach($arraykelompok as $data) {
     ?>
-
       <tr>
-        <td><?php echo $c=$c+1;?></td>
-        
+        <td><?php echo $c=$c+1;?></td>  
         <td><?php echo $data['nm_kelompok']; ?></td>
-        <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['alamat']; ?></td>
-        <td><?php echo $data['nohp']; ?></td>
         <td><?php echo $data['penjab']; ?></td>
+        <td><?php echo $data['nohp']; ?></td>
         </tr>
 <?php
 }
 }
 ?>
-
     </tbody>
   </table>
 </div>

@@ -24,12 +24,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
-
-
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lima Unsur</title>
+<title>KBM PPG-TANGBAR</title>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
   <link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css" />
@@ -38,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script type="text/javascript"></script>
   	<link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
 	<script src="jquery/jquery-ui.js"></script>
- 	<link href="images/logo.png" rel="shortcut icon" />
+ 	<!--<link href="images/logo.png" rel="shortcut icon" /> -->
 </head>
 
 
@@ -46,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><font class="info_color">LOGIN LIMA UNSUR</font></a>
+          <a href="index.php" class="navbar-brand"><font class="info_color">LOGIN KBM PPG-TANGBAR</font></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -84,18 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
   
 </form>
-
   </div>
-
-      <footer>
-      <div class="container-fluid">
-        <hr>
-        <small>Copyright &copy;PPG Tangerang Barat <?php echo date('Y'); ?><br>Whatsapp : 085715887704</small>
-      </footer>
-      <hr>
-  
-    </div>
-
-
+  <div class="well well-sm">&copy;ppg-tangbar.com&nbsp;<?php echo date('Y'); ?><br>Whatsapp : 085715887704</div>
 </body>
 </html>

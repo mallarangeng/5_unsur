@@ -19,7 +19,7 @@ header("location:index.html");
       <tr>
         
         <th>Kendala</th>
-        <th>Solusi</th>
+        <th class="info">Solusi</th>
         
        
       </tr>
@@ -43,15 +43,12 @@ header("location:index.html");
 
 
       <tr>
-        <td><strong><?php echo $b=$b+1;?></strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
-        <td><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?> </small>      
-        </td>
+        <td><strong><?php echo $b=$b+1;?></strong>&nbsp;<?php echo $data['kendala']; ?></td>
+        <td class="info"><strong><?php echo $c=$c+1;?></strong>&nbsp;<?php echo $data['solusi']; ?> </td>
       </tr>
-      <tr>
-        <td><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small></td>
-        <td><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
-
-
+        <tr>
+        <td class=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></td>
+        <td class="info"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
       </tr>
 <?php
 }

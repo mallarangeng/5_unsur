@@ -3,8 +3,6 @@ include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
-
-
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -38,7 +36,8 @@ header("location:index.html");
         <td><?php echo $data['id_kelompok']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?><br><small><font class="hijaumuda"><?php echo $data['alamat']; ?></font></small></td>
         <td><?php echo $data['penjab']; ?><br><small><font class="hijaumuda"><?php echo $data['nohp']; ?></font></small></td>
-        <td><a href="?r=profile&pg=profile_edit&id_kelompok=<?php echo $data['id_kelompok']; ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a class="btn btn-info btn-xs edit-profile" href="#" role="button" data-id="<?php echo $data['id_kelompok'] ?>">Ubah</a>
+        </td>
       </tr>
 <?php
 }
@@ -47,3 +46,51 @@ header("location:index.html");
 
     </tbody>
   </table>
+        <!-- modal detail pelamar-->
+        <div class="modal fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form role="form" action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                         <input type="submit" name="update_kelompok" value="Update" class="btn btn-info">
+                         </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <?php
+if($_POST['update_kelompok']){
+  $id_kelompok=$_POST[id_kelompok];  
+  $nm_kelompok=$_POST['nm_kelompok'];
+  $parent=$_POST['parent'];
+  $alamat=$_POST['alamat'];
+  $nohp=$_POST['nohp'];
+  $penjab=$_POST['penjab'];
+  $password=$_POST['password'];
+  $level=$_POST['level'];
+  if (empty($password)){
+  $kelompok->updateKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level);
+  echo"<meta http-equiv='refresh' content='0;url=?r=profile&pg=profile_show'>";
+  }
+  else {
+
+  $id_kelompok=$_POST[id_kelompok];  
+  $nm_kelompok=$_POST['nm_kelompok'];
+  $parent=$_POST['parent'];
+  $alamat=$_POST['alamat'];
+  $nohp=$_POST['nohp'];
+  $penjab=$_POST['penjab'];
+  $password=md5($_POST['password']);
+  $level=$_POST['level'];
+  $kelompok->updateKelompok($id_kelompok,$nm_kelompok,$parent,$alamat,$nohp,$penjab,$password,$level);
+  echo"<meta http-equiv='refresh' content='0;url=?r=profile&pg=profile_show'>";
+}
+  }
+  ?>

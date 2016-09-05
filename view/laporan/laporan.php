@@ -44,7 +44,7 @@ header("location:index.html");
           <a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
           &nbsp;<a class="btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
           &nbsp;<!--<button type="button" class="btn btn-danger btn-xs" data-id="<?php echo $data['id_lap']; ?>"data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
-          <a class="btn <?php echo $aa; ?> btn-xs  <?php echo $bb; ?>" href="?r=laporan&pg=laporan_send&id_lap=<?php echo $data['id_lap']; ?>"><?php echo $cc; ?></a>
+          <a class="btn <?php echo $aa; ?> btn-xs  <?php echo $bb; ?> kirim-laporan" href="" data-id="<?php echo $data['id_lap'] ?>"><?php echo $cc; ?></a>
         </td>
       </tr>
 <?php
@@ -55,33 +55,34 @@ header("location:index.html");
     </tbody>
   </table>
  <a class="btn btn-info btn-xs" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
- <!--  Modal untuk kirim data 
- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>KIRIM LAPORAN</strong>
-      </div>
-      <div class="modal-body">
-        <p>Kirimkan Hasil musyawarah anda kepada desa dan daerah ? </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-info">Kirim Laporan</button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
-<script>
-$("#datat_sales").on("click",".kirim-laporan",function(e){
-        e.preventDefault();
-            {id_lap:$(this).attr('data-id')},
-            function(html){
-                $(".modal-body").html(html);
-            }
-        );
-        //alert("sd");
-    });
-</script>
+  
+ <div class="modal fade" id="modal-kirim-laporan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form role="form" action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                         <input type="submit" name="send_laporan" value="Kirim Laporan" class="btn btn-info">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+ <?php
+  if($_POST['send_laporan']){
+  $laporan->updateLap(
+  $_POST['id_lap'],  
+  $_POST['id_kelompok'],
+  $_POST['tanggal'],
+  $_POST['ket'],
+  $_POST['date_on'],
+  $_POST['stat']);
+   echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
+  }
+?>

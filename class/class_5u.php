@@ -202,6 +202,25 @@ else{
           return $data;
         }
       }
+      #hitung laporan masuk dari kelompok kedesa
+      function hitungindesa()
+          {
+        $query=mysql_query("SELECT count(*) AS inboxdesa FROM laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE parent='$_SESSION[id_kelompok]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+       function inboxtampilLapdesa() {
+      $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE parent='$_SESSION[id_kelompok]'");
+      while($row=mysql_fetch_array($query))
+      $count = mysql_num_rows($query);
+      $data[]=$row;
+      return $data;
+  }
 
     function updateLap ($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
     {
@@ -250,7 +269,7 @@ else{
       return $data;
   }
     function timelineDetail() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.publis='Bagikan' ORDER BY tanggal DESC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

@@ -31,12 +31,15 @@ header("location:index.html");
       if (count($arraydetail)) {
       foreach($arraydetail as $data) {
         if($data['stat']=='Selesai'){
-                  $aa='primary';
+                  $aa='success';
                 }else if($data['stat']=='Pending'){
                   $aa='danger';
                 }
+                else if($data['stat']=='Progres'){
+                  $aa='warning';
+                }
         if($data['publis']=='Bagikan'){
-                  $bb='success';
+                  $bb='info';
                 }else if($data['publis']=='Sembunyikan'){
                   $bb='default';
                 }
@@ -44,15 +47,13 @@ header("location:index.html");
 
 
       <tr>
-        <td class="warning"><strong><?php echo $b=$b+1;?></strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
-        <td class="success"><strong><?php echo $c=$c+1;?></strong>&nbsp;<small><?php echo $data['solusi']; ?></small>      
+        <td class=""><strong><?php echo $b=$b+1;?>)</strong>&nbsp;<small><?php echo $data['kendala']; ?></small></td>
+        <td class="info"><strong><?php echo $c=$c+1;?>)</strong>&nbsp;<small><?php echo $data['solusi']; ?></small>      
         </td>
       </tr>
       <tr>
-        <td class="warning"><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;&nbsp;<a class="btn btn-warning btn-xs" href="?r=detail&pg=notulen_edit&id_detail=<?php echo $data['id_detail']; ?>&id_lap=<?php echo $_GET['id_lap']; ?>">Edit</a></td>
-        <td class="success"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
-
-
+        <td class=""><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;&nbsp;<a class="btn btn-info btn-xs edit-notulen" data-id="<?php echo $data['id_detail']; ?>" href="">Edit</a></td>
+        <td class="info"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
       </tr>
 <?php
 }
@@ -62,9 +63,38 @@ header("location:index.html");
     </tbody>
   </table>
 
- <a class="btn btn-info btn-xs" href="?r=detail&pg=notulen_form&id_lap=<?php echo $_GET['id_lap'] ?>" role="button">Tambah Notulen</a>
- <p>
-  <br>
+ <a class="btn btn-info btn-sm add-notulen" href="" data-id="<?php echo $_GET['id_lap'] ?>" role="button">Tambah Notulen</a>&nbsp;<a class="btn btn-primary btn-sm" href="?r=laporan&pg=laporan" role="button">Kembali</a>
+ <div class="modal fade" id="modal-add-notulen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form role="form" action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                         <input type="submit" name="add_notulen" value="Simpan data" class="btn btn-info">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <?php
+  if($_POST['add_notulen']){
+  $detail->tambahDetail(
+  $_POST['id_detail'],  
+  $_POST['id_lap'],
+  $_POST['kendala'],
+  $_POST['solusi'],
+  $_POST['ket'],
+  $_POST['stat'],
+  $_POST['publis']);
+   echo"<meta http-equiv='refresh' content='0;url=?r=detail&pg=detail&id_lap=".$_GET['id_lap']."'>";
+  }
+?>
 
 <!--
 <dl class="dl-horizontal">
@@ -80,4 +110,34 @@ header("location:index.html");
   <dd>&nbsp;<small>Point musyawarah bersifat public dapat dibaca oleh KBM atau 5 Unsur kelompok kelompok lain</small></dd>
 </dl>
 -->
-  
+ <div class="modal fade" id="modal-edit-notulen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form role="form" action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                         <input type="submit" name="update_notulen" value="Ubah data" class="btn btn-info">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+  <?php
+  if($_POST['update_notulen']){
+  $detail->updateDetail(
+  $_POST['id_detail'],  
+  $_POST['id_lap'],
+  $_POST['kendala'],
+  $_POST['solusi'],
+  $_POST['ket'],
+  $_POST['stat'],
+  $_POST['publis']);
+   echo"<meta http-equiv='refresh' content='0;url=?r=detail&pg=detail&id_lap=".$_GET['id_lap']."'>";
+  }
+?>

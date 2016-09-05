@@ -20,18 +20,24 @@ header("location:index.html");
     <label>Tanggal dan periode Musyawarah</label>
     <input name="id_lap" type="hidden" value="<?php echo kdauto("laporan","1"); ?>" class="form-control" required>
     <input name="id_kelompok" type="hidden" value="<?php echo $_SESSION['id_kelompok'];?>" class="form-control" required>
-    <input name="tanggal" type="text" id="datepicker" class="form-control" required>
+    <div class="input-group">
+                                <input name="tanggal" type="text" id="datepicker" class="form-control" required> <span class="input-group-addon"><i id="calIconTourDateDetails" class="glyphicon glyphicon-th"></i></span>
+
+                            </div>
+
   </div>
   <div class="form-group">
     <label>Keterangan</label>
     <input name="ket" type="text" class="form-control" value="Musyawarah 5 Unsur" required>
     <input name="date_on" type="hidden" value="<?php echo date('Y-m-d'); ?>" class="form-control" required>
+    <input name="stat" type="hidden" class="form-control" placeholder="Optional..">
   </div>
+  <!--
   <div class="form-group">
     <label>Status</label>
     <input name="stat" type="text" class="form-control" placeholder="Optional..">
   </div>
-    
+    -->
   <div class="form-group">
     <input type="submit" name="simpan" value="Simpan" class="btn btn-info">
     &nbsp;

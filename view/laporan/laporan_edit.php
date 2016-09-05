@@ -31,12 +31,14 @@ header("location:index.html");
     <label>Keterangan</label>
     <input name="ket" type="text" value="<?php echo $datal['ket']; ?>" class="form-control" required>
     <input name="date_on" type="hidden" value="<?php echo $datal['date_on']; ?>" class="form-control" required>
+    <input name="stat" type="hidden" class="form-control" value="<?php echo $datal['stat']; ?>" required>
   </div>
+  <!--
   <div class="form-group">
     <label>Status</label>
-    <input name="stat" type="text" class="form-control" value="<?php echo $datal['stat']; ?>" required>
+    <input name="stat" type="text" class="form-control" value="" required>
   </div>
-    
+    -->
   <div class="form-group">
     <input type="submit" name="update" value="Update" class="btn btn-info">
     &nbsp;

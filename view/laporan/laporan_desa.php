@@ -25,14 +25,18 @@ header("location:index.html");
       $arraylaporan=$laporan->tampilLapdesa();
       if (count($arraylaporan)) {
       foreach($arraylaporan as $data) {
-              if($data['stat']=='1'){
-                  $aa='btn-success';
-                  $bb='disabled';
-                  $cc='Telah Dikirim';
-                }else if($data['stat']=='0'){
-                  $aa='btn-primary';
-                  $bb='';
-                  $cc='Belum Dikirim';
+             if($data['stat']=='Selesai'){
+                  $aa='success';
+                }else if($data['stat']=='Pending'){
+                  $aa='danger';
+                }
+                else if($data['stat']=='Progres'){
+                  $aa='warning';
+                }
+        if($data['publis']=='Bagikan'){
+                  $bb='info';
+                }else if($data['publis']=='Sembunyikan'){
+                  $bb='default';
                 }
     ?>
 
@@ -41,10 +45,9 @@ header("location:index.html");
         
         <td><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;<font class="hijaumuda"><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;<?php echo $data['nm_kelompok']; ?></font><br><?php echo $data['ket']; ?>
         <p>
-          <a class="btn btn-info btn-xs" href="?r=detail&pg=detail_desa&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span>Baca</a>&nbsp;
-    
           
-        </td>
+          <a class="btn btn-info btn-xs baca-laporan" href="" data-id="<?php echo $data['id_lap']; ?>" role="button">BACA lAPORAN</a>&nbsp;
+       </td>
       </tr>
 <?php
 }
@@ -60,3 +63,23 @@ else {{
 
     </tbody>
   </table>
+
+
+ <div class="modal fade" id="modal-baca-notulen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                         
+                    </div>
+                </div>
+                
+            </div>
+        </div>
