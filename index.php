@@ -93,7 +93,7 @@ $(document).ready(function() {
 <div class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><font class="info_color">LIMA UNSUR</font></a>
+          <a href="?r=home&pg=home&thn=<?php echo date('Y'); ?>&bln=<?php echo date('m'); ?>" class="navbar-brand"><font class="info_color">LIMA UNSUR</font></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -103,6 +103,7 @@ $(document).ready(function() {
         
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
+            <li><a href="?r=home&pg=home&thn=<?php echo date('Y'); ?>&bln=<?php echo date('m'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
              <?php
             $arrayMenu = $menu->menuNavigasi();
           if(isset($arrayMenu) && $arrayMenu !=NULL){

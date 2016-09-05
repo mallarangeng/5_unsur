@@ -69,22 +69,20 @@ header("location:index.html");
   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
-        <span aria-hidden="true">2016</span>
+        <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">Jan</a></li>
-    <li><a href="#">Feb</a></li>
-    <li><a href="#">Mar</a></li>
-    <li><a href="#">Apr</a></li>
-    <li><a href="#">Mei</a></li>
-    <li><a href="#">Jun</a></li>
-    <li><a href="#">Jul</a></li>
-    <li><a href="#">Ags</a></li>
-    <li><a href="#">Sep</a></li>
-    <li><a href="#">Okt</a></li>
-    <li><a href="#">Nov</a></li>
-    <li><a href="#">Des</a></li>
+    <li><a href="?r=home&pg=home&thn=2016&bln=<?php echo date('m'); ?>">2016</a></li>
+    <?php
+      $arraylaporan=$detail->pagetimeline();
+      if (count($arraylaporan)) {
+      foreach($arraylaporan as $data) {
+    ?>
+    <li><a href="?r=home&pg=home&thn=2016&bln=<?php echo $data['bulan'];?>"><?php echo $data['bulan']; ?></a></li>
     <li>
+      <?php 
+    }}
+    ?>
       <a href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>

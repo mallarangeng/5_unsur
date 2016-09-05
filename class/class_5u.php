@@ -2,8 +2,8 @@
   error_reporting(0);
   class Database {
   private $dbHost="localhost";
-  private $dbUser="root";
-  private $dbPass="900973";
+  private $dbUser="hendri";
+  private $dbPass="";
   private $dbName="limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
@@ -184,6 +184,7 @@ else{
       $data[]=$row;
       return $data;
   }
+
   function tampilLap() {
       $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,
       (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE laporan.id_lap=detail.id_lap)tot_poin
@@ -269,7 +270,14 @@ else{
       return $data;
   }
     function timelineDetail() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.publis='Bagikan' ORDER BY tanggal DESC");
+      $blnthn=$_GET['thn']."-".$_GET['bln'];
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.publis='Bagikan' AND b.tanggal LIKE'$blnthn%'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+     function pagetimeline() {
+      $query = mysql_query("SELECT mid(tanggal,6,2) AS bulan, COUNT(*) AS jumlah_bulanan FROM laporan GROUP BY MONTH(tanggal);");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

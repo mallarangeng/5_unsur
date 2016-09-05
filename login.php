@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $login=$user->cek_login($_POST['id_kelompok'], $_POST['password']);
   if($login) {
      // login sukses, arahkan ke file index.php
-    header("location:index.php");
+    header("location:index.php?r=home&pg=home&thn=2016&bln=09");
   }
   else {
   // login gagal, beri peringatan dan kembali ke file index.php
