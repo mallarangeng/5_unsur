@@ -77,8 +77,43 @@ header("location:index.html");
       $arraylaporan=$detail->pagetimeline();
       if (count($arraylaporan)) {
       foreach($arraylaporan as $data) {
-    ?>
-    <li><a href="?r=home&pg=home&thn=2016&bln=<?php echo $data['bulan'];?>"><?php echo $data['bulan']; ?></a></li>
+        if($data['bulan']=='07'){
+                  $bln='Juli';
+                }else if($data['bulan']=='08'){
+                  $bln='Ags';
+                }
+                else if($data['bulan']=='09'){
+                  $bln='Sept';
+                }
+                else if($data['bulan']=='10'){
+                  $bln='Okt';
+                }
+                else if($data['bulan']=='11'){
+                  $bln='Nov';
+                }
+                else if($data['bulan']=='12'){
+                  $bln='Des';
+                }
+                else if($data['bulan']=='01'){
+                  $bln='Jan';
+                }
+                else if($data['bulan']=='02'){
+                  $bln='Feb';
+                }
+                else if($data['bulan']=='03'){
+                  $bln='Mart';
+                }
+                else if($data['bulan']=='04'){
+                  $bln='April';
+                }
+                else if($data['bulan']=='05'){
+                  $bln='Mei';
+                }
+                else if($data['bulan']=='06'){
+                  $bln='Juni';
+                }
+            ?>
+    <li><a href="?r=home&pg=home&thn=2016&bln=<?php echo $data['bulan'];?>"><?php echo $bln; ?></a></li>
     <li>
       <?php 
     }}

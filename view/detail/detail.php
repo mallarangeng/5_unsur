@@ -64,6 +64,7 @@ header("location:index.html");
   </table>
 
  <a class="btn btn-info btn-sm add-notulen" href="" data-id="<?php echo $_GET['id_lap'] ?>" role="button">Tambah Notulen</a>&nbsp;<a class="btn btn-primary btn-sm" href="?r=laporan&pg=laporan" role="button">Kembali</a>
+ <p>
  <div class="modal fade" id="modal-add-notulen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <form role="form" action="" method="post">

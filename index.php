@@ -167,6 +167,6 @@ $(document).ready(function() {
                                 }
                             ?>
 </div>
-      <div class="well well-sm">&copy;ppg-tangbar.com&nbsp;<?php echo date('Y'); ?><br>Whatsapp : 085715887704</div>
+      <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="ppg-tangbar.com">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
       </body>
 </html>

@@ -45,6 +45,7 @@ header("location:index.html");
           &nbsp;<a class="btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
           &nbsp;<!--<button type="button" class="btn btn-danger btn-xs" data-id="<?php echo $data['id_lap']; ?>"data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
           <a class="btn <?php echo $aa; ?> btn-xs  <?php echo $bb; ?> kirim-laporan" href="" data-id="<?php echo $data['id_lap'] ?>"><?php echo $cc; ?></a>
+                  <a class="btn btn-default btn-xs" href="view/print/cetak.php" role="button"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</a>
         </td>
       </tr>
 <?php
@@ -55,7 +56,7 @@ header("location:index.html");
     </tbody>
   </table>
  <a class="btn btn-info btn-xs" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
-  
+  <p>
  <div class="modal fade" id="modal-kirim-laporan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <form role="form" action="" method="post">

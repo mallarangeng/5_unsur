@@ -4,7 +4,6 @@ $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
-
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -17,7 +16,7 @@ header("location:index.html");
  <table class="table table-hover">
     <thead>
       <tr>
-        <th> <button type="button" class="btn btn-success">&laquo;DATA PERIODE LAPORAN &raquo;</button></th>
+        <th><h4><strong>DATA PERIODE LAPORAN</strong></h4></th>
       </tr>
     </thead>
     <tbody>
