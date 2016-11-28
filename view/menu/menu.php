@@ -52,8 +52,7 @@ header("location:index.html");
 }
 }
 ?>
-
     </tbody>
   </table>
+  <a class="btn btn-info btn-xs" href="?r=menu&pg=menu_form" role="button">Tambah Menu</a>
 </div>
- <a class="btn btn-info btn-xs" href="?r=menu&pg=menu_form" role="button">Tambah Menu</a>

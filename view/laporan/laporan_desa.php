@@ -46,7 +46,7 @@ header("location:index.html");
         <td><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;<font class="hijaumuda"><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;<?php echo $data['nm_kelompok']; ?></font><br><?php echo $data['ket']; ?>
         <p>
           
-          <a class="btn btn-info btn-xs baca-laporan" href="" data-id="<?php echo $data['id_lap']; ?>" role="button">BACA lAPORAN</a>&nbsp;
+          <a class="btn btn-info btn-xs baca-laporan" href="" data-id="<?php echo $data['id_lap']; ?>" role="button">BACA lAPORAN</a>&nbsp;<a class="btn btn-info btn-xs" href="./pdf.php" role="button" target="_blank">Cetak</a>
        </td>
       </tr>
 <?php

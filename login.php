@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script type="text/javascript"></script>
   	<link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
 	<script src="jquery/jquery-ui.js"></script>
- 	<!--<link href="images/logo.png" rel="shortcut icon" /> -->
+ 	<link href="images/logo.png" rel="shortcut icon" />
 </head>
 
 
@@ -65,25 +65,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if($_GET['r']=='error') { echo'
 <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Warning&nbsp;</strong>User atau password salah !
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Info&nbsp;</strong>User atau password yang anda masukan salah !
 </div>'
 ; } ?>
 
  <form role="form" action="?op=in" method="post" class="form-horizontal col-md-3">
   <div class="form-group">
+
     <label for="email">USER ID</label>
-    <input type="text" name="id_kelompok" class="form-control" required>
+    <input type="text" name="id_kelompok" class="form-control" placeholder="Masukan user id .." required>
   </div>
   <div class="form-group">
     <label for="pwd">PASSWORD</label>
-    <input type="password" class="form-control" name="password" required><br>
-    <button type="submit" class="btn btn-info">Masuk</button>
+    <input type="password" class="form-control" name="password" placeholder="Masukan Password .." required><br>
+    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Masuk</button>
+
   </div>
 
   
 </form>
   </div>
-   <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="ppg-tangbar.com">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
+   <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="https://ppg-tangbar.com/">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
      
 </body>
 </html>

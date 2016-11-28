@@ -30,7 +30,7 @@ header("location:login.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
 	<!--<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">-->
-	<title>Lima Unsur</title>
+	<title>KBM PPG-TANGBAR</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.tableTools.css">
@@ -49,7 +49,7 @@ header("location:login.php");
     <link href="jquery/jquery-ui.css" rel="stylesheet" type="text/css" />  
   <script src="jquery/jquery-ui.js"></script>
   <script src="scripts/aplikasi.js"></script>
-    <!--<link href="images/logo.png" rel="shortcut icon" /> -->
+    <link href="images/logo.png" rel="shortcut icon" />
 
 <!--  datepicker -->
   <link rel="stylesheet" href="datepicker/jquery-ui.css">
@@ -166,7 +166,8 @@ $(document).ready(function() {
                                         include "view/".$r.'/'.$pg.".php";
                                 }
                             ?>
+                            <br>
 </div>
-      <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="ppg-tangbar.com">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
+      <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="https://ppg-tangbar.com/">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
       </body>
 </html>
