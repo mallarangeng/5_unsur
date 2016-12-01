@@ -3,8 +3,11 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="hendri";
-  private $dbPass="900973";
+  private $dbPass="";
   private $dbName="limaunsur";
+  #private $dbUser="ppgtangb_5unsur";
+  #private $dbPass="karnaalloh#354";
+  #private $dbName="ppgtangb_limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
   mysql_select_db($this->dbName) or die ("Database Tidak Ditemukan di Server"); 
@@ -247,6 +250,39 @@ else{
   /**
   * 
   */
+  /**
+  * 
+  */
+  class Conten 
+  {
+    
+     function tambahKonten($id,$judul,$conten,$tgl,$publish)
+    {
+      $query="INSERT INTO conten (id,judul,conten,tgl,publish)
+      VALUES('$id','$judul','$conten','$tgl','$publish')";
+      $hasil= mysql_query($query);
+    }
+    function tampilK() {
+      $query = mysql_query("SELECT * FROM conten");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+      function bacaK($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='$_GET[id]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+      function updateK ($id,$judul,$conten,$tgl,$publish)
+    {
+      $query=mysql_query("UPDATE conten SET judul='$judul', conten='$conten',tgl='$tgl',publish='$publish' WHERE id='$id'");
+    }
+
+  }
   class Detail
   {
     

@@ -4,7 +4,7 @@ $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
-$detail = new detail();
+$conten = new conten();
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -26,8 +26,19 @@ $datai  = $laporan->hitungindesa();
   <div class="col-sm-4">
     <div class="alert alert-info" role="alert">
       
-      <strong>Top Artikel Internet security</strong><br>
-      Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+      <strong>Penggerak Pembina Generus (PPG) Tangbar</strong><br><hr>
+        <?php
+      $arrayconten=$conten->tampilK();
+      if (count($arrayconten)) {
+      foreach($arrayconten as $d) {
+    ?>
+<ul>
+  <li><a href="?r=conten&pg=read&id=<?php echo $d['id']; ?>"><?php echo $d['judul']; ?></a></li>
+</ul>
+    <?php
+  }
+}
+    ?>
     </div>
 </div>
 </div>

@@ -67,6 +67,9 @@ header("location:login.php");
   </script>
   <!-- close   datepicker -->
 
+<script src="tinymce/js/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
 </head>
 <style type="text/css">
 div.dataTables_length{
