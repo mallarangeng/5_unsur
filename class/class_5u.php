@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="hendri";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   function connectMySQL() {
   mysql_connect($this->dbHost, $this->dbUser, $this->dbPass);
