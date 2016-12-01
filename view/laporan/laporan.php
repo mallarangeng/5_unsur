@@ -39,12 +39,12 @@ header("location:index.html");
       <tr>
         <td><?php echo $c=$c+1;?></td>
         
-        <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br><?php echo $data['ket']; ?>
+        <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br><?php echo $data['ket']; ?><br>Nama Penerobos : <strong><?php echo $data['nama']; ?></strong><br> Hadir : <?php echo $data['turba']; ?> 
         <p>
-          <a class="btn btn-info btn-xs" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
-          &nbsp;<a class="btn btn-warning btn-xs" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
+          <a class="btn btn-info" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
+          &nbsp;<a class="btn btn-warning" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
           &nbsp;<!--<button type="button" class="btn btn-danger btn-xs" data-id="<?php echo $data['id_lap']; ?>"data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
-          <a class="btn <?php echo $aa; ?> btn-xs  <?php echo $bb; ?> kirim-laporan" href="" data-id="<?php echo $data['id_lap'] ?>"><?php echo $cc; ?></a>
+          <a class="btn <?php echo $aa; ?>  <?php echo $bb; ?> kirim-laporan" href="" data-id="<?php echo $data['id_lap'] ?>"><?php echo $cc; ?></a>
                   <!--
                   <a class="btn btn-default btn-xs" href="view/print/cetak.php" role="button"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</a>
                   -->
@@ -57,7 +57,7 @@ header("location:index.html");
 
     </tbody>
   </table>
- <a class="btn btn-info btn-xs" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
+ <a class="btn btn-info" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
   <p>
  <div class="modal fade" id="modal-kirim-laporan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

@@ -13,12 +13,12 @@ $data  = $detail->bacaDetail($id_detail);
     <label for="email">Kendala <?php echo $_GET['id_detail']; ?></label>
     <input type="hidden" name="id_detail" value="<?php echo $data['id_detail']; ?>">
     <input type="hidden" name="id_lap" value="<?php echo $data['id_lap']; ?>">
-    <textarea class="form-control" name="kendala" rows="3" placeholder="Masukan kendala disni..." required><?php echo $data['kendala']; ?></textarea>
+    <textarea class="form-control" name="kendala" rows="6" placeholder="Masukan kendala disni..." required><?php echo $data['kendala']; ?></textarea>
   </div>
 
   <div class="form-group">
     <label for="pwd">Solusi Alternatif / Saran</label>
-    <textarea class="form-control" rows="3" name="solusi" placeholder="Masukan saran / solusi alternatif .." required><?php echo $data['solusi']; ?></textarea>
+    <textarea class="form-control" rows="6" name="solusi" placeholder="Masukan saran / solusi alternatif .." required><?php echo $data['solusi']; ?></textarea>
     <input name="ket" type="hidden" class="form-control" value="<?php echo $data['ket']; ?>" placeholder="Optional ... ">
     <input name="stat" type="hidden" value="<?php echo $data['stat']; ?>">
   </div>

@@ -22,7 +22,14 @@ $datai  = $laporan->hitungindesa();
 
   <body>
     <h3>Dashboard</h3>
-    <div class="row">    
+    <div class="row">
+     <div class="col-sm-4">
+    <div class="alert alert-danger" role="alert">
+      <strong>PENGUMUMAN</strong><br>
+      ..
+    </div>
+</div>
+    
   <div class="col-sm-4">
     <div class="alert alert-info" role="alert">
       
@@ -42,7 +49,21 @@ $datai  = $laporan->hitungindesa();
     </div>
 </div>
 </div>
-<a href=""><small><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</small></a>
+<?php
+if (isset($_SESSION['level']))
+{
+  if ($_SESSION['level'] == "Kelompok")
+   {  
+    ?>
+      <a class="btn btn-primary btn-lg" href="?r=laporan&pg=laporan" role="button">Buat Laporan</a> &nbsp; <a class="btn btn-success btn-lg" href="?r=laporan&pg=laporan" role="button">Jadwal Turba</a><br><br>
+    <?php
+   }
+ }
+ ?>
+
+
+<br>
+<a href=""><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</a>
   <br>
   </body>
 

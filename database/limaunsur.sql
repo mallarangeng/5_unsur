@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 Sep 2016 pada 09.42
+-- Generation Time: 01 Des 2016 pada 17.36
 -- Versi Server: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `limaunsur`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `conten`
+--
+
+CREATE TABLE IF NOT EXISTS `conten` (
+  `id` int(5) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `conten` text NOT NULL,
+  `tgl` date NOT NULL,
+  `publish` varchar(5) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `conten`
+--
+
+INSERT INTO `conten` (`id`, `judul`, `conten`, `tgl`, `publish`) VALUES
+(1, 'Peran dan tugas lima (5) Unsur', '<p><strong>A. PERAN DAN TUGAS ORANG TUA</strong></p>\r\n<p>1. Mendoakan Putra dan putrinya agar berhasil dunia akhirat</p>\r\n<p>2. Memberikan pengawasan dan pembinaan pada putra &amp; putrinya agar tidak terseret arus pergaulan remaja dan gaya hidup yang tidak sesuai dengan ajaran agama seperti : cara berpakaiyan, penggunaan alat elektronik dsb.&nbsp;</p>\r\n<p>3. Mendukung program program generus yang telah di musyawarahkan olh PPG maupun lima unsur pembina generus.&nbsp;</p>\r\n<p>4. Ikut aktif dalam <span style="text-decoration: underline;"><em><strong>pelaksanaan musyawarah</strong></em></span> lima unsur &nbsp;pembinaan generus.</p>\r\n<p>5. ikut mengontrol ketercapaian target kurikulum putra putrinya</p>\r\n<p><strong>B. PERAN DAN TUGAS MUBALIGH MUBALIGHOT</strong></p>\r\n<p>1. Membuat persiapan pembelajaran.&nbsp;</p>\r\n<p>2. mengajar dan mendidik kepada generasi dan penerus dengan hati ridho dan karena allah.</p>\r\n<p>3. Melaksanakan evaluasi dan tindak lanjut (Remedial, Pengayaan dan Laporan)</p>\r\n<p>4. Memberikan teladan dalam prilaku sehari hari sehingga menjadi contoh dan panutan bagi para generus</p>\r\n<p>5. Memberikan motivasi pada generus&nbsp;</p>', '2016-12-01', 'Y'),
+(2, 'Tugas Tugas bidang ', '<p>kahg akgha gkahg akgha kahghg ajgha ghgka hga&nbsp;</p>', '2016-12-01', 'Y'),
+(3, '6 Aspek Standar Keberhasilan Generus', '<p><strong>A. Managemen Dan Administrasi</strong></p>\r\n<p>1. memiliki Jadwal rutin pengajian</p>\r\n<p>2. Memiliki database generus dan guru</p>\r\n<p>3. Memiliki guru tetap (Ratio 1:20)</p>\r\n<p>4. Memiliki Kurikulum / pengembangan materi</p>\r\n<p>5. memiliki Buku panduan guru dan siswa</p>\r\n<p>6. memiliki Buku penghubung dengan orang tua</p>\r\n<p>7. Memiliki buku presensi dan jadwal harian</p>\r\n<p><strong>B. SARANA PENUNJANG</strong></p>\r\n<p>1. Memiliki ruang belajar</p>\r\n<p>2. Memiliki meja belajar, Withboard , lemari</p>\r\n<p>3. Memiliki tempat dan sarana bermain</p>', '2016-12-01', 'Y'),
+(4, 'Petunjuk Teknis Pelaksanaan Musyawarah lima (5) Unsur', '<p><strong>TUJUAN</strong></p>\r\n<p>1. Mengevaluasi pelaksanaan belajar mengajar (KBM) di kelompok</p>\r\n<p>2. meningkatkan koordinasi dan kerjasama lima unsur&nbsp;</p>', '2016-12-01', 'Y'),
+(5, 'Semangat dan kepedulian lima unsur Menjadi kunci keberhasilan pembinaan generasi penerus', '<p>1. Punya kesadaran yang tinggi untuk manetapi kewajiban ibadah terutama sholat</p>\r\n<p>2.&nbsp;Bersemangat dalam mencari ilmu</p>\r\n<p>3. Senang beramal sholih&nbsp;</p>\r\n<p>4. Bisa takdim kepada orang-orang yang berhak ditakdimi&nbsp;</p>', '2016-12-01', 'Y');
 
 -- --------------------------------------------------------
 
@@ -77,7 +102,7 @@ INSERT INTO `kelompok` (`id_kelompok`, `nm_kelompok`, `parent`, `alamat`, `nohp`
 ('2016001', 'Pondok Alam Permai  (PAP)', '0', 'Purati', ' 085715887704', 'Hendri Yulianto', '202cb962ac59075b964b07152d234b70', 'Desa', 0),
 ('2016002', 'Pondok Makmur', '2016001', 'Perum Pondok Makmur 6', '085715887704', 'Amien Purnama', '202cb962ac59075b964b07152d234b70', 'Kelompok', 0),
 ('2016003', 'Keroncong', '2016001', 'Keroncong Permai', '085715887704', 'Tarmono', '202cb962ac59075b964b07152d234b70', 'Kelompok', 0),
-('2016004', 'Hendri Yulianto', '0', 'Taman Cibodas', '085715887704', 'Tangerang Barat', '202cb962ac59075b964b07152d234b70', 'Admin', 1),
+('2016004', 'PPG TANGERANG BARAT', '0', 'Taman Cibodas', ' 085715887704', 'Tangerang Barat', '202cb962ac59075b964b07152d234b70', 'Admin', 1),
 ('2016005', 'Taman Kota', '2016001', 'Taman Kota', '-', 'Muntasir', '202cb962ac59075b964b07152d234b70', 'Kelompok', 0),
 ('2016006', 'Jati', '0', 'Jati', '085715887704', 'Rosyid', '202cb962ac59075b964b07152d234b70', 'Desa', 0),
 ('2016007', 'Jati Baru', '2016006', 'Jati', '-', '-', '202cb962ac59075b964b07152d234b70', 'Kelompok', 0),
@@ -138,17 +163,20 @@ CREATE TABLE IF NOT EXISTS `laporan` (
   `ket` varchar(100) NOT NULL,
   `date_on` date NOT NULL,
   `stat` int(2) NOT NULL,
-  `in_ds` int(2) NOT NULL
+  `turba` varchar(5) NOT NULL,
+  `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `laporan`
 --
 
-INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `stat`, `in_ds`) VALUES
-(10001, 2016002, '2016-09-06', 'Musyawarah 5 Unsur', '2016-09-04', 1, 0),
-(10002, 2016003, '2016-08-03', 'Musyawarah 5 Unsur', '2016-09-04', 1, 0),
-(10003, 2016005, '2016-07-07', 'Musyawarah 5 Unsur', '2016-09-05', 1, 0);
+INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `stat`, `turba`, `nama`) VALUES
+(10001, 2016002, '2016-09-06', 'Musyawarah 5 Unsur', '2016-09-04', 1, 'Ya', 'Fahmi Ridho'),
+(10002, 2016003, '2016-08-03', 'Musyawarah 5 Unsur', '2016-09-04', 1, 'Ya', 'Hendri Yulianto'),
+(10003, 2016005, '2016-07-07', 'Musyawarah 5 Unsur', '2016-09-05', 1, 'Tidak', 'Firman'),
+(10004, 2016002, '2016-12-01', 'Musyawarah 5 Unsur', '0000-00-00', 0, 'Ya', 'Agus B'),
+(10005, 2016002, '2016-11-15', 'Musyawarah 5 Unsur', '2016-12-01', 0, 'Tidak', 'Fahmi Ridho');
 
 -- --------------------------------------------------------
 
@@ -172,22 +200,26 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `icon`, `urut`) VALUES
-(1, 'Home', 'home', 'home', 'Kelompok', 0, 'glyphicon-send', 1),
-(2, 'Laporan', 'laporan', 'laporan', 'Kelompok', 0, 'glyphicon-comment', 2),
+(2, 'Laporan', 'laporan', 'laporan', 'Kelompok', 0, 'glyphicon-cloud', 2),
 (3, 'Menu', 'menu', 'menu', 'Admin', 0, 'glyphicon-cog', 2),
-(4, 'Home', 'home', 'home', 'Desa', 0, 'glyphicon-globe', 1),
 (5, 'Data Kelompok', 'kelompok', 'kelompok', 'Admin', 0, 'glyphicon-map-marker', 3),
-(6, 'Home', 'home', 'home', 'Admin', 0, 'glyphicon-globe', 1),
 (7, 'Laporan', 'laporan', 'laporan_periode', 'Desa', 0, 'glyphicon-comment', 1),
 (8, 'Kelompok', 'kelompok', 'kelompok_desa', 'Desa', 0, 'glyphicon-map-marker', 4),
 (9, 'Setting', 'profile', 'profile_show', 'Kelompok', 0, ' glyphicon-cog', 4),
 (10, 'Laporan', 'laporan', 'laporan_periode_daerah', 'Daerah', 0, 'glyphicon-comment', 1),
 (11, 'Pending', 'detail', 'detail_pend', 'Kelompok', 0, 'glyphicon-exclamation-sign', 3),
-(12, 'Setting', 'profile', 'profile_show', 'Desa', 0, 'glyphicon-cog', 4);
+(12, 'Setting', 'profile', 'profile_show', 'Desa', 0, 'glyphicon-cog', 4),
+(13, 'Artikel / Info', 'conten', 'conten', 'Admin', 0, 'glyphicon glyphicon-star', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `conten`
+--
+ALTER TABLE `conten`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `detail`
@@ -213,6 +245,15 @@ ALTER TABLE `laporan`
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id_menu`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `conten`
+--
+ALTER TABLE `conten`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

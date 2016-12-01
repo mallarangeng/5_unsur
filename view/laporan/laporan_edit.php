@@ -27,11 +27,22 @@ header("location:index.html");
     <input name="id_kelompok" type="hidden" value="<?php echo $datal['id_kelompok']; ?>" class="form-control" required>
     <input name="tanggal" type="text" value="<?php echo $datal['tanggal']; ?>" id="datepicker" class="form-control" required>
   </div>
-  <div class="form-group">
-    <label>Keterangan</label>
-    <input name="ket" type="text" value="<?php echo $datal['ket']; ?>" class="form-control" required>
+
+    <input name="ket" type="hidden" value="<?php echo $datal['ket']; ?>" class="form-control" required>
     <input name="date_on" type="hidden" value="<?php echo $datal['date_on']; ?>" class="form-control" required>
     <input name="stat" type="hidden" class="form-control" value="<?php echo $datal['stat']; ?>" required>
+ 
+  <div class="form-group">
+    <label>Nama Pengurus yang hadir</label>
+    <input name="nama" type="text" class="form-control" value="<?php echo $datal['nama']; ?>" placeholder="Nama Pengurus yang hadir">
+  </div>
+   <div class="form-group">
+    <label>Dihadiri Pengurus PPG ?</label>
+    <select required class="form-control" name="turba">
+      <option value="<?php echo $datal['turba']; ?>"><?php echo $datal['turba']; ?></option>
+    <option value="Ya">Ya</option>
+    <option value="Tidak">Tidak</option>
+  </select>
   </div>
   <!--
   <div class="form-group">
@@ -53,7 +64,9 @@ header("location:index.html");
   $_POST['tanggal'],
   $_POST['ket'],
   $_POST['date_on'],
-  $_POST['stat']);
+  $_POST['stat'],
+  $_POST['turba'],
+  $_POST['nama']);
    echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
   }
 ?>

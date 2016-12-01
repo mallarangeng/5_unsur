@@ -21,23 +21,27 @@ header("location:index.html");
     <input name="id_lap" type="hidden" value="<?php echo kdauto("laporan","1"); ?>" class="form-control" required>
     <input name="id_kelompok" type="hidden" value="<?php echo $_SESSION['id_kelompok'];?>" class="form-control" required>
     <div class="input-group">
-                                <input name="tanggal" type="text" id="datepicker" class="form-control" required> <span class="input-group-addon"><i id="calIconTourDateDetails" class="glyphicon glyphicon-th"></i></span>
+                                <input name="tanggal" type="text" id="datepicker" value="<?php echo date('Y-m-d'); ?>" class="form-control" required> <span class="input-group-addon"><i id="calIconTourDateDetails" class="glyphicon glyphicon-th"></i></span>
 
                             </div>
 
   </div>
-  <div class="form-group">
-    <label>Keterangan</label>
-    <input name="ket" type="text" class="form-control" value="Musyawarah 5 Unsur" required>
+ 
+    <input name="ket" type="hidden" class="form-control" value="Musyawarah 5 Unsur" required>
     <input name="date_on" type="hidden" value="<?php echo date('Y-m-d'); ?>" class="form-control" required>
     <input name="stat" type="hidden" class="form-control" placeholder="Optional..">
-  </div>
-  <!--
   <div class="form-group">
-    <label>Status</label>
-    <input name="stat" type="text" class="form-control" placeholder="Optional..">
+    <label>Nama Pengurus yang hadir</label>
+    <input name="nama" type="text" class="form-control" placeholder="Nama Pengurus yang hadir">
   </div>
-    -->
+  <div class="form-group">
+    <label>Dihadiri Pengurus PPG ?</label>
+    <select required class="form-control" name="turba">
+    <option value="Ya">Ya</option>
+    <option value="Tidak">Tidak</option>
+  </select>
+  </div>
+ 
   <div class="form-group">
     <input type="submit" name="simpan" value="Simpan" class="btn btn-info">
     &nbsp;
@@ -53,7 +57,9 @@ header("location:index.html");
   $_POST['tanggal'],
   $_POST['ket'],
   $_POST['date_on'],
-  $_POST['stat']);
+  $_POST['stat'],
+  $_POST['turba'],
+  $_POST['nama']);
    echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan'>";
   }
 ?>

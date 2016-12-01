@@ -43,7 +43,8 @@ header("location:index.html");
       <tr>
         <td><?php echo $c=$c+1;?></td>
         
-        <td><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;<font class="hijaumuda"><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;<?php echo $data['nm_kelompok']; ?></font><br><?php echo $data['ket']; ?>
+        <td><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></small>&nbsp;<font class="hijaumuda"><span class="glyphicon glyphicon-map-marker " aria-hidden="true"></span>&nbsp;<?php echo $data['nm_kelompok']; ?></font><br><?php echo $data['ket']; ?><br>
+          Nama Penerobos : <strong><?php echo $data['nama']; ?></strong><br> Hadir : <?php echo $data['turba']; ?> 
         <p>
           
           <a class="btn btn-info btn-xs baca-laporan" href="" data-id="<?php echo $data['id_lap']; ?>" role="button">BACA lAPORAN</a>&nbsp;<!-- <a class="btn btn-info btn-xs" href="./pdf.php" role="button" target="_blank">Cetak</a> -->

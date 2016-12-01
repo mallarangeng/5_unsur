@@ -18,3 +18,5 @@ header("location:index.html");
 <h2><strong><?php echo $d['judul']; ?></strong></h2><br>
 <font align="justify">
 <?php echo $d['conten']; ?></font>
+<hr>
+<a class="btn btn-primary btn-sm" href="index.php" role="button">Kembali</a><br>

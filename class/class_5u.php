@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="hendri";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -131,7 +131,7 @@ class Kelompok {
   class Laporan
   {
     
-    function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
+    function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat,$turba,$nama)
     {
       if($_POST){
       # Cek nomor faktur di database
@@ -145,8 +145,8 @@ class Kelompok {
       }
       # Kalau nomor faktur belum ada silahkan di simpan
 else{
-      $query="INSERT INTO laporan (id_lap,id_kelompok,tanggal,ket,date_on,stat)
-      VALUES('$id_lap','$id_kelompok','$tanggal','$ket','$date_on','$stat')";
+      $query="INSERT INTO laporan (id_lap,id_kelompok,tanggal,ket,date_on,stat,turba,nama)
+      VALUES('$id_lap','$id_kelompok','$tanggal','$ket','$date_on','$stat','$turba','$nama')";
       $hasil= mysql_query($query);
     }
      }
@@ -189,7 +189,7 @@ else{
   }
 
   function tampilLap() {
-      $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,
+      $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,turba,nama,
       (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE laporan.id_lap=detail.id_lap)tot_poin
       FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]' ORDER BY tanggal ASC");
       while($row=mysql_fetch_array($query))
@@ -226,7 +226,7 @@ else{
       return $data;
   }
 
-    function updateLap ($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat)
+    function updateLap ($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat,$turba,$nama)
     {
       if($_POST){
       # Cek nomor faktur di database
@@ -240,8 +240,7 @@ else{
       }
       # Kalau nomor faktur belum ada silahkan di simpan
 else{
-      $query=mysql_query("UPDATE laporan SET id_kelompok='$id_kelompok', tanggal='$tanggal',ket='$ket',date_on='$date_on',
-        stat='$stat'WHERE id_lap='$id_lap'");
+      $query=mysql_query("UPDATE laporan SET id_kelompok='$id_kelompok', tanggal='$tanggal',ket='$ket',date_on='$date_on',stat='$stat',turba='$turba',nama='$nama' WHERE id_lap='$id_lap'");
     }
   }
 }
