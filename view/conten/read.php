@@ -15,7 +15,11 @@ header("location:index.html");
 #close akses tanpa login
 ?>
 
-<h2><strong><?php echo $d['judul']; ?></strong></h2><br>
+<h2><?php echo $d['judul']; ?></h2>
+<font color="#5bc0de"><small>
+<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<i>Published by Admin</i>&nbsp;
+<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<i><?php echo DateToIndo($d['tgl']) ?></i><p>
+</font></small>
 <font align="justify">
 <?php echo $d['conten']; ?></font>
 <hr>

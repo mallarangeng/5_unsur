@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="hendri";
-  private $dbPass="900973";
+  private $dbPass="";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -262,11 +262,29 @@ else{
       $hasil= mysql_query($query);
     }
     function tampilK() {
-      $query = mysql_query("SELECT * FROM conten");
+      $query = mysql_query("SELECT * FROM conten WHERE id !='1'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
     }
+    function bacaP($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='1' AND publish='Y'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+       function bacaPe($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='1' AND publish='N'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
       function bacaK($id)
           {
         $query=mysql_query("SELECT * FROM conten WHERE id='$_GET[id]'");

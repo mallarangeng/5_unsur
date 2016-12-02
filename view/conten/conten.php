@@ -3,6 +3,7 @@ include'../../class/class_5u.php';
 $db = new Database();
 $db->connectMySQL();
 $conten = new conten();
+$p  = $conten->bacaPe($id);
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -48,13 +49,11 @@ header("location:index.html");
   </table>
  <a class="btn btn-info btn-xs" href="?r=conten&pg=conten_form" role="button">Tambah Data</a><br>
  </div>
- <div class="col-md-4"> <div class="alert alert-info" role="alert">
+ <div class="col-md-4"> <div class="alert alert-danger" role="alert">
       
-      <strong>Penggerak Pembina Generus (PPG) Tangbar</strong><br><hr>
-          <a href="?r=conten&pg=read&id=1">Peran dan tugas lima (5) Unsur</a><br>
-      <a href="?r=conten&pg=read&id=2">Tugas Tugas bidang </a><br>
-      <a href="?r=conten&pg=read&id=3">6 Aspek Standar Keberhasilan Generus</a><br>
-      <a href="?r=conten&pg=read&id=4">Petunjuk Teknis Pelaksanaan Musyawarah lima (5) Unsur</a><br>
+      <strong>INFORMASI / PENGUMUMAN</strong><br><hr>
+        <?PHP echo $p['judul']; ?>&nbsp;&nbsp;<a href="?r=conten&pg=conten_change&id=<?PHP echo $p['id']; ?>">Edit</a><br>
+        <?PHP echo $p['conten']; ?>
         </div>
 </div>
 </div>

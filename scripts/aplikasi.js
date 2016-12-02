@@ -10,6 +10,7 @@
                     }   
                 );
             });
+     
                $(document).on('click','.add-notulen',function(e){
                 e.preventDefault();
                 $("#modal-add-notulen").modal('show');
@@ -27,6 +28,17 @@
                 $(".modal-title").html('UBAH NOTULEN');
                 $.get("view/detail/notulen_edit.php",
                     {id_detail:$(this).attr('data-id')},
+                    function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+                $(document).on('click','.lihat-jadwal',function(e){
+                e.preventDefault();
+                $("#modal-jadwal").modal('show');
+                $(".modal-title").html('LIHAT JADWAL TURBA');
+                $.get("view/jadwal/modal.php",
+                    {id_lap:$(this).attr('data-id')},
                     function(html){
                         $(".modal-body").html(html);
                     }   

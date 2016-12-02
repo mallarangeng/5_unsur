@@ -5,6 +5,7 @@ $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
 $conten = new conten();
+$p  = $conten->bacaP($id);
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -25,8 +26,10 @@ $datai  = $laporan->hitungindesa();
     <div class="row">
      <div class="col-sm-4">
     <div class="alert alert-danger" role="alert">
-      <strong>PENGUMUMAN</strong><br>
-      ..
+      <strong>INFORMASI / PENGUMUMAN</strong><br>
+      <ul>
+      <li><?php echo $p['judul'];?></li>
+      </ul>
     </div>
 </div>
     
@@ -55,7 +58,7 @@ if (isset($_SESSION['level']))
   if ($_SESSION['level'] == "Kelompok")
    {  
     ?>
-      <a class="btn btn-primary btn-lg" href="?r=laporan&pg=laporan" role="button">Buat Laporan</a> &nbsp; <a class="btn btn-success btn-lg" href="?r=laporan&pg=laporan" role="button">Jadwal Turba</a><br><br>
+      <a class="btn btn-primary btn-lg" href="?r=laporan&pg=laporan" role="button">Buat Laporan</a> &nbsp; <a class="btn btn-success btn-lg lihat-jadwal" href="" role="button">Jadwal Turba</a><br><br>
     <?php
    }
  }
@@ -65,6 +68,29 @@ if (isset($_SESSION['level']))
 <br>
 <a href=""><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</a>
   <br>
+<!-- MODAL PENGUMUMAN-->
+ <div class="modal fade" id="modal-jadwal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <form role="form" action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+
+
+<!-- END MODAL -->
+
   </body>
 
 </html>
