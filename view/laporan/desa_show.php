@@ -12,13 +12,14 @@ header("location:index.html");
 }
 #close akses tanpa login
 ?>
- <table class="table table-hover">
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
     <thead>
       <tr>
-        <th>No</th>
-        <th>Desa</th>
-        <th>Lap</th>
-        <th>Lihat</th>
+        <th>NO</th>
+        <th>DESA</th>
+        <th>LIHAT</th>
       </tr>
     </thead>
     <tbody>
@@ -27,16 +28,12 @@ header("location:index.html");
       if (count($arraykelompok)) {
       foreach($arraykelompok as $data) {
     ?>
-
       <tr>
         <td><?php echo $c=$c+1;?></td>
         <td><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;<strong><?php echo $data['nm_kelompok']; ?></strong>
-            <br><small><font class="hijaumuda"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<font class="hijaumuda"><?php echo $data['penjab']; ?><br><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;<?php echo $data['nohp']; ?></font></small>
+            <br><font color="#5bc0de"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<?php echo $data['penjab']; ?><br><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;<?php echo $data['nohp']; ?></font>
         </td>
-        <td><?php echo $data['tot_lap']; ?> dari <?php echo $data['tot_klp']; ?></td>
-        <td><a class="btn btn-success btn-xs" href="?r=laporan&pg=laporan_daerah&periode=<?php echo $_GET['periode'];?>&desa=<?php echo $data['id_kelompok']; ?>" role="button">Lihat</a></td>
-       
-        
+        <td><a class="btn btn-info" href="?r=laporan&pg=laporan_daerah&periode=<?php echo $_GET['periode'];?>&desa=<?php echo $data['id_kelompok']; ?>" role="button">LIHAT LAPORAN</a></td>
         </tr>
 <?php
 }
@@ -45,4 +42,14 @@ header("location:index.html");
 
     </tbody>
   </table>
+
+  </div>
+  <div class="col-md-4"><div class="alert alert-info" role="alert">
+      <strong>DASHBOARD LAPORAN</strong><br>
+      Laporan
+    </div></div>
+</div>
+
+
+ 
  

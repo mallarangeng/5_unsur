@@ -41,7 +41,9 @@ header("location:login.php");
 	<script type="text/javascript" language="javascript" src="bootstrap/js/dataTables.tableTools.js"></script>
 	<!--<script type="text/javascript" language="javascript" src="../resources/syntax/shCore.js"></script>
 	<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>-->
+  <!--
   <link href="bootstrap/source-sans-pro/source-sans-pro.css" rel="stylesheet" type="text/css" />
+  -->
   <link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css" />
 
     <script src="bootstrap/js/bootstrap.min.js"></script>

@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="hendri";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
