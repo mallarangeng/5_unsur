@@ -28,7 +28,7 @@ $datai  = $laporan->hitungindesa();
     <div class="alert alert-danger" role="alert">
       <strong>INFORMASI / PENGUMUMAN</strong><br>
       <ul>
-      <li><?php echo $p['judul'];?></li>
+      <li><a href="?r=conten&pg=read&id=<?php echo $p['id']; ?>"><?php echo $p['judul']; ?></a></li>
       </ul>
     </div>
 </div>

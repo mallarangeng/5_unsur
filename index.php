@@ -69,8 +69,7 @@ header("location:login.php");
   </script>
   <!-- close   datepicker -->
 
-<script src="tinymce/js/tinymce/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'textarea' });</script>
+<script src="ckeditor/ckeditor.js"></script>
 
 </head>
 <style type="text/css">

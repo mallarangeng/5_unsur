@@ -23,7 +23,8 @@ header("location:index.html");
   </div>
   <div class="form-group">
     <label>Conten</label>
-    <textarea class="form-control" rows="10" name="conten"><?php echo $d['conten'];?></textarea>
+    <textarea class="form-control" rows="10" id="text-ckeditor" name="conten"><?php echo $d['conten'];?></textarea>
+    <script>CKEDITOR.replace('text-ckeditor');</script>
     <input name="tgl" type="hidden" value="<?php echo $d['tgl'];?>" class="form-control" required>
   </div>
     <div class="form-group">

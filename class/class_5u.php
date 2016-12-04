@@ -278,7 +278,7 @@ else{
       }
        function bacaPe($id)
           {
-        $query=mysql_query("SELECT * FROM conten WHERE id='1' AND publish='N'");
+        $query=mysql_query("SELECT * FROM conten WHERE id='1'");
         $data=mysql_fetch_array($query);
         $data[]=$row;
         if(isset($data)){

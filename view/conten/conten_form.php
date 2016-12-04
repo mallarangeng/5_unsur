@@ -21,7 +21,8 @@ header("location:index.html");
   </div>
   <div class="form-group">
     <label>Conten</label>
-    <textarea class="form-control" rows="10" name="conten"></textarea>
+    <textarea class="form-control" id="text-ckeditor" rows="10" name="conten"></textarea>
+    <script>CKEDITOR.replace('text-ckeditor');</script>
     <input name="tgl" type="hidden" value="<?php echo date('Y-m-d'); ?>" class="form-control" required>
   </div>
     <div class="form-group">
