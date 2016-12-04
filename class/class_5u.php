@@ -255,14 +255,27 @@ else{
   class Conten 
   {
     
-     function tambahKonten($id,$judul,$conten,$tgl,$publish)
+     function tambahKonten($id,$judul,$kategori,$conten,$tgl,$publish,$label)
     {
-      $query="INSERT INTO conten (id,judul,conten,tgl,publish)
-      VALUES('$id','$judul','$conten','$tgl','$publish')";
+      $query="INSERT INTO conten (id,judul,kategori,conten,tgl,publish,label)
+      VALUES('$id','$judul','$kategori','$conten','$tgl','$publish','$label')";
       $hasil= mysql_query($query);
     }
-    function tampilK() {
-      $query = mysql_query("SELECT * FROM conten WHERE id !='1'");
+    function tampilKall() {
+      $query = mysql_query("SELECT * FROM conten");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+    function tampilKinfo() {
+      $query = mysql_query("SELECT * FROM conten WHERE kategori='info'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+
+    function tampilKartikel() {
+      $query = mysql_query("SELECT * FROM conten WHERE kategori='Artikel'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -294,9 +307,9 @@ else{
           return $data;
         }
       }
-      function updateK ($id,$judul,$conten,$tgl,$publish)
+      function updateK ($id,$judul,$kategori,$conten,$tgl,$publish,$label)
     {
-      $query=mysql_query("UPDATE conten SET judul='$judul', conten='$conten',tgl='$tgl',publish='$publish' WHERE id='$id'");
+      $query=mysql_query("UPDATE conten SET judul='$judul', kategori='$kategori', conten='$conten',tgl='$tgl',publish='$publish', label='$label'  WHERE id='$id'");
     }
 
   }

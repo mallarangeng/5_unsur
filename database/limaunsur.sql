@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Des 2016 pada 17.36
--- Versi Server: 5.6.24
+-- Generation Time: Dec 05, 2016 at 12:34 AM
+-- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,32 +23,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `conten`
+-- Table structure for table `conten`
 --
 
 CREATE TABLE IF NOT EXISTS `conten` (
   `id` int(5) NOT NULL,
   `judul` varchar(100) NOT NULL,
+  `kategori` varchar(50) NOT NULL,
   `conten` text NOT NULL,
   `tgl` date NOT NULL,
-  `publish` varchar(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `publish` varchar(5) NOT NULL,
+  `label` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `conten`
+-- Dumping data for table `conten`
 --
 
-INSERT INTO `conten` (`id`, `judul`, `conten`, `tgl`, `publish`) VALUES
-(1, 'Peran dan tugas lima (5) Unsur', '<p><strong>A. PERAN DAN TUGAS ORANG TUA</strong></p>\r\n<p>1. Mendoakan Putra dan putrinya agar berhasil dunia akhirat</p>\r\n<p>2. Memberikan pengawasan dan pembinaan pada putra &amp; putrinya agar tidak terseret arus pergaulan remaja dan gaya hidup yang tidak sesuai dengan ajaran agama seperti : cara berpakaiyan, penggunaan alat elektronik dsb.&nbsp;</p>\r\n<p>3. Mendukung program program generus yang telah di musyawarahkan olh PPG maupun lima unsur pembina generus.&nbsp;</p>\r\n<p>4. Ikut aktif dalam <span style="text-decoration: underline;"><em><strong>pelaksanaan musyawarah</strong></em></span> lima unsur &nbsp;pembinaan generus.</p>\r\n<p>5. ikut mengontrol ketercapaian target kurikulum putra putrinya</p>\r\n<p><strong>B. PERAN DAN TUGAS MUBALIGH MUBALIGHOT</strong></p>\r\n<p>1. Membuat persiapan pembelajaran.&nbsp;</p>\r\n<p>2. mengajar dan mendidik kepada generasi dan penerus dengan hati ridho dan karena allah.</p>\r\n<p>3. Melaksanakan evaluasi dan tindak lanjut (Remedial, Pengayaan dan Laporan)</p>\r\n<p>4. Memberikan teladan dalam prilaku sehari hari sehingga menjadi contoh dan panutan bagi para generus</p>\r\n<p>5. Memberikan motivasi pada generus&nbsp;</p>', '2016-12-01', 'Y'),
-(2, 'Tugas Tugas bidang ', '<p>kahg akgha gkahg akgha kahghg ajgha ghgka hga&nbsp;</p>', '2016-12-01', 'Y'),
-(3, '6 Aspek Standar Keberhasilan Generus', '<p><strong>A. Managemen Dan Administrasi</strong></p>\r\n<p>1. memiliki Jadwal rutin pengajian</p>\r\n<p>2. Memiliki database generus dan guru</p>\r\n<p>3. Memiliki guru tetap (Ratio 1:20)</p>\r\n<p>4. Memiliki Kurikulum / pengembangan materi</p>\r\n<p>5. memiliki Buku panduan guru dan siswa</p>\r\n<p>6. memiliki Buku penghubung dengan orang tua</p>\r\n<p>7. Memiliki buku presensi dan jadwal harian</p>\r\n<p><strong>B. SARANA PENUNJANG</strong></p>\r\n<p>1. Memiliki ruang belajar</p>\r\n<p>2. Memiliki meja belajar, Withboard , lemari</p>\r\n<p>3. Memiliki tempat dan sarana bermain</p>', '2016-12-01', 'Y'),
-(4, 'Petunjuk Teknis Pelaksanaan Musyawarah lima (5) Unsur', '<p><strong>TUJUAN</strong></p>\r\n<p>1. Mengevaluasi pelaksanaan belajar mengajar (KBM) di kelompok</p>\r\n<p>2. meningkatkan koordinasi dan kerjasama lima unsur&nbsp;</p>', '2016-12-01', 'Y'),
-(5, 'Semangat dan kepedulian lima unsur Menjadi kunci keberhasilan pembinaan generasi penerus', '<p>1. Punya kesadaran yang tinggi untuk manetapi kewajiban ibadah terutama sholat</p>\r\n<p>2.&nbsp;Bersemangat dalam mencari ilmu</p>\r\n<p>3. Senang beramal sholih&nbsp;</p>\r\n<p>4. Bisa takdim kepada orang-orang yang berhak ditakdimi&nbsp;</p>', '2016-12-01', 'Y');
+INSERT INTO `conten` (`id`, `judul`, `kategori`, `conten`, `tgl`, `publish`, `label`) VALUES
+(1, 'Panduan Penggunaan Aplikasi', 'Info', '<p>Panduan penggunaan aplikasi</p>\r\n', '2016-12-01', 'Y', '[Baru]'),
+(2, 'Tugas Tugas bidang dalam PPG', 'Artikel', '<h3>A. Bidang Kegiatan muda mudi</h3>\r\n\r\n<p>1. Memiliki biodata / database muda mudi (Pra remaja, Remaja dan Pranikah)</p>\r\n\r\n<p>2. Menyusun program kegiatan muda mudi</p>\r\n\r\n<p><em>A. Praremaja Usia 12 s/d 15 Tahun</em></p>\r\n\r\n<p><em>B. Remaja Usia 15</em><em> s/d 18 Tahun</em></p>\r\n\r\n<p><em>C. Usia Nikah 18</em><em> s/d 30 Tahun</em></p>\r\n\r\n<p><strong>Contoh :</strong> Program percepatan ketercapaian target&nbsp; Kurikulum, <strong>CAI, Kompetisi Olah Raga, Pengajian Unik / Usia Nikah, Anjangsana, Outing Class, Outbond, Boothcamp (Penggemblengan Pengurus) Seminar, Kepramukaan</strong></p>\r\n\r\n<p>3. Melaksanakan turba pengurus muda mudi daerah ke pengajian muda mudi desa dan kelompok</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3>B. Penanggung Jawab Program Tingkat Desa</h3>\r\n\r\n<p>1. Bertanggung jawab terhadap pelaksanaan kegiatan pembinaan generus sedesa sesuai dengan program PPG yang telah disusun.&nbsp;</p>\r\n\r\n<p>2. Mengontrol dan memotivasi terhadap pelaksanaan pembinaan generus &nbsp;dikelompok</p>\r\n\r\n<p>3. Melaporkan pembinaan generus ke Pengurus PPG</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3>C. Penanggungjawab Program program tingkat kelompok</h3>\r\n\r\n<p>1. Bertanggungjawab terhadap pelaksanaan kegiatan pembinaan generus dikelompok sesuai dengan program PPG &nbsp;yang telah disusun</p>\r\n\r\n<p>2. Berkoordinasi dengan <strong>lima unsur&nbsp;</strong>pembina generus terkait dengan pembinaan generus.&nbsp;</p>\r\n\r\n<p>3. Mengupayakan ketercapaian target kurikulum&nbsp;</p>\r\n\r\n<p>4. Melakukan evaluasi terhadap pencapaian target kurikulum.&nbsp;</p>\r\n\r\n<p>5. Melaporkan hasil kegiatan belajar mengajar kepada penanggung jawab tingkat desa</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><em><strong>NB : Tugas Bidang bidang PPG Bersifat kolektif pelaksanaanya dengan cara musyawarah</strong></em></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2016-12-01', 'Y', ''),
+(3, '6 Aspek Standar Keberhasilan Generus', 'Artikel', '<p><strong>A. Managemen Dan Administrasi</strong></p>\r\n\r\n<p>1. memiliki Jadwal rutin pengajian</p>\r\n\r\n<p>2. Memiliki database generus dan guru</p>\r\n\r\n<p>3. Memiliki guru tetap (Ratio 1:20)</p>\r\n\r\n<p>4. Memiliki Kurikulum / pengembangan materi</p>\r\n\r\n<p>5. memiliki Buku panduan guru dan siswa</p>\r\n\r\n<p>6. memiliki Buku penghubung dengan orang tua</p>\r\n\r\n<p>7. Memiliki buku presensi dan jadwal harian</p>\r\n\r\n<p><strong>B. SARANA PENUNJANG</strong></p>\r\n\r\n<p>1. Memiliki ruang belajar</p>\r\n\r\n<p>2. Memiliki meja belajar, Withboard , lemari</p>\r\n\r\n<p>3. Memiliki tempat dan sarana bermain</p>\r\n\r\n<p>4. Memiliki media pembelajaran (LCD,AP,AV dll)</p>\r\n\r\n<p>5. Memiliki seragam siswa dan guru</p>\r\n\r\n<p><strong>C. Kegiatan Belajar Mengajar (KBM)</strong></p>\r\n\r\n<p>1. Melaksanakan KBM secara rutin dan berkesinambungan</p>\r\n\r\n<p>2. Melaksanakan evaluasi hasil belajar dan pemberian apresiasi.&nbsp;</p>\r\n\r\n<p>3. Melaksanakan / menyusun laporan ketercapaian target kurikulum</p>\r\n\r\n<p>4. Malaksanakan program tindak lanjut (Remedial dan tindak lanjut)</p>\r\n\r\n<p>5. Pembekalan peningkatan SDM guru/pengajar</p>\r\n\r\n<p>6. Mencetak asisten guru dari generus dan orang tua</p>\r\n\r\n<p>7. Melaksanakan musyawarah rutin para guru</p>\r\n\r\n<p>8. Refreshing siswa dan guru</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2016-12-01', 'Y', ''),
+(4, 'Petunjuk Teknis Pelaksanaan Musyawarah lima (5) Unsur', 'Artikel', '<p><span style="color:#ff0000"><strong>TUJUAN</strong></span></p>\r\n\r\n<ol>\r\n	<li>Mengevaluasi pelaksanaan belajar mengajar (KBM) di kelompok</li>\r\n	<li>Meningkatkan koordinasi dan kerjasama lima unsur&nbsp;</li>\r\n	<li>Meningkatkan Peran serta dan lima unsur pembina generus dikelompok</li>\r\n</ol>\r\n\r\n<p><strong>PESERTA</strong></p>\r\n\r\n<ol>\r\n	<li>Keimaman kelompok</li>\r\n	<li>Para orang tua</li>\r\n	<li>Mubaligh Mubalighot&nbsp; (Tugasan, Setempat, Asisten)</li>\r\n	<li>Pengurus Kelompok</li>\r\n	<li>Pakar Pendidik (Guru, Dosen, Psikolog, Sarjana Dll.)</li>\r\n</ol>\r\n\r\n<p><strong>WAKTU</strong></p>\r\n\r\n<ul>\r\n	<li>Menyesuaikan (Bisa menggunakan Salah satu atau sebagian waktu pengajian kelompok)</li>\r\n</ul>\r\n\r\n<p><strong>PELAKSANA</strong></p>\r\n\r\n<ul>\r\n	<li>Minimal satu kali dalam satu bulan</li>\r\n</ul>\r\n\r\n<p><strong>CONTOH SUSUNAN ACARA</strong></p>\r\n\r\n<table class="table table-bordered">\r\n	<caption>Contoh Susunan Acara</caption>\r\n	<thead>\r\n		<tr>\r\n			<th scope="col">NO</th>\r\n			<th scope="col">ACARA</th>\r\n			<th scope="col">PENYAJI</th>\r\n			<th scope="col">KETERANGAN</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>1</td>\r\n			<td>Nasehat Pembukaan</td>\r\n			<td>Keimaman Kelompok</td>\r\n			<td>&nbsp;+ 15 Menit</td>\r\n		</tr>\r\n		<tr>\r\n			<td>2</td>\r\n			<td>Sosialisasi / Evaluasi Program PG</td>\r\n			<td>Pengurus PPG Penanggung Jawab KBM Tingkat kelompok</td>\r\n			<td>Mengevaluasi (Melaporkan)</td>\r\n		</tr>\r\n		<tr>\r\n			<td>3</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td>4</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td>5</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p><img alt="" class="img-responsive" src="https://avatars1.githubusercontent.com/u/7261043?v=3&amp;s=400" /></p>\r\n', '2016-12-01', 'Y', '[Penting]'),
+(5, 'Semangat dan kepedulian lima unsur Menjadi kunci keberhasilan pembinaan generasi penerus', 'Artikel', '<p>1. Punya kesadaran yang tinggi untuk manetapi kewajiban ibadah terutama sholat</p>\r\n\r\n<p>2.&nbsp;Bersemangat dalam mencari ilmu</p>\r\n\r\n<p>3. Senang beramal sholih&nbsp;</p>\r\n\r\n<p>4. Bisa takdim kepada orang-orang yang berhak ditakdimi&nbsp;</p>\r\n', '2016-12-01', 'Y', ''),
+(6, 'Peran dan tugas lima (5) Unsur', 'Artikel', '<p><strong>A. PERAN DAN TUGAS ORANG TUA</strong></p>\r\n\r\n<p>1. Mendoakan Putra dan putrinya agar berhasil dunia akhirat</p>\r\n\r\n<p>2. Memberikan pengawasan dan pembinaan pada putra &amp; putrinya agar tidak terseret arus pergaulan remaja dan gaya hidup yang tidak sesuai dengan ajaran agama seperti : cara berpakaiyan, penggunaan alat elektronik dsb.&nbsp;</p>\r\n\r\n<p>3. Mendukung program program generus yang telah di musyawarahkan olh PPG maupun lima unsur pembina generus.&nbsp;</p>\r\n\r\n<p>4. Ikut aktif dalam&nbsp;<u><em><strong>pelaksanaan musyawarah</strong></em></u>&nbsp;lima unsur &nbsp;pembinaan generus.</p>\r\n\r\n<p>5. ikut mengontrol ketercapaian target kurikulum putra putrinya</p>\r\n\r\n<p><strong>B. PERAN DAN TUGAS MUBALIGH MUBALIGHOT</strong></p>\r\n\r\n<p>1. Membuat persiapan pembelajaran.&nbsp;</p>\r\n\r\n<p>2. mengajar dan mendidik kepada generasi dan penerus dengan hati ridho dan karena allah.</p>\r\n\r\n<p>3. Melaksanakan evaluasi dan tindak lanjut (Remedial, Pengayaan dan Laporan)</p>\r\n\r\n<p>4. Memberikan teladan dalam prilaku sehari hari sehingga menjadi contoh dan panutan bagi para generus</p>\r\n\r\n<p>5. Memberikan motivasi pada generus&nbsp;</p>\r\n', '2016-12-02', 'Y', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail`
+-- Table structure for table `detail`
 --
 
 CREATE TABLE IF NOT EXISTS `detail` (
@@ -62,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail`
+-- Dumping data for table `detail`
 --
 
 INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`, `publis`) VALUES
@@ -79,7 +82,7 @@ INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelompok`
+-- Table structure for table `kelompok`
 --
 
 CREATE TABLE IF NOT EXISTS `kelompok` (
@@ -95,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `kelompok` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kelompok`
+-- Dumping data for table `kelompok`
 --
 
 INSERT INTO `kelompok` (`id_kelompok`, `nm_kelompok`, `parent`, `alamat`, `nohp`, `penjab`, `password`, `level`, `aktif`) VALUES
@@ -153,7 +156,7 @@ INSERT INTO `kelompok` (`id_kelompok`, `nm_kelompok`, `parent`, `alamat`, `nohp`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `laporan`
+-- Table structure for table `laporan`
 --
 
 CREATE TABLE IF NOT EXISTS `laporan` (
@@ -168,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `laporan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `laporan`
+-- Dumping data for table `laporan`
 --
 
 INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `stat`, `turba`, `nama`) VALUES
@@ -181,7 +184,7 @@ INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `st
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -196,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `icon`, `urut`) VALUES
@@ -209,7 +212,7 @@ INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `ic
 (10, 'Laporan', 'laporan', 'laporan_periode_daerah', 'Daerah', 0, 'glyphicon-comment', 1),
 (11, 'Pending', 'detail', 'detail_pend', 'Kelompok', 0, 'glyphicon-exclamation-sign', 3),
 (12, 'Setting', 'profile', 'profile_show', 'Desa', 0, 'glyphicon-cog', 4),
-(13, 'Artikel / Info', 'conten', 'conten', 'Admin', 0, 'glyphicon glyphicon-star', 1);
+(13, 'Artikel / Info', 'conten', 'conten', 'Admin', 0, 'glyphicon glyphicon-ok', 1);
 
 --
 -- Indexes for dumped tables
@@ -253,7 +256,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `conten`
 --
 ALTER TABLE `conten`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

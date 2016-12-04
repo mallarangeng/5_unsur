@@ -19,6 +19,14 @@ header("location:index.html");
     <label>Judul</label>
     <input name="judul" type="text" value="" class="form-control" required>
   </div>
+    <div class="form-group">
+    <label>Kategori</label>
+    <select  class="form-control" name="kategori" required>
+      <option value="Artikel">Artikel</option>
+    <option value="Info">Info</option>
+    
+  </select>
+  </div>
   <div class="form-group">
     <label>Conten</label>
     <textarea class="form-control" id="text-ckeditor" rows="10" name="conten"></textarea>
@@ -27,10 +35,14 @@ header("location:index.html");
   </div>
     <div class="form-group">
     <label>Publish ?</label>
-    <select required class="form-control" name="publish">
+    <select class="form-control" name="publish" required>
     <option value="Y">Y</option>
     <option value="N">N</option>
   </select>
+  </div>
+    <div class="form-group">
+    <label>Label</label>
+    <input name="label" type="text"class="form-control">
   </div>
   <div class="form-group">
     <label>Tanggal Publish :</label>
@@ -48,10 +60,12 @@ header("location:index.html");
   if($_POST['simpan']){
   $conten->tambahKonten(
   $_POST['id'],
-  $_POST['judul'],  
+  $_POST['judul'], 
+  $_POST['kategori'],  
   $_POST['conten'],
   $_POST['tgl'],
-  $_POST['publish']);
+  $_POST['publish'], 
+  $_POST['label']);
    echo"<meta http-equiv='refresh' content='0;url=?r=conten&pg=conten'>";
   }
 ?>
