@@ -78,6 +78,17 @@
                     }   
                 );
             });
+                $(document).on('click','.baca-laporan',function(e){
+                e.preventDefault();
+                $("#modal-baca-notulen").modal('show');
+                 $(".modal-title").html('NOTULEN MUSYAWARAH');
+                $.get("view/detail/detail_desa.php",
+                {id_lap:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
                 $(document).on('click','.add-harga',function(e){
                 e.preventDefault();
                 $("#modal-harga").modal('show');

@@ -171,6 +171,13 @@ else{
       $data[]=$row;
       return $data;
   }
+       function tampilLapdesa($tanggal) {
+      $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE parent='$_SESSION[id_kelompok]' AND stat='1' AND tanggal LIKE'$_GET[periode]%'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
       function tampilLHarian() {
       $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
        WHERE stat='1'");
