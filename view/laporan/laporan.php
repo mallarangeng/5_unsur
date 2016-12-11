@@ -57,7 +57,7 @@ header("location:index.html");
 
     </tbody>
   </table>
- <a class="btn btn-info" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>
+ <a class="btn btn-info" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>&nbsp;<a class="btn btn-primary" href="index.php" role="button">Kembali</a>
   <p>
  <div class="modal fade" id="modal-kirim-laporan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

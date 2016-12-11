@@ -75,7 +75,7 @@ if (isset($_SESSION['level']))
 
 
 <br>
-<a href=""><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</a>
+<a href="?r=home&pg=timeline"><span class="glyphicon glyphicon-time " aria-hidden="true"></span>&nbsp;Timeline 5 Unsur Kendala & Solusi</a>
   <br>
 <!-- MODAL PENGUMUMAN-->
  <div class="modal fade" id="modal-jadwal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

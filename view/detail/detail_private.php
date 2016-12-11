@@ -6,31 +6,25 @@ $kelompok = new kelompok();
 $laporan = new laporan();
 $detail = new detail();
 #cegah akses tanpa melalui login
-$user = new User();
-$id_kelompok = $_SESSION['id_kelompok'];
-if (!$user->get_sesi())
-{
-header("location:index.html");
-}
-#close akses tanpa login
 ?>
+ 
  <table class="table table-hover">
     <thead>
       <tr>
         
         <th>Kendala</th>
-        <th class="info">Solusi</th>
+        <th>Solusi</th>
         
        
       </tr>
     </thead>
     <tbody>
     <?php
-      $arraydetail=$detail->tampilDetailPending();
+      $arraydetail=$detail->tampilDetailPrivate();
       if (count($arraydetail)) {
       foreach($arraydetail as $data) {
-        if($data['stat']=='Selesai'){
-                  $aa='primary';
+       if($data['stat']=='Selesai'){
+                  $aa='success';
                 }else if($data['stat']=='Pending'){
                   $aa='danger';
                 }
@@ -38,7 +32,7 @@ header("location:index.html");
                   $aa='warning';
                 }
         if($data['publis']=='Bagikan'){
-                  $bb='success';
+                  $bb='info';
                 }else if($data['publis']=='Sembunyikan'){
                   $bb='default';
                 }
@@ -46,12 +40,15 @@ header("location:index.html");
 
 
       <tr>
-        <td><strong><?php echo $b=$b+1;?></strong>&nbsp;<?php echo $data['kendala']; ?></td>
-        <td class="info"><strong><?php echo $c=$c+1;?></strong>&nbsp;<?php echo $data['solusi']; ?> </td>
+        <td class=""><strong><?php echo $b=$b+1;?> )</strong>&nbsp;<?php echo $data['kendala']; ?></td>
+        <td class="success"><strong><?php echo $c=$c+1;?> )</strong>&nbsp;<?php echo $data['solusi']; ?>      
+        </td>
       </tr>
-        <tr>
-        <td class=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;<font class="merah"><?php echo DateToIndo($data['tanggal']) ?></font></td>
-        <td class="info"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
+      <tr>
+        <td class=""></td>
+        <td class="success"><span class="label label-<?php echo $aa; ?>"><?php echo $data['stat']; ?></span>&nbsp;<span class="label label-<?php echo $bb; ?>">Di <?php echo $data['publis']; ?></span></td>
+
+
       </tr>
 <?php
 }

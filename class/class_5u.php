@@ -157,9 +157,9 @@ else{
       $data[]=$row;
       return $data;
   }
-      function tampilLapdesa($tanggal) {
+      function timeline() {
       $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
-       WHERE parent='$_SESSION[id_kelompok]' AND tanggal LIKE'$_GET[periode]%' AND stat='1'");
+       WHERE stat='1'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -167,6 +167,13 @@ else{
      function tampilLapdaerah($tanggal) {
       $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
        WHERE parent='$_GET[desa]' AND stat='1' AND tanggal LIKE'$_GET[periode]%'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+      function tampilLHarian() {
+      $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
+       WHERE stat='1'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -329,8 +336,14 @@ else{
       $data[]=$row;
       return $data;
   }
+        function tampilDetailPrivate() {
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.publis='Bagikan' AND c.id_lap='$_GET[id_lap]'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
         function tampilDetailPending() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='Pending' AND a.id_kelompok='$_SESSION[id_kelompok]'");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='$_GET[stat]' AND a.id_kelompok='$_SESSION[id_kelompok]'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

@@ -67,11 +67,11 @@
                     }   
                 );
             });
-                $(document).on('click','.baca-laporan',function(e){
+                $(document).on('click','.baca-laporan-private',function(e){
                 e.preventDefault();
-                $("#modal-baca-notulen").modal('show');
+                $("#modal-baca-private").modal('show');
                  $(".modal-title").html('NOTULEN MUSYAWARAH');
-                $.get("view/detail/detail_desa.php",
+                $.get("view/detail/detail_private.php",
                 {id_lap:$(this).attr('data-id')},
                  function(html){
                         $(".modal-body").html(html);
