@@ -145,6 +145,17 @@
                     }   
                 );
             });
+                 $(document).on('click','.detail-generus',function(e){
+                e.preventDefault();
+                $("#detail-generus").modal('show');
+                 $(".modal-title").html('INFORMASI GENERUS');
+                $.get("view/generus/generus_detile.php",
+                {nig:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
     
          
         });

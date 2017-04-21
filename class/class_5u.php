@@ -2,8 +2,8 @@
   error_reporting(0);
   class Database {
   private $dbHost="localhost";
-  private $dbUser="hendri";
-  private $dbPass="900973";
+  private $dbUser="root";
+  private $dbPass="";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -403,18 +403,35 @@ else{
   {
     
     function tampilKategori() {
-      $query = mysql_query("SELECT * FROM kategori ORDER BY id_kategori");
+      $query = mysql_query("SELECT * FROM kategori ORDER BY id_kat");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
     }
+      function bacaGenerus($nig)
+          {
+        $query=mysql_query("SELECT a.*,b.alamat as alamatk,c.* FROM generus a, kelompok b, kategori c WHERE a.id_kelompok=b.id_kelompok AND a.id_kat=c.id_kat AND a.nig='$_GET[nig]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
     function tampilGenerus() {
-      $query = mysql_query("SELECT * FROM generus");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM generus a, kelompok b, kategori c WHERE a.id_kelompok=b.id_kelompok AND a.id_kat=c.id_kat");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
+    }
+    function tambahGenerus($nig,$id_kelompok,$nama,$tempat_lahir,$tgl_lahir,$jekel,$gol_darah,$alamat,$nohp,$nm_ayah,$nm_ibu,$id_kat,$foto,$date_input,$date_update)
+    {
+      $query="INSERT INTO generus (nig,id_kelompok,nama,tempat_lahir,tgl_lahir,jekel,gol_darah,alamat,nohp,nm_ayah,nm_ibu,id_kat,foto,date_input,date_update)
+      VALUES('$nig','$id_kelompok','$nama','$tempat_lahir','$tgl_lahir','$jekel','$gol_darah','$alamat','$nohp','$nm_ayah','$nm_ibu','$id_kat','$foto','$date_input','$date_update')";
+      move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
+      $hasil= mysql_query($query);
     }
   }
+
   class Detail
   {
 

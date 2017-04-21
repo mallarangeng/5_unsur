@@ -10,6 +10,7 @@ $generus = new generus();
 #cegah akses tanpa melalui login
 #close akses tanpa login
 ?>
+
             <div class="panel with-nav-tabs panel-default">
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
@@ -26,7 +27,8 @@ $generus = new generus();
                             <!-- Name Section -->
                               <div class="row">
                                 <div class="col-md-8 col-md-offset-1">
-                                  <form class="form-horizontal" role="form">
+                                  
+                                   
                                       <label>Nama Lengkap :</label>
                                       <div class="form-group">
 
@@ -46,7 +48,7 @@ $generus = new generus();
                                       <label>Tanggal Lahir :</label>
                                       <div class="form-group">
                                         <div class="col-sm-4">
-                                          <select name="tanggal" placeholder="Gender" class="form-control">
+                                          <select name="tgl" placeholder="Gender" class="form-control">
                                             <option value="female">Tanggal</option>
                                              <?PHP for ($hari=1; $hari<=31; $hari++){ ?>
                                               <option value="<?php echo $hari; ?>"><?php echo $hari; ?></option>
@@ -56,7 +58,7 @@ $generus = new generus();
                                           </select>
                                         </div>
                                         <div class="col-sm-4">
-                                          <select name="bulan" placeholder="Gender" class="form-control">
+                                          <select name="bln" placeholder="Gender" class="form-control">
                                             <option value="">Bulan</option>
                                             <?php $nmbln = array("jan","Feb","Mar","Apr","Mei","Jun","Juli","Ags","Sep","Okt","Nov","Des"); ?>
                                             <?PHP for ($bln=1; $bln<=12; $bln++){ ?>
@@ -65,7 +67,7 @@ $generus = new generus();
                                           </select>
                                         </div>
                                         <div class="col-sm-4">
-                                          <select name="tahun" class="form-control">
+                                          <select name="thn" class="form-control">
                                             <option value="-">Tahun</option>
                                             <?PHP for ($thn=1980; $thn<=2017; $thn++){ ?>
                                             <option value="<?php echo $thn; ?>"><?php echo $thn; ?></option>
@@ -99,7 +101,7 @@ $generus = new generus();
                                       </div>
                             <!-- Emergency Contact Section -->
                                       <!-- Form Name -->
-                                  </form>
+                                
                                 </div><!-- /.col-lg-12 -->
                             </div><!-- /.row -->
                             <!-- Payment Modal -->
@@ -107,7 +109,7 @@ $generus = new generus();
                         <div class="tab-pane fade" id="tab2default">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-1">
-                                  <form class="form-horizontal" role="form">
+                                 
                                       <label>Alamat</label>
                                       <div class="form-group">
                                         <div class="col-sm-10">
@@ -135,32 +137,36 @@ $generus = new generus();
                                        <label>Tingkatan / Paket</label>
                                       <div class="form-group">
                                         <div class="col-sm-4">
-                                          <select type="gender" placeholder="Gender" class="form-control">
+                                          <select name="id_kat" class="form-control">
                                             <option value="">Pilih Kategori</option>
                                             <?php
                                             $arraygenerus=$generus->tampilKategori();
                                             if (count($arraygenerus)) {
                                             foreach($arraygenerus as $data) {
                                           ?>
-                                            <option value="<?php echo $data['id_kategori']; ?>"><?php echo $data['kategori']; ?></option>
+                                            <option value="<?php echo $data['id_kat']; ?>"><?php echo $data['id_kat']; ?>-<?php echo $data['kategori']; ?></option>
                                           <?php
                                           }
                                           } ?>
                                           </select>
                                         </div>
+                                       
                                       </div>
                                           <label>Foto</label>
                                         <div class="form-group">
                                         <div class="col-sm-4">
                                         
-                                                  <label class="btn btn-success btn-file">
-                                                  Pilih Foto  <input type="file" name="gambar" style="display: none;">&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                                        </label>
+                                                  
+                                                  <input type="file" name="foto">
+                                                   <input type="hidden" name="date_input" value="<?php echo tglSkrg(); ?>">
+                                                  <input type="hidden" name="date_update" value="">
+                                                  
+                                     
                                         </div>
                                       </div>
                             <!-- Emergency Contact Section -->
                                       <!-- Form Name -->
-                                  </form>
+                                  
                                 </div><!-- /.col-lg-12 -->
                             </div>
                         </div>

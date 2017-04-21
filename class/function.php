@@ -38,6 +38,22 @@ function tgl_eng_to_ind($tgl) {
 	$tgl_ind=substr($tgl,8,2)."-".substr($tgl,5,2)."-".substr($tgl,0,4);
 	return $tgl_ind;
 }
+function tglSkrg(){
+  date_default_timezone_set('Asia/Jakarta');
+  $tgl  = date("Y-m-d h:m:s");
+  return $tgl;
+  }
+function umur($tgl_lahir,$delimiter='-') {
+    
+    list($tahun,$bulan,$hari) = explode($delimiter, $tgl_lahir); 
+    $selisih_hari = date('d') - $hari;
+    $selisih_bulan = date('m') - $bulan;
+    $selisih_tahun = date('Y') - $tahun;
+    if ($selisih_hari < 0 || $selisih_bulan < 0) {
+        $selisih_tahun--;
+    }
+    return $selisih_tahun;
+}
 
 function format_angka($angka) {
 	$hasil = number_format($angka,0, ",",".");
@@ -75,4 +91,5 @@ function terbilang($x)
       $result = $tgl . " " . $BulanIndo[(int)$bulan-1] . " ". $tahun;
       return($result);
     }
+
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Apr 2017 pada 03.37
--- Versi Server: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: 21 Apr 2017 pada 13.16
+-- Versi Server: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `limaunsur`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `conten`
 --
 
-CREATE TABLE IF NOT EXISTS `conten` (
+CREATE TABLE `conten` (
   `id` int(5) NOT NULL,
   `judul` varchar(100) NOT NULL,
   `kategori` varchar(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `conten` (
   `tgl` date NOT NULL,
   `publish` varchar(5) NOT NULL,
   `label` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `conten`
@@ -55,7 +55,7 @@ INSERT INTO `conten` (`id`, `judul`, `kategori`, `conten`, `tgl`, `publish`, `la
 -- Struktur dari tabel `detail`
 --
 
-CREATE TABLE IF NOT EXISTS `detail` (
+CREATE TABLE `detail` (
   `id_detail` int(5) NOT NULL,
   `id_lap` int(5) NOT NULL,
   `kendala` text NOT NULL,
@@ -330,7 +330,7 @@ INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`,
 -- Struktur dari tabel `generus`
 --
 
-CREATE TABLE IF NOT EXISTS `generus` (
+CREATE TABLE `generus` (
   `nig` varchar(8) NOT NULL,
   `id_kelompok` varchar(7) NOT NULL,
   `nama` varchar(50) NOT NULL,
@@ -344,9 +344,18 @@ CREATE TABLE IF NOT EXISTS `generus` (
   `nm_ibu` varchar(50) NOT NULL,
   `id_kat` int(5) NOT NULL,
   `foto` text NOT NULL,
-  `date_input` date NOT NULL,
-  `date_update` date NOT NULL
+  `date_input` datetime NOT NULL,
+  `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `generus`
+--
+
+INSERT INTO `generus` (`nig`, `id_kelompok`, `nama`, `tempat_lahir`, `tgl_lahir`, `jekel`, `gol_darah`, `alamat`, `nohp`, `nm_ayah`, `nm_ibu`, `id_kat`, `foto`, `date_input`, `date_update`) VALUES
+('93700001', '2016004', 'Sadam Husen', 'Jakarta', '1992-05-14', 'Laki Laki', 'AB', 'Tangerang banten Indonesia', '085715887704', 'Sumadi', 'Ngatiem', 2, '93700001_Tulips.jpg', '2017-04-21 04:04:47', '0000-00-00 00:00:00'),
+('93700002', '2016004', 'Achmad Faisal', 'Jakarta', '1984-03-12', 'Laki Laki', 'B', 'Kp. Gebang RT. 004/002 Kelurahan Sangiang Jaya Kec Periuk Kota Tangerang', '085715887704', 'Sumadi', 'Ngatiem', 1, '93700002_Jellyfish.jpg', '2017-04-21 04:04:46', '0000-00-00 00:00:00'),
+('93700003', '2016004', 'Ariy Wildan Himawan', 'Tanjung Agung', '1992-01-01', 'Laki Laki', 'B', 'Kp. Gebang RT. 004/002 Kelurahan Sangiang Jaya Kec Periuk Kota Tangerang', '085715887704', 'Sumadi', 'Ngtiem', 4, '93700003_Tulips.jpg', '2017-04-21 04:04:52', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -354,17 +363,17 @@ CREATE TABLE IF NOT EXISTS `generus` (
 -- Struktur dari tabel `kategori`
 --
 
-CREATE TABLE IF NOT EXISTS `kategori` (
-  `id_kategori` int(5) NOT NULL,
+CREATE TABLE `kategori` (
+  `id_kat` int(5) NOT NULL,
   `kategori` varchar(100) NOT NULL,
   `ket` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `kategori`, `ket`) VALUES
+INSERT INTO `kategori` (`id_kat`, `kategori`, `ket`) VALUES
 (1, 'Pelajar SD - Paket (A)', ''),
 (2, 'Pelajar SD - Paket (B)', ''),
 (3, 'Pelajar SMP -Paket (C)', ''),
@@ -378,7 +387,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`, `ket`) VALUES
 -- Struktur dari tabel `kelompok`
 --
 
-CREATE TABLE IF NOT EXISTS `kelompok` (
+CREATE TABLE `kelompok` (
   `id_kelompok` varchar(7) NOT NULL,
   `nm_kelompok` varchar(50) NOT NULL,
   `parent` varchar(7) NOT NULL,
@@ -453,7 +462,7 @@ INSERT INTO `kelompok` (`id_kelompok`, `nm_kelompok`, `parent`, `alamat`, `nohp`
 -- Struktur dari tabel `laporan`
 --
 
-CREATE TABLE IF NOT EXISTS `laporan` (
+CREATE TABLE `laporan` (
   `id_lap` int(5) NOT NULL,
   `id_kelompok` int(5) NOT NULL,
   `tanggal` date NOT NULL,
@@ -502,7 +511,6 @@ INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `st
 (10040, 2016008, '2016-12-16', 'Musyawarah 5 Unsur', '2016-12-12', 1, 'Tidak', 'mas andika satria'),
 (10041, 2016038, '2016-12-14', 'Musyawarah 5 Unsur', '2016-12-12', 0, 'Tidak', '4 s klmpok + ortu + '),
 (10042, 2016012, '2016-12-12', 'Musyawarah 5 Unsur', '2016-12-12', 1, '', ''),
-(10043, 2016037, '2016-12-12', 'Musyawarah 5 Unsur', '2016-12-12', 0, 'Ya', 'e'),
 (10044, 2016043, '2016-12-14', 'Musyawarah 5 Unsur', '2016-12-12', 1, '', ''),
 (10046, 2016009, '2017-01-08', 'Musyawarah 5 Unsur', '2017-01-08', 1, '', ''),
 (10047, 2016047, '2017-01-11', 'Musyawarah 5 Unsur', '2017-01-11', 1, 'Tidak', ''),
@@ -614,7 +622,7 @@ INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `st
 -- Struktur dari tabel `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
+CREATE TABLE `menu` (
   `id_menu` int(4) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
   `folder` varchar(30) DEFAULT NULL,
@@ -652,13 +660,13 @@ INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `ic
 -- Struktur dari tabel `user_activ`
 --
 
-CREATE TABLE IF NOT EXISTS `user_activ` (
+CREATE TABLE `user_activ` (
   `id` int(5) NOT NULL,
   `id_kelompok` int(7) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `waktu` datetime NOT NULL,
   `link` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user_activ`
@@ -693,7 +701,7 @@ ALTER TABLE `generus`
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id_kategori`);
+  ADD PRIMARY KEY (`id_kat`);
 
 --
 -- Indexes for table `kelompok`
@@ -727,17 +735,17 @@ ALTER TABLE `user_activ`
 -- AUTO_INCREMENT for table `conten`
 --
 ALTER TABLE `conten`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_kat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_activ`
 --
 ALTER TABLE `user_activ`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
