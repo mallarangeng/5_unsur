@@ -5,7 +5,6 @@ $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
 $conten = new conten();
-$p  = $conten->bacaP($id);
 #cegah akses tanpa melalui login
 $user = new User();
 $id_kelompok = $_SESSION['id_kelompok'];
@@ -23,17 +22,18 @@ $datai  = $laporan->hitungindesa();
 
   <body>
     <h3>Dashboard</h3>
+
     <div class="row">
-     <div class="col-sm-4">
+     <div class="col-md-4">
     <div class="alert alert-success" role="alert">
-      <strong>INFORMASI / PENGUMUMAN</strong><br>
+      <strong>Informasi / Pengumuman</strong><br><hr>
       <?php
       $arrayconten=$conten->tampilKinfo();
       if (count($arrayconten)) {
       foreach($arrayconten as $d) {
     ?>
       <ul>
-      <li><a href="?r=conten&pg=read&id=<?php echo $p['id']; ?>"><?php echo $p['judul']; ?></a>&nbsp;<font color="red"> <?php echo $d['label']; ?></font></li>
+      <li><a href="?r=conten&pg=read&id=<?php echo $d['id']; ?>"><?php echo $d['judul']; ?></a>&nbsp;<font color="red"> <?php echo $d['label']; ?></font></li>
       </ul>
           <?php
   }
@@ -42,7 +42,7 @@ $datai  = $laporan->hitungindesa();
     </div>
 </div>
     
-  <div class="col-sm-4">
+  <div class="col-md-4">
     <div class="alert alert-info" role="alert">
       
       <strong>Penggerak Pembina Generus (PPG) Tangbar</strong><br><hr>
@@ -60,18 +60,45 @@ $datai  = $laporan->hitungindesa();
     ?>
     </div>
 </div>
-</div>
+
 <?php
 if (isset($_SESSION['level']))
 {
-  if ($_SESSION['level'] == "Kelompok")
+  if ($_SESSION['level'] == "Admin")
    {  
     ?>
-      <a class="btn btn-primary btn-lg" href="?r=laporan&pg=laporan" role="button">Buat Laporan</a> &nbsp; <a class="btn btn-success btn-lg lihat-jadwal" href="" role="button">Jadwal Turba</a><br><br>
+          <div class="col-md-4">
+    <div class="alert alert-warning" role="alert">
+      
+      <strong>Aktivitas User</strong><br><hr>
+        <?php
+      $arrayconten=$conten->tampilKartikel();
+      if (count($arrayconten)) {
+      foreach($arrayconten as $d) {
+    ?>
+<ul>
+  <li><a href="?r=conten&pg=read&id=<?php echo $d['id']; ?>"><?php echo $d['judul']; ?>&nbsp;<font color="red"> <?php echo $d['label']; ?></font></a></li>
+</ul>
     <?php
+  }
+}
+    ?>
+    </div>
+</div>
+<?php
    }
- }
- ?>
+   else if ($_SESSION['level'] == "Kelompok")
+   {
+
+    ?>
+
+      <a class="btn btn-primary btn-lg" href="?r=laporan&pg=laporan" role="button">Buat Laporan</a> &nbsp; <a class="btn btn-success btn-lg lihat-jadwal" href="" role="button">Jadwal Turba</a><br><br>
+   
+    <?php 
+}
+}
+    ?>
+</div>
 
 
 <br>

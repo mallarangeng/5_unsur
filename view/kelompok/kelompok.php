@@ -24,9 +24,8 @@ header("location:index.html");
         <th>Parent</th>
         <th>Alamat</th>
         <th>No Hp</th>
-        <th>Penjab</th>
-        <th>Password</th>
-        
+        <th>Penjab</th> 
+        <th>Password</th>      
         <th>Level</th>
         <th>Aksi</th>
       </tr>

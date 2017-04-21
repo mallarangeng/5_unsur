@@ -31,3 +31,11 @@ $id_kelompok = $_SESSION['id_kelompok'];
     <input type="hidden" name="id_kelompok" class="form-control" value="<?php echo $datak['id_kelompok']; ?>" required>
     <input type="hidden" name="aktif" class="form-control" value="0" required>
   </div>
+
+  <!--
+  log untuk pembuatan user activity
+  -->
+  <input type="hidden" name="id_kelompok" value="<?php echo $datak['id_kelompok']; ?>">
+  <input type="hidden" name="nama" value="Mengedit data profie">
+  <input type="text" name="waktu" value="<?php echo date("Y-m-d h:i:sa"); ?>">
+  <input type="hidden" name="link" value="">

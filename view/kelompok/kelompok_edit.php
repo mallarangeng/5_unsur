@@ -41,7 +41,7 @@ header("location:index.html");
   </div>
   <div class="form-group">
     <label>Nomor Handphone</label>
-    <input type="text" name="nohp" class="form-control" value=" <?php echo $datak['nohp']; ?>" required>
+    <input type="text" name="nohp" class="form-control" value="<?php echo $datak['nohp']; ?>" required>
   </div>
   <div class="form-group">
     <label>Penjab KBM Desa/Kelompok</label>

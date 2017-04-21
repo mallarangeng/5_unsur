@@ -1,21 +1,26 @@
 <?php
 include'../../class/class_5u.php';
+include'../../class/function.php';
 $db = new Database();
 $db->connectMySQL();
 $kelompok = new kelompok();
 $laporan = new laporan();
 $detail = new detail();
+$datal  = $laporan->bacaLap($id_lap);
 #cegah akses tanpa melalui login
 ?>
- 
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Detail&nbsp;</strong>
+  Kelompok : <?php echo $datal['nm_kelompok']; ?>,
+  Periode musyawarah : <?php echo DateToIndo($datal['tanggal']) ?>, Penrobos : <?php echo $datal['nama']; ?> 
+</div>
+
  <table class="table table-hover">
     <thead>
       <tr>
-        
         <th>Kendala</th>
         <th>Solusi</th>
-        
-       
       </tr>
     </thead>
     <tbody>
@@ -37,8 +42,6 @@ $detail = new detail();
                   $bb='default';
                 }
     ?>
-
-
       <tr>
         <td class=""><strong><?php echo $b=$b+1;?> )</strong>&nbsp;<?php echo $data['kendala']; ?></td>
         <td class="success"><strong><?php echo $c=$c+1;?> )</strong>&nbsp;<?php echo $data['solusi']; ?>      

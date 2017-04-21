@@ -133,6 +133,18 @@
                     }   
                 );
             });
+
+                $(document).on('click','.add-generus',function(e){
+                e.preventDefault();
+                $("#modal-generus").modal('show');
+                 $(".modal-title").html('FORM DATA GENERUS');
+                $.get("view/generus/generus_form.php",
+                {id_kelompok:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
     
          
         });

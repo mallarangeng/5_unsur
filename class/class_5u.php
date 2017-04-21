@@ -124,13 +124,80 @@ class Kelompok {
   }
 
   }
+  /**
+  * 
+  */
+  class UserActiv
+  {
+     function addActiv($id,$id_kelompok,$nama,$waktu,$link)
+    {
+      $query="INSERT INTO user_activ (id,id_kelompok,nama,waktu,link)
+      VALUES('$id','$id_kelompok','$nama','$waktu','$link')";
+      $hasil= mysql_query($query);
+    }
+    function tampilKall() {
+      $query = mysql_query("SELECT * FROM conten");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+    function tampilKinfo() {
+      $query = mysql_query("SELECT * FROM conten WHERE kategori='info'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+
+    function tampilKartikel() {
+      $query = mysql_query("SELECT * FROM conten WHERE kategori='Artikel'");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+    function bacaP($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='1' AND publish='Y'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+       function bacaPe($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='1'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+      function bacaK($id)
+          {
+        $query=mysql_query("SELECT * FROM conten WHERE id='$_GET[id]'");
+        $data=mysql_fetch_array($query);
+        $data[]=$row;
+        if(isset($data)){
+          return $data;
+        }
+      }
+      function updateK ($id,$judul,$kategori,$conten,$tgl,$publish,$label)
+    {
+      $query=mysql_query("UPDATE conten SET judul='$judul', kategori='$kategori', conten='$conten',tgl='$tgl',publish='$publish', label='$label'  WHERE id='$id'");
+    }
+  }
 
   /**
   * class object laporan 
   */
   class Laporan
   {
-    
+    function hapuslaporan($id_lap)
+        {
+          $query = "DELETE FROM laporan WHERE id_lap='$id_lap'";
+          mysql_query($query);
+          echo"<meta http-equiv='refresh' content='0;url=?r=laporan&pg=laporan_admin'>";
+        }
     function tambahLap($id_lap,$id_kelompok,$tanggal,$ket,$date_on,$stat,$turba,$nama)
     {
       if($_POST){
@@ -151,8 +218,10 @@ else{
     }
      }
    }
-    function tampilLap2() {
-      $query = mysql_query("SELECT * FROM laporan ORDER BY tanggal ASC");
+    function tampilLapadmin() {
+      $query = mysql_query("SELECT a.*,b.*,
+      (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE a.id_lap=detail.id_lap)tot_poin
+       FROM laporan a, kelompok b WHERE a.id_kelompok=b.id_kelompok");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -213,7 +282,7 @@ else{
 
     function bacaLap($id_lap)
           {
-        $query=mysql_query("SELECT * FROM laporan WHERE id_lap='$_GET[id_lap]'");
+        $query=mysql_query("SELECT a.*,b.* FROM laporan a, kelompok b WHERE a.id_kelompok=b.id_kelompok AND a.id_lap='$_GET[id_lap]'");
         $data=mysql_fetch_array($query);
         $data[]=$row;
         if(isset($data)){
@@ -327,8 +396,34 @@ else{
     }
 
   }
+  /**
+  * 
+  */
+  class Generus
+  {
+    
+    function tampilKategori() {
+      $query = mysql_query("SELECT * FROM kategori ORDER BY id_kategori");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+    function tampilGenerus() {
+      $query = mysql_query("SELECT * FROM generus");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+    }
+  }
   class Detail
   {
+
+    function hapusdetail($id_detail)
+  {
+    $query = "DELETE FROM detail WHERE id_detail='$id_detail'";
+    mysql_query($query);
+    echo"<meta http-equiv='refresh' content='0;url=?r=detail&pg=detail_admin&id_lap=$_GET[id_lap]'>";
+  }
     
     function tambahDetail($id_detail,$id_lap,$kendala,$solusi,$ket,$stat,$publis)
     {
@@ -344,7 +439,7 @@ else{
       return $data;
   }
         function tampilDetailPrivate() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.publis='Bagikan' AND c.id_lap='$_GET[id_lap]'");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.id_lap='$_GET[id_lap]'");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
