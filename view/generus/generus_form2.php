@@ -33,9 +33,8 @@ $generus = new generus();
                                       <div class="form-group">
 
                                         <div class="col-sm-6">
-                                          <input type="text" name="nig" value="<?php echo kdauto("generus","937"); ?>">
-                                          <input type="text" name="id_kelompok" value="<?php echo $_SESSION['id_kelompok']; ?>">
-                                           <input type="text" name="nig" value="<?php echo $_GET['nig']; ?>">
+                                          <input type="hidden" name="nig" value="<?php echo kdauto("generus","937"); ?>">
+                                          <input type="hidden" name="id_kelompok" value="<?php echo $_GET['id_kelompok']; ?>">
                                           <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control" required>
                                         </div>
                                       </div>

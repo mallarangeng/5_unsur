@@ -139,7 +139,8 @@
                 $("#modal-generus").modal('show');
                  $(".modal-title").html('FORM DATA GENERUS');
                 $.get("view/generus/generus_form.php",
-                {id_kelompok:$(this).attr('data-id')},
+                {nig:$(this).attr('data-id')},
+
                  function(html){
                         $(".modal-body").html(html);
                     }   
@@ -155,7 +156,6 @@
                         $(".modal-body").html(html);
                     }   
                 );
-            });
-    
+            });  
          
         });

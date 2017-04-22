@@ -18,7 +18,7 @@ header("location:index.html");
   <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;SISTEM INFORMASI GENERUS&nbsp;</strong>
 </div>
 <body>
-  <button type="button" class="btn btn-info add-generus" data-id="<?php echo $_SESSION['id_kelompok']; ?>">TAMBAH DATA</button>
+  <button type="button" class="btn btn-info add-generus">TAMBAH DATA</button>
   <hr>
   <div class="table-responsive">
  <table id="example" class="table table-striped table-bordered">
@@ -54,7 +54,8 @@ header("location:index.html");
         <td><?php echo $d['kategori']; ?></td>
         <td><?php echo $d['date_input']; ?></td>
         <td><?php echo $d['date_update']; ?></td>
-        <td>Change</td>
+        <td>
+          <button type="button" class="btn btn-danger add-generus " data-id="<?php echo $d['nig']; ?>">Ubah Data</button>
       </tr>
 <?php
 }

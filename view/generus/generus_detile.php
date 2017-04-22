@@ -21,38 +21,38 @@ $d= $generus->bacaGenerus($nig);
     <tbody>
       <tr class="success">
         <td>Nig</td>
-        <td><?php echo $d['nig']; ?></td>
+        <td>: <?php echo $d['nig']; ?></td>
       </tr>
       <tr>
         <td>Nama</td>
-        <td><?php echo $d['nama']; ?></td>
+        <td>: <?php echo $d['nama']; ?></td>
       <tr class="success">
         <td>Tempat, Tgl Lahir</td>
-        <td><?php echo $d['tempat_lahir']; ?>, <?php echo $d['tgl_lahir']; ?>, Usia : <?php echo umur($d['tgl_lahir']); ?> Tahun</td>
+        <td>: <?php echo $d['tempat_lahir']; ?>, <?php echo $d['tgl_lahir']; ?>, Usia : <?php echo umur($d['tgl_lahir']); ?> Tahun</td>
       </tr>
          <tr>
         <td>Jenis Kelamin</td>
-        <td><?php echo $d['jekel']; ?></td>
+        <td>: <?php echo $d['jekel']; ?></td>
       </tr>
          <tr class="success">
         <td>Golongan Darah</td>
-        <td><?php echo $d['gol_darah']; ?></td>
+        <td>: <?php echo $d['gol_darah']; ?></td>
       </tr>
        <tr>
         <td>Alamat</td>
-        <td><?php echo $d['alamat']; ?></td>
+        <td>:<?php echo $d['alamat']; ?></td>
       </tr>
        <tr class="success">
         <td>Nomor HP</td>
-        <td><?php echo $d['nohp']; ?></td>
+        <td>: <?php echo $d['nohp']; ?></td>
       </tr>
        <tr >
         <td>Nama Orang Tua</td>
-        <td>Ayah : <?php echo $d['nm_ayah']; ?> - Ibu : <?php echo $d['nm_ibu']; ?></td>
+        <td>: Ayah : <?php echo $d['nm_ayah']; ?> - Ibu : <?php echo $d['nm_ibu']; ?></td>
       </tr>
         <tr class="success">
-        <td>Date</td>
-        <td><?php echo $d['date_input']; ?>-<?php echo $d['date_update']; ?> </td>
+        <td>Date Input </td>
+        <td>: <?php echo $d['date_input']; ?> Last Update : <?php echo $d['date_update']; ?> </td>
       </tr>
 
     </tbody>
