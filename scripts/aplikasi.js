@@ -139,8 +139,18 @@
                 $("#modal-generus").modal('show');
                  $(".modal-title").html('FORM DATA GENERUS');
                 $.get("view/generus/generus_form.php",
+                {id_kelompok:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+                $(document).on('click','.ukaskus',function(e){
+                e.preventDefault();
+                $("#modal-generus").modal('show');
+                 $(".modal-title").html('UBAH DATA GENERUS');
+                $.get("view/kelompok/generus_form2.php",
                 {nig:$(this).attr('data-id')},
-
                  function(html){
                         $(".modal-body").html(html);
                     }   

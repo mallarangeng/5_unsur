@@ -14,8 +14,9 @@ header("location:index.html");
 ?>
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Profile&nbsp;</strong> Anda dapat melakukan update data dan penggantian password
-</div>
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;Setting&nbsp;</strong><small>
+  Untuk kemanan silahkan lakukan penggantian password, dan isikan data dengan lengkap nama penjab KBM dan nomor telpon, untuk memudahkan komunikasi </small>
+  </div>
  <table class="table table-hover">
     <thead>
       <tr>
@@ -23,7 +24,7 @@ header("location:index.html");
         <th>User Id</th>
         <th><?php echo $_SESSION['level'];?></th>
         <th>Penjab</th>
-        <th>Ubah</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +37,7 @@ header("location:index.html");
         <td><?php echo $data['id_kelompok']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?><br><small><font class="hijaumuda"><?php echo $data['alamat']; ?></font></small></td>
         <td><?php echo $data['penjab']; ?><br><small><font class="hijaumuda"><?php echo $data['nohp']; ?></font></small></td>
-        <td><a class="btn btn-info btn-xs edit-profile" href="#" role="button" data-id="<?php echo $data['id_kelompok'] ?>">Ubah</a>
+        <td><a class="btn btn-info btn-xs edit-profile" href="#" role="button" data-id="<?php echo $data['id_kelompok'] ?>">Ubah data</a>
         </td>
       </tr>
 <?php

@@ -13,6 +13,8 @@ header("location:index.html");
 }
 #close akses tanpa login
 ?>
+ <a class="btn btn-info" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>&nbsp;<a class="btn btn-primary" href="index.php" role="button">Kembali</a>
+  <p>
  <table class="table table-hover">
     <thead>
       <tr>
@@ -39,7 +41,7 @@ header("location:index.html");
       <tr>
         <td><?php echo $c=$c+1;?></td>
         
-        <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br><?php echo $data['ket']; ?><br>Nama Penerobos : <strong><?php echo $data['nama']; ?></strong><br> Hadir : <?php echo $data['turba']; ?> 
+        <td><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>&nbsp;<?php echo DateToIndo($data['tanggal']) ?><br>Nama Penerobos : <strong><?php echo $data['nama']; ?></strong><br> Hadir : <?php echo $data['turba']; ?> 
         <p>
           <a class="btn btn-info" href="?r=detail&pg=detail&id_lap=<?php echo $data['id_lap']; ?>" role="button"><span class="badge"><?php echo $data['tot_poin']; ?></span> Point </a>&nbsp;
           &nbsp;<a class="btn btn-warning" href="?r=laporan&pg=laporan_edit&id_lap=<?php echo $data['id_lap']; ?>">Edit</a>
@@ -57,8 +59,7 @@ header("location:index.html");
 
     </tbody>
   </table>
- <a class="btn btn-info" href="?r=laporan&pg=laporan_form" role="button">Tambah Data</a>&nbsp;<a class="btn btn-primary" href="index.php" role="button">Kembali</a>
-  <p>
+
  <div class="modal fade" id="modal-kirim-laporan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <form role="form" action="" method="post">

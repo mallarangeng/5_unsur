@@ -12,13 +12,15 @@ if (!$user->get_sesi())
 header("location:index.html");
 }
 #close akses tanpa login
+$dodol= $generus->bacaGenerus($nig);
 ?>
+
+<body>
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;SISTEM INFORMASI GENERUS&nbsp;</strong>
 </div>
-<body>
-  <button type="button" class="btn btn-info add-generus">TAMBAH DATA</button>
+  <button type="button" class="btn btn-info add-generus" data-id="<?php echo $_SESSION['id_kelompok'];?>">TAMBAH DATA</button>
   <hr>
   <div class="table-responsive">
  <table id="example" class="table table-striped table-bordered">
@@ -55,7 +57,7 @@ header("location:index.html");
         <td><?php echo $d['date_input']; ?></td>
         <td><?php echo $d['date_update']; ?></td>
         <td>
-          <button type="button" class="btn btn-danger add-generus " data-id="<?php echo $d['nig']; ?>">Ubah Data</button>
+          <button type="button" class="btn btn-danger btn-xs ukaskus" data-id="<?php echo $d['nig']; ?>">Ubah Data</button>
       </tr>
 <?php
 }
@@ -74,9 +76,12 @@ header("location:index.html");
                     </div>
                    
                     <div class="modal-body">
+                    
                     </div>
+
                     <div class="modal-footer">
                         <input type="submit" name="simpan" value="Simpan Data" class="btn btn-info">
+                        <input type="submit" name="update" value="Update Data" class="btn btn-success">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                    </form>

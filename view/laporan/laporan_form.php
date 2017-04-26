@@ -36,7 +36,7 @@ header("location:index.html");
   </div>
   <div class="form-group">
     <label>Dihadiri Pengurus PPG ?</label>
-    <select required class="form-control" name="turba">
+    <select class="form-control" name="turba" required>
     <option value="Ya">Ya</option>
     <option value="Tidak">Tidak</option>
   </select>

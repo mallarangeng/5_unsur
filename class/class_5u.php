@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="900973";
+  private $dbPass="";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -221,12 +221,20 @@ else{
     function tampilLapadmin() {
       $query = mysql_query("SELECT a.*,b.*,
       (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE a.id_lap=detail.id_lap)tot_poin
-       FROM laporan a, kelompok b WHERE a.id_kelompok=b.id_kelompok");
+       FROM laporan a, kelompok b WHERE a.id_kelompok=b.id_kelompok ORDER BY tanggal DESC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
   }
-      function timeline() {
+   function timeline() {
+      $query = mysql_query("SELECT a.*,b.*,
+      (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE a.id_lap=detail.id_lap)tot_poin
+       FROM laporan a, kelompok b WHERE a.id_kelompok=b.id_kelompok ORDER BY tanggal DESC LIMIT 50");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+      function timeline2() {
       $query = mysql_query("select * from laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
        WHERE stat='1'");
       while($row=mysql_fetch_array($query))
@@ -257,7 +265,7 @@ else{
     function laporanBulanan() {
       $query = mysql_query("SELECT CONCAT(YEAR(tanggal),'-',mid(tanggal,6,2)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan
       FROM laporan as l left join kelompok as k on l.id_kelompok=k.id_kelompok
-      WHERE parent='$_SESSION[id_kelompok]' AND stat='1' GROUP BY YEAR(tanggal),MONTH(tanggal)");
+      WHERE parent='$_SESSION[id_kelompok]' AND stat='1' GROUP BY YEAR(tanggal),MONTH(tanggal) ORDER BY tanggal DESC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -274,7 +282,7 @@ else{
   function tampilLap() {
       $query = mysql_query("SELECT id_lap, id_kelompok, tanggal,ket,date_on,stat,turba,nama,
       (SELECT COUNT(id_detail) AS tot_poin FROM detail WHERE laporan.id_lap=detail.id_lap)tot_poin
-      FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]' ORDER BY tanggal ASC");
+      FROM laporan WHERE id_kelompok='$_SESSION[id_kelompok]' ORDER BY tanggal DESC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;
@@ -434,7 +442,6 @@ else{
 
   class Detail
   {
-
     function hapusdetail($id_detail)
   {
     $query = "DELETE FROM detail WHERE id_detail='$id_detail'";
@@ -455,6 +462,8 @@ else{
       $data[]=$row;
       return $data;
   }
+
+
         function tampilDetailPrivate() {
       $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.id_lap='$_GET[id_lap]'");
       while($row=mysql_fetch_array($query))
@@ -462,7 +471,7 @@ else{
       return $data;
   }
         function tampilDetailPending() {
-      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='$_GET[stat]' AND a.id_kelompok='$_SESSION[id_kelompok]'");
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.stat='$_GET[stat]' AND a.id_kelompok='$_SESSION[id_kelompok]' ORDER BY tanggal DESC");
       while($row=mysql_fetch_array($query))
       $data[]=$row;
       return $data;

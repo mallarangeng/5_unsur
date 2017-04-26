@@ -105,7 +105,7 @@ $(document).ready(function() {
         
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-            <li><a href="index.php"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;Home</a></li>
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
              <?php
             $arrayMenu = $menu->menuNavigasi();
           if(isset($arrayMenu) && $arrayMenu !=NULL){
@@ -170,6 +170,6 @@ $(document).ready(function() {
                             ?>
                             <br>
 </div>
-      <div class="well well-sm"><small>M5U-TB ver. 1.0 &copy; <a href="https://ppg-tangbar.com/">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</small></div>
+      <div class="well well-sm"><small><i>M5U-TB ver. 1.0 &copy; <a href="https://ppg-tangbar.com/">ppg-tangbar.com</a>&nbsp;<?php echo date('Y'); ?> by ICT Team<br>Technical Support : 0857 1588 7704 (WhatsApp)</i></small></div>
       </body>
 </html>

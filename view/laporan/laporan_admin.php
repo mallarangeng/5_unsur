@@ -26,12 +26,12 @@ if (isset($_GET['aksi']))
     <thead>
       <tr>
         <th>Tanggal</th>
+        <th>Parent</th>
         <th>Nama Kelompok</th>
         <th>Penrobos PPG</th>
         <th>Hadir ?</th>
         <th>Point</th>
         <th>Baca</th>
-        <th>Ubah</th>
         <th>Hapus</th>
       </tr>
     </thead>
@@ -50,12 +50,12 @@ if (isset($_GET['aksi']))
     ?>
       <tr>
        <td><?php echo $data['tanggal']; ?></td>
+       <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?></td>
         <td><?php echo $data['nama']; ?></td>
         <td><?php echo $data['turba']; ?></td>
         <td><a href="?r=detail&pg=detail_admin&id_lap=<?php echo $data['id_lap']; ?>"><?php echo $data['tot_poin']; ?>&nbsp;Point</a></td>
-        <td><a href="" class="baca-laporan-private" data-id="<?php echo $data['id_lap']; ?>">Baca Hasil Musyawarah </a>&nbsp;</td>
-        <td><a href="" class="baca-laporan-private" data-id="<?php echo $data['id_lap']; ?>">Ubah Data</a></td>
+        <td><button type="button" class="btn btn-info btn-xs baca-laporan-private" data-id="<?php echo $data['id_lap'];?>">Baca Laporan</button></d>
         <td><a href="?r=laporan&pg=laporan_admin&aksi=hapus&id_lap=<?php echo $data['id_lap'];?>" class="btn btn-<?php echo $aa; ?> btn-xs <?php echo $bb; ?>">Hapus Data</a></td>
       </tr>
 <?php
@@ -83,3 +83,7 @@ if (isset($_GET['aksi']))
                 
             </div>
         </div>
+
+
+
+

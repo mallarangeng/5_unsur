@@ -19,14 +19,14 @@ $d= $generus->bacaGenerus($nig);
       </tr>
     </thead>
     <tbody>
-      <tr class="success">
+      <tr class="info">
         <td>Nig</td>
         <td>: <?php echo $d['nig']; ?></td>
       </tr>
       <tr>
         <td>Nama</td>
         <td>: <?php echo $d['nama']; ?></td>
-      <tr class="success">
+      <tr class="info">
         <td>Tempat, Tgl Lahir</td>
         <td>: <?php echo $d['tempat_lahir']; ?>, <?php echo $d['tgl_lahir']; ?>, Usia : <?php echo umur($d['tgl_lahir']); ?> Tahun</td>
       </tr>
@@ -34,7 +34,7 @@ $d= $generus->bacaGenerus($nig);
         <td>Jenis Kelamin</td>
         <td>: <?php echo $d['jekel']; ?></td>
       </tr>
-         <tr class="success">
+         <tr class="info">
         <td>Golongan Darah</td>
         <td>: <?php echo $d['gol_darah']; ?></td>
       </tr>
@@ -42,7 +42,7 @@ $d= $generus->bacaGenerus($nig);
         <td>Alamat</td>
         <td>:<?php echo $d['alamat']; ?></td>
       </tr>
-       <tr class="success">
+       <tr class="info">
         <td>Nomor HP</td>
         <td>: <?php echo $d['nohp']; ?></td>
       </tr>
@@ -50,7 +50,7 @@ $d= $generus->bacaGenerus($nig);
         <td>Nama Orang Tua</td>
         <td>: Ayah : <?php echo $d['nm_ayah']; ?> - Ibu : <?php echo $d['nm_ibu']; ?></td>
       </tr>
-        <tr class="success">
+        <tr class="info">
         <td>Date Input </td>
         <td>: <?php echo $d['date_input']; ?> Last Update : <?php echo $d['date_update']; ?> </td>
       </tr>

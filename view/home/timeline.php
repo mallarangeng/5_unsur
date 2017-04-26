@@ -13,6 +13,11 @@ header("location:index.html");
 }
 #close akses tanpa login
 ?>
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Timeline musyawarah merupakan, rangkungan hasil musyawarah dari kelompok kelompok lain dapat di baca dengan memilih tombon baca hasil musyawarah</strong>
+</div>
+
  <table class="table table-hover">
     <thead>
       <tr>
