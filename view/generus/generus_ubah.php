@@ -34,6 +34,7 @@ $dodol= $generus->bacaGenerus($nig);
                                       <div class="form-group">
 
                                         <div class="col-sm-6">
+                                          
                                           <input type="text" name="nig" value="<?php echo $dodol['nig'] ?>">
                                           <input type="hidden" name="id_kelompok" value="<?php echo $dodol['id_kelompok'] ?>">
                                           <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control" value="<?php echo $dodol['nama'] ?>" required>

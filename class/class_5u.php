@@ -438,6 +438,12 @@ else{
       move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
       $hasil= mysql_query($query);
     }
+       function updateGenerus($nig,$id_kelompok,$nama,$tempat_lahir)
+    {
+      $query="UPDATE generus SET id_kelompok='$id_kelompok',nama='$nama',tempat_lahir='$tempat_lahir' WHERE nig='$nig')";
+      #move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
+     
+    }
   }
 
   class Detail

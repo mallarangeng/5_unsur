@@ -1,4 +1,4 @@
-        $(function(){
+ $(function(){
              $(document).on('click','.edit-profile',function(e){
                 e.preventDefault();
                 $("#modal-profile").modal('show');

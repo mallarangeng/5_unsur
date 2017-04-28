@@ -81,7 +81,7 @@ $dodol= $generus->bacaGenerus($nig);
 
                     <div class="modal-footer">
                         <input type="submit" name="simpan" value="Simpan Data" class="btn btn-info">
-                        <input type="submit" name="update" value="Update Data" class="btn btn-success">
+                        <input type="submit" name="update_data" value="Update Data" class="btn btn-success">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                    </form>
@@ -109,6 +109,18 @@ if ($_POST['simpan']){
   $foto=$nig_foto."_".$_FILES['foto']['name'],
   $_POST['date_input'],
   $_POST['date_update']);
+   echo"<meta http-equiv='refresh' content='0;url=?r=generus&pg=generus'>";  
+  }
+  ?>
+  <?php if ($_POST['update_data']){
+  $tgl_lahir=$_POST['thn'].'-'.$_POST['bln'].'-'.$_POST['tgl'];
+  #$nig_foto=$_POST['nig'];
+  $generus->updateGenerus(
+  $_POST['nig'],
+  $_POST['id_kelompok'],
+  $_POST['nama'],
+  $_POST['tempat_lahir']);
+  
    echo"<meta http-equiv='refresh' content='0;url=?r=generus&pg=generus'>";  
   }
   ?>
