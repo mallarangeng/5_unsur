@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -468,7 +468,12 @@ else{
       $data[]=$row;
       return $data;
   }
-
+  function tampilNotulen() {
+      $query = mysql_query("SELECT a.*,b.*,c.* FROM detail a,laporan b,kelompok c where a.id_lap=b.id_lap AND b.id_kelompok=c.id_kelompok ORDER BY tanggal DESC ");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
 
         function tampilDetailPrivate() {
       $query = mysql_query("SELECT a.*,b.*,c.* FROM kelompok a,laporan b, detail c where a.id_kelompok=b.id_kelompok AND b.id_lap=c.id_lap AND c.id_lap='$_GET[id_lap]'");

@@ -9,6 +9,7 @@ $db->connectMySQL();
 // script untuk user taruh sisi bos hahha semangat untuk kodingya
 $user = new User();
 $laporan = new laporan();
+$detail = new detail();
 $menu = new menu();
 #session nama lengkap
 //$nm_lengkap = $_SESSION['fullname'];

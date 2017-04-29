@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Apr 2017 pada 13.16
--- Versi Server: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Generation Time: 29 Apr 2017 pada 01.16
+-- Versi Server: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `limaunsur`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `conten`
 --
 
-CREATE TABLE `conten` (
+CREATE TABLE IF NOT EXISTS `conten` (
   `id` int(5) NOT NULL,
   `judul` varchar(100) NOT NULL,
   `kategori` varchar(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `conten` (
   `tgl` date NOT NULL,
   `publish` varchar(5) NOT NULL,
   `label` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `conten`
@@ -55,7 +55,7 @@ INSERT INTO `conten` (`id`, `judul`, `kategori`, `conten`, `tgl`, `publish`, `la
 -- Struktur dari tabel `detail`
 --
 
-CREATE TABLE `detail` (
+CREATE TABLE IF NOT EXISTS `detail` (
   `id_detail` int(5) NOT NULL,
   `id_lap` int(5) NOT NULL,
   `kendala` text NOT NULL,
@@ -72,9 +72,6 @@ CREATE TABLE `detail` (
 INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`, `publis`) VALUES
 (0, 0, '', '', '', '', ''),
 (10, 10006, 'Supaya diluruskan kembali apakah kurikulum yang ada di kelompok sudah sesuai dengan kurikulum yang diberikan oleh PPG ', 'Belum seusai dan akan dimusyawarahkan kembali ', '', 'Progres', 'Sembunyikan'),
-(15, 10004, 'Materi haadis belum mengaju pada kurukulum ppg', 'Mengganti materi lama dengan materi hadis baru sesuai kurikulum ppg tangerang barat', '', 'Selesai', 'Bagikan'),
-(16, 10004, 'Kehadiran pengajian muda mudi kelompok sangat minim, dari total peserta 12 muda/I, yang sering hadir 2-3 orang saja', 'Akan dikumpulkan seluruh muda mudi dan diberi pengarahan khusus oleh keimaman kelompok. ', '', 'Progres', 'Bagikan'),
-(17, 10004, 'Kehadiran pengajian muda mudi kelompok sangat minim, dari total peserta 12 muda/I, yang sering hadir 2-3 orang saja', 'Akan dikumpulkan seluruh muda mudi dan diberi pengarahan khusus oleh keimaman kelompok. ', '', 'Selesai', 'Bagikan'),
 (18, 10005, 'Para cabe rawit laki  paket B ingin dilatih bola di minggu  pagi', 'Muda/I + mubaleg akan segera koordinasi untuk likakukan penyusunan jadwal, untuk melatih bola caberawit paket B, untuk kekancaran dan kekompakan ', '', 'Pending', 'Sembunyikan'),
 (19, 10005, 'Pengajian Paket A dan B di lakukan dalam waktu yang bersamaaah  sehingga penerimaan materi dan waktu tidak mencukupi', 'Untuk paket A dan B dilakukan pemisahan dalam waktu pengajian, Paket A jam 4 Sore sedangkan Paket B Sehabis magrib sampe sholat isya, supaya focus pada target materi dan  ketercapayan materi', '', 'Pending', 'Bagikan'),
 (20, 10015, 'Tour Kelompok					\r\n', 'akan diadakan paada tanggal 28 Januari 2016 di Sawangan', '', 'Selesai', 'Bagikan'),
@@ -266,11 +263,11 @@ INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`,
 (214, 10115, '1.mengenai pembelian infokus\r\n\r\n2.akan membuat seragam caberawit\r\n\r\n3.mengusulkan bahwa di masjid agar di sediakan peralatan sholat seperti sarung dan mukena\r\n\r\n4.anak usia smp dan sma belom memahami tentang bab thoharoh', '1.penerobos akan menariki kesanggupan jamaah untuk pembelian infokus\r\n\r\n2.seragam caberawit akan di bantu dri dana 5 unsur adapun kurangnya di ambilkan dri tabungan caberawit\r\n\r\n3.desa akan menyediakan peralatan di masjid desa\r\n\r\n4.pengajar atau mt akan menyampaikan kpda pra remaja dan remaja mengenai bab thoharoh', '', 'Progres', 'Sembunyikan'),
 (215, 10117, 'Caberawit kurang lancar\r\n', '1. Pendekatan dari teman2 yang terdekat\r\n2. Peran orang tua harus lebih intens kepada anak\r\n3. Para pengajar harus bisa masuk ke dunia anak agar mereka bisa nyaman dan mau ngaji', '', 'Progres', 'Bagikan'),
 (216, 10118, 'Untuk menjaga najis di toilet belum tersedia cantelan buat anak caberawit', 'Dibuatkan cantelan yang bisa dijangkau oleh anak.', '', 'Progres', 'Sembunyikan'),
-(217, 10118, 'Musyawaroh kurang pro aktiv dari pihak orang tua.', 'Dibulan selanjutnya akan dimusyawarohkan  dibuatkan group dan menghasilkan sebuah usulan atau kritikan', '', 'Progres', 'Sembunyikan');
-INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`, `publis`) VALUES
+(217, 10118, 'Musyawaroh kurang pro aktiv dari pihak orang tua.', 'Dibulan selanjutnya akan dimusyawarohkan  dibuatkan group dan menghasilkan sebuah usulan atau kritikan', '', 'Progres', 'Sembunyikan'),
 (218, 10118, 'Kemandirian pada pra remaja dan remaja tentang kerajinan taangan belum selesai', 'dijadwalkan dan dilanjutkan di bulan selanjutnya', '', 'Progres', 'Sembunyikan'),
 (219, 10118, 'karena adanya jadwal extra kulikuler, perlu pembiayaan.', 'akan dimusyawarohkan lebih lanjut', '', 'Progres', 'Sembunyikan'),
-(220, 10106, '1.pengajaran doa-doa bersama paud\r\n2.kehadiran yang jarang\r\n3.pendanaan KBM', '1.pengajaran diakhir,karna pada saat itu anak" pada kumpul\r\n2.konsultasi pada orangtua murid langsung melalui WA\r\n3.buat rencana program pendanaan dan pelaksanaan', '', 'Progres', 'Sembunyikan'),
+(220, 10106, '1.pengajaran doa-doa bersama paud\r\n2.kehadiran yang jarang\r\n3.pendanaan KBM', '1.pengajaran diakhir,karna pada saat itu anak" pada kumpul\r\n2.konsultasi pada orangtua murid langsung melalui WA\r\n3.buat rencana program pendanaan dan pelaksanaan', '', 'Progres', 'Sembunyikan');
+INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`, `publis`) VALUES
 (221, 10121, '1.kehadiran pra remaja atau muda  mudi blm maksimal    2.halaqoh  klp hafalan blm di tambah 2 krn siswanya kurang murojaah shg tdk hafal ktk setoran hafalan\r\n', 'Akan di jadwal pengurus utk nungguin pengajian remaja  shg remaja ataupun muda mudi semakin semangat dlm mengaji nya  2.pengurus aksn memanggil org tua halaqoh utk mengingatkan anak 2nya supaya murojaahnya  tertib', '', 'Progres', 'Sembunyikan'),
 (222, 10100, '1.asisten/ pendamping pengajar\r\n\r\n2.Salah satu orang tua blm bisa mengantar anak ke tempat mengaji\r\n\r\n3.Usulan pemantapan bab akhlak /adab spy sesering mungkin di sampaikan,dan untuk menjadi tahfidul quran', '1.Sudah di data dan dalam proses penjadwalan\r\n\r\n2.Sementara pendampingan orang tua di rumah dahulu\r\n\r\n3.Setiap acara pengajian selalu di ingatkan.', '', 'Progres', 'Sembunyikan'),
 (223, 10122, 'Untuk acara pembagian rapot di tunda karena banyaknya acara dari muda2nya', 'Pembagian rapot di laksanakan di mushola sambil makan2 dan penampilan dari caberawit, adapun waktu menyusul / di musyawarahkan lagi', '', 'Progres', 'Sembunyikan'),
@@ -330,7 +327,7 @@ INSERT INTO `detail` (`id_detail`, `id_lap`, `kendala`, `solusi`, `ket`, `stat`,
 -- Struktur dari tabel `generus`
 --
 
-CREATE TABLE `generus` (
+CREATE TABLE IF NOT EXISTS `generus` (
   `nig` varchar(8) NOT NULL,
   `id_kelompok` varchar(7) NOT NULL,
   `nama` varchar(50) NOT NULL,
@@ -355,7 +352,12 @@ CREATE TABLE `generus` (
 INSERT INTO `generus` (`nig`, `id_kelompok`, `nama`, `tempat_lahir`, `tgl_lahir`, `jekel`, `gol_darah`, `alamat`, `nohp`, `nm_ayah`, `nm_ibu`, `id_kat`, `foto`, `date_input`, `date_update`) VALUES
 ('93700001', '2016004', 'Sadam Husen', 'Jakarta', '1992-05-14', 'Laki Laki', 'AB', 'Tangerang banten Indonesia', '085715887704', 'Sumadi', 'Ngatiem', 2, '93700001_Tulips.jpg', '2017-04-21 04:04:47', '0000-00-00 00:00:00'),
 ('93700002', '2016004', 'Achmad Faisal', 'Jakarta', '1984-03-12', 'Laki Laki', 'B', 'Kp. Gebang RT. 004/002 Kelurahan Sangiang Jaya Kec Periuk Kota Tangerang', '085715887704', 'Sumadi', 'Ngatiem', 1, '93700002_Jellyfish.jpg', '2017-04-21 04:04:46', '0000-00-00 00:00:00'),
-('93700003', '2016004', 'Ariy Wildan Himawan', 'Tanjung Agung', '1992-01-01', 'Laki Laki', 'B', 'Kp. Gebang RT. 004/002 Kelurahan Sangiang Jaya Kec Periuk Kota Tangerang', '085715887704', 'Sumadi', 'Ngtiem', 4, '93700003_Tulips.jpg', '2017-04-21 04:04:52', '0000-00-00 00:00:00');
+('93700003', '2016004', 'Ariy Wildan Himawan', 'Tanjung Agung', '1992-01-01', 'Laki Laki', 'B', 'Kp. Gebang RT. 004/002 Kelurahan Sangiang Jaya Kec Periuk Kota Tangerang', '085715887704', 'Sumadi', 'Ngtiem', 4, '93700003_Tulips.jpg', '2017-04-21 04:04:52', '0000-00-00 00:00:00'),
+('93700004', '2016004', 'Hendri Yulianto', 'Rejo Agung', '1992-05-14', 'Laki Laki', 'B', 'Kp. Gebang RT. 002/002', '085715887704', 'Sumadi', 'Ngatiem', 6, '93700004_2016 2.jpg', '2017-04-22 01:04:23', '0000-00-00 00:00:00'),
+('93700005', '2016004', 'Ahmad Ismail', 'Klaten', '1991-03-03', 'Laki Laki', 'A', 'Kp. Gebang RT. 002/002', '085715887704', 'Sumadi', 'Ngatiem', 3, '93700005_B01 copy.jpg', '2017-04-22 01:04:11', '0000-00-00 00:00:00'),
+('93700006', '2016004', 'Yosep Susanto', 'Kebumen', '2004-03-08', 'Laki Laki', 'B', 'Jakarta Barat - Indonesia', '085715887704', 'Sumadi', 'Ngatiem', 2, '93700006_2007.jpg', '2017-04-22 01:04:15', '0000-00-00 00:00:00'),
+('93700007', '2016004', 'Basuki Saputra', 'Maagar', '1980-06-13', 'Laki Laki', 'AB', 'Ciputat Tangerang', '0092939393939', 'Sumadi', 'Ngatiem', 2, '93700007_20160506_09571212.jpg', '2017-04-28 10:04:22', '0000-00-00 00:00:00'),
+('93700008', '2016004', 'Bayu Saputra', 'Jakarta', '1982-02-02', 'Laki Laki', 'A', 'Ciputat Tangerang', '0092939393939', 'Sumadi', 'Ngatiem', 4, '93700008_8.png', '2017-04-28 10:04:23', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -363,11 +365,11 @@ INSERT INTO `generus` (`nig`, `id_kelompok`, `nama`, `tempat_lahir`, `tgl_lahir`
 -- Struktur dari tabel `kategori`
 --
 
-CREATE TABLE `kategori` (
+CREATE TABLE IF NOT EXISTS `kategori` (
   `id_kat` int(5) NOT NULL,
   `kategori` varchar(100) NOT NULL,
   `ket` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kategori`
@@ -387,7 +389,7 @@ INSERT INTO `kategori` (`id_kat`, `kategori`, `ket`) VALUES
 -- Struktur dari tabel `kelompok`
 --
 
-CREATE TABLE `kelompok` (
+CREATE TABLE IF NOT EXISTS `kelompok` (
   `id_kelompok` varchar(7) NOT NULL,
   `nm_kelompok` varchar(50) NOT NULL,
   `parent` varchar(7) NOT NULL,
@@ -462,7 +464,7 @@ INSERT INTO `kelompok` (`id_kelompok`, `nm_kelompok`, `parent`, `alamat`, `nohp`
 -- Struktur dari tabel `laporan`
 --
 
-CREATE TABLE `laporan` (
+CREATE TABLE IF NOT EXISTS `laporan` (
   `id_lap` int(5) NOT NULL,
   `id_kelompok` int(5) NOT NULL,
   `tanggal` date NOT NULL,
@@ -478,7 +480,6 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `stat`, `turba`, `nama`) VALUES
-(10004, 2016002, '2016-10-20', 'Musyawarah 5 Unsur', '0000-00-00', 1, '', ''),
 (10005, 2016002, '2016-11-15', 'Musyawarah 5 Unsur', '2016-12-01', 1, '', ''),
 (10006, 2016003, '2016-12-25', 'Musyawarah 5 Unsur', '2016-12-05', 1, 'Tidak', '-'),
 (10008, 2016016, '2016-12-11', 'Musyawarah 5 Unsur', '2016-12-12', 1, 'Tidak', '-'),
@@ -622,7 +623,7 @@ INSERT INTO `laporan` (`id_lap`, `id_kelompok`, `tanggal`, `ket`, `date_on`, `st
 -- Struktur dari tabel `menu`
 --
 
-CREATE TABLE `menu` (
+CREATE TABLE IF NOT EXISTS `menu` (
   `id_menu` int(4) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
   `folder` varchar(30) DEFAULT NULL,
@@ -660,13 +661,13 @@ INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `ic
 -- Struktur dari tabel `user_activ`
 --
 
-CREATE TABLE `user_activ` (
+CREATE TABLE IF NOT EXISTS `user_activ` (
   `id` int(5) NOT NULL,
   `id_kelompok` int(7) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `waktu` datetime NOT NULL,
   `link` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user_activ`
@@ -735,17 +736,17 @@ ALTER TABLE `user_activ`
 -- AUTO_INCREMENT for table `conten`
 --
 ALTER TABLE `conten`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kat` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_activ`
 --
 ALTER TABLE `user_activ`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

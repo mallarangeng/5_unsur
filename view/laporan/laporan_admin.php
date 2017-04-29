@@ -25,6 +25,7 @@ if (isset($_GET['aksi']))
  <table id="example" class="table table-striped table-bordered">
     <thead>
       <tr>
+        <th></th>
         <th>Tanggal</th>
         <th>Parent</th>
         <th>Nama Kelompok</th>
@@ -49,6 +50,7 @@ if (isset($_GET['aksi']))
                 }
     ?>
       <tr>
+      <td></td>
        <td><?php echo $data['tanggal']; ?></td>
        <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?></td>
