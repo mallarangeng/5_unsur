@@ -17,7 +17,6 @@ header("location:index.html");
       <tr>
         <th></th>
         <th>Tanggal</th>
-        <th>Parent</th>
         <th>Nama Kelompok</th>
         <th>Penrobos PPG</th>
         <th>Hadir ?</th>
@@ -41,12 +40,11 @@ header("location:index.html");
       <tr>
       <td></td>
        <td><?php echo $data['tanggal']; ?></td>
-       <td><?php echo $data['parent']; ?></td>
         <td><?php echo $data['nm_kelompok']; ?></td>
         <td><?php echo $data['nama']; ?></td>
         <td><?php echo $data['turba']; ?></td>
-        <td><?php echo $data['kendala']; ?></td>
-        <td><?php echo $data['solusi']; ?></td>
+        <td class="danger"><small><?php echo $data['kendala']; ?></small></td>
+        <td class="success"><small><?php echo $data['solusi']; ?><small></td>
         </tr>
 <?php
 }
