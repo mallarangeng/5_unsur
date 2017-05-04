@@ -21,6 +21,7 @@ $dodol= $generus->bacaGenerus($nig);
   <span class="glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong>&nbsp;SISTEM INFORMASI GENERUS&nbsp;</strong>
 </div>
   <button type="button" class="btn btn-info add-generus" data-id="<?php echo $_SESSION['id_kelompok'];?>">TAMBAH DATA</button>
+<a class="btn btn-success" href="view/generus/cetak.php" target="_blank">CETAK DATA GENERUS</a>
   <hr>
   <div class="table-responsive">
  <table id="example" class="table table-striped table-bordered">
@@ -55,11 +56,10 @@ $dodol= $generus->bacaGenerus($nig);
         <td><?php echo $d['nohp']; ?></td>
         <td><?php echo $d['nm_kelompok']; ?></td>
         <td><?php echo $d['kategori']; ?></td>
-        <td><?php echo $d['date_input']; ?></td>
-        <td><?php echo $d['date_update']; ?></td>
+        <td><small><?php echo $d['date_input']; ?></small></td>
+        <td><small><?php echo $d['date_update']; ?></small></td>
         <td>
-          <button type="button" class="btn btn-danger btn-xs ukaskus" data-id="<?php echo $d['nig']; ?>">Ubah Data</button>
-          <a href="?r=generus&pg=generus_change&nig=<?php echo $d['nig']; ?>">Ubah</a></td>
+          <a  class="btn btn-warning btn-xs" href="?r=generus&pg=generus_view&nig=<?php echo $d['nig']; ?>">Ubah</a></td>
       </tr>
 <?php
 }
@@ -111,18 +111,6 @@ if ($_POST['simpan']){
   $foto=$nig_foto."_".$_FILES['foto']['name'],
   $_POST['date_input'],
   $_POST['date_update']);
-   echo"<meta http-equiv='refresh' content='0;url=?r=generus&pg=generus'>";  
-  }
-  ?>
-  <?php if ($_POST['update_data']){
-  $tgl_lahir=$_POST['thn'].'-'.$_POST['bln'].'-'.$_POST['tgl'];
-  #$nig_foto=$_POST['nig'];
-  $generus->updateGenerus(
-  $_POST['nig'],
-  $_POST['id_kelompok'],
-  $_POST['nama'],
-  $_POST['tempat_lahir']);
-  
    echo"<meta http-equiv='refresh' content='0;url=?r=generus&pg=generus'>";  
   }
   ?>

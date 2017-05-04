@@ -145,11 +145,11 @@
                     }   
                 );
             });
-                $(document).on('click','.ukaskus',function(e){
+                $(document).on('click','.ubah-generus',function(e){
                 e.preventDefault();
-                $("#modal-generus").modal('show');
+                $("#modal-ubah-generus").modal('show');
                  $(".modal-title").html('UBAH DATA GENERUS');
-                $.get("view/kelompok/generus_form2.php",
+                $.get("view/generus/generus_ubah.php",
                 {nig:$(this).attr('data-id')},
                  function(html){
                         $(".modal-body").html(html);

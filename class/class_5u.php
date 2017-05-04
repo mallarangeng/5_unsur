@@ -3,7 +3,7 @@
   class Database {
   private $dbHost="localhost";
   private $dbUser="root";
-  private $dbPass="";
+  private $dbPass="900973";
   private $dbName="limaunsur";
   #private $dbUser="ppgtangb_5unsur";
   #private $dbPass="karnaalloh#354";
@@ -438,14 +438,19 @@ else{
       move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
       $hasil= mysql_query($query);
     }
-       function updateGenerus($nig,$id_kelompok,$nama,$tempat_lahir)
+      function updateGenerus ($nig,$id_kelompok,$nama,$tempat_lahir,$tgl_lahir,$jekel,$gol_darah,$alamat,$nohp,$nm_ayah,$nm_ibu,$id_kat,$foto,$date_input,$date_update)
     {
-      $query="UPDATE generus SET id_kelompok='$id_kelompok',nama='$nama',tempat_lahir='$tempat_lahir' WHERE nig='$nig')";
-      #move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
-     
+      if (empty($foto)){
+      $query=mysql_query("UPDATE generus SET id_kelompok='$id_kelompok', nama='$nama', tempat_lahir='$tempat_lahir', tgl_lahir='$tgl_lahir', jekel='$jekel', gol_darah='$gol_darah', alamat='$alamat',nohp='$nohp', nm_ayah='$nm_ayah', nm_ibu='$nm_ibu', id_kat='$id_kat', date_input='$date_input', date_update='$date_update'  WHERE nig='$nig'");
+    }
+  else 
+  {
+       $query=mysql_query("UPDATE generus SET id_kelompok='$id_kelompok', nama='$nama', tempat_lahir='$tempat_lahir', tgl_lahir='$tgl_lahir', jekel='$jekel', gol_darah='$gol_darah', alamat='$alamat',nohp='$nohp', nm_ayah='$nm_ayah', nm_ibu='$nm_ibu', id_kat='$id_kat', foto='$foto', date_input='$date_input', date_update='$date_update' WHERE nig='$nig'");
+         move_uploaded_file($_FILES['foto']['tmp_name'],"file_foto/".$foto);
+         $hasil= mysql_query($query);
     }
   }
-
+  }
   class Detail
   {
     function hapusdetail($id_detail)

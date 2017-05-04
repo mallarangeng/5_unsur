@@ -11,7 +11,8 @@ $dodol= $generus->bacaGenerus($nig);
 #cegah akses tanpa melalui login
 #close akses tanpa login
 ?>
-           
+
+            
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tabke1" data-toggle="tab">Data Diri</a></li>
@@ -33,8 +34,7 @@ $dodol= $generus->bacaGenerus($nig);
                                       <div class="form-group">
 
                                         <div class="col-sm-6">
-                                          
-                                          <input type="text" name="nig" value="<?php echo $dodol['nig'] ?>">
+                                          <input type="hidden" name="nig" value="<?php echo $dodol['nig'] ?>">
                                           <input type="hidden" name="id_kelompok" value="<?php echo $dodol['id_kelompok'] ?>">
                                           <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control" value="<?php echo $dodol['nama'] ?>" required>
                                         </div>
@@ -85,7 +85,7 @@ $dodol= $generus->bacaGenerus($nig);
                                       <div class="form-group">
                                         <div class="col-sm-4">
                                           <select name="jekel" class="form-control" required>
-                                            <option value="<?php echo $dodol['jekel'] ?>">Jenis Kelamin</option>
+                                            <option value="<?php echo $dodol['jekel'] ?>"><?php echo $dodol['jekel'] ?></option>
                                             <option value="Laki Laki">Laki Laki</option>
                                             <option value="Perempuan">Perempuan</option>
                                           </select>
@@ -161,9 +161,11 @@ $dodol= $generus->bacaGenerus($nig);
                                           <label>Foto</label>
                                         <div class="form-group">
                                         <div class="col-sm-4">
-                                         <label class="btn btn-info btn-file">
-                                            Cari File Foto <input type="file" name="foto" hidden>
-                                        </label>
+                                        
+                                                  
+                                                   <label class="btn btn-info btn-file">
+                                                        Cari File Foto <input type="file" name="foto" hidden>
+                                                    </label>
                                                    <input type="hidden" name="date_input" value="<?php echo $dodol['date_input'] ?>">
                                                   <input type="hidden" name="date_update" value="<?php echo tglSkrg(); ?>">
                                                   
@@ -181,4 +183,24 @@ $dodol= $generus->bacaGenerus($nig);
                       -->
                     </div>
                 </div>
-         
+<style type="text/css">
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+</style>
