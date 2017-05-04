@@ -25,7 +25,7 @@ $d= $generus->bacaGenerus($nig);
       </tr>
       <tr>
         <td>Nama</td>
-        <td>: <?php echo $d['nama']; ?></td>
+        <td>: <strong><?php echo $d['nama']; ?></strong></td>
       <tr class="info">
         <td>Tempat, Tgl Lahir</td>
         <td>: <?php echo $d['tempat_lahir']; ?>, <?php echo $d['tgl_lahir']; ?>, Usia : <?php echo umur($d['tgl_lahir']); ?> Tahun</td>
@@ -52,7 +52,7 @@ $d= $generus->bacaGenerus($nig);
       </tr>
         <tr class="info">
         <td>Date Input </td>
-        <td>: <?php echo $d['date_input']; ?> Last Update : <?php echo $d['date_update']; ?> </td>
+        <td>: <small><?php echo $d['date_input']; ?></small> Last Update : <small><?php echo $d['date_update']; ?></small></td>
       </tr>
 
     </tbody>

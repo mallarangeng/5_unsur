@@ -10,10 +10,10 @@ $generus = new generus();
 $dodol= $generus->bacaGenerus($nig);
 #cegah akses tanpa melalui login
 #close akses tanpa login
-?>
+?>           
 
-            
-                <div class="panel-heading">
+<div class="row">
+  <div class="col-md-6"><div class="panel-heading">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tabke1" data-toggle="tab">Data Diri</a></li>
                             <li><a href="#tabke2" data-toggle="tab">Kelengkapan Data</a></li>
@@ -27,14 +27,14 @@ $dodol= $generus->bacaGenerus($nig);
                         <div class="tab-pane fade in active" id="tabke1">
                             <!-- Name Section -->
                               <div class="row">
-                                <div class="col-md-8 col-md-offset-1">
+                                <div class="col-sm-12">
                                   
                                    
                                       <label>Nama Lengkap :</label>
                                       <div class="form-group">
 
                                         <div class="col-sm-6">
-                                          <input type="text" name="nig" value="<?php echo $dodol['nig'] ?>">
+                                          <input type="hidden" name="nig" value="<?php echo $dodol['nig'] ?>">
                                           <input type="hidden" name="id_kelompok" value="<?php echo $dodol['id_kelompok'] ?>">
                                           <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control" value="<?php echo $dodol['nama'] ?>" required>
                                         </div>
@@ -182,7 +182,11 @@ $dodol= $generus->bacaGenerus($nig);
                         <div class="tab-pane fade" id="tab3default">Default 3</div>
                       -->
                     </div>
-                </div>
+                </div></div>
+  <div class="col-md-6">.col-md-6</div>
+</div>
+
+                
 <style type="text/css">
   .btn-file {
     position: relative;

@@ -37,6 +37,7 @@ $dodol= $generus->bacaGenerus($nig);
         <th>TGL INPUT</th>
         <th>TGL UPDATE</th>
         <th>AKSI</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -58,6 +59,7 @@ $dodol= $generus->bacaGenerus($nig);
         <td><?php echo $d['date_update']; ?></td>
         <td>
           <button type="button" class="btn btn-danger btn-xs ukaskus" data-id="<?php echo $d['nig']; ?>">Ubah Data</button>
+          <a href="?r=generus&pg=generus_change&nig=<?php echo $d['nig']; ?>">Ubah</a></td>
       </tr>
 <?php
 }

@@ -22,6 +22,8 @@ header("location:index.html");
         <th>Hadir ?</th>
         <th>Kendala</th>
         <th>Solusi</th>
+        <th>Verifikasi</th>
+        <th>Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -45,6 +47,8 @@ header("location:index.html");
         <td><?php echo $data['turba']; ?></td>
         <td class="danger"><small><?php echo $data['kendala']; ?></small></td>
         <td class="success"><small><?php echo $data['solusi']; ?><small></td>
+        <td><span style="margin-left: 10px; color:#00a651;" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+        <td><span style="margin-left: 10px; color:#ed1c24;" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
         </tr>
 <?php
 }

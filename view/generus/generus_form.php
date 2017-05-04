@@ -159,7 +159,9 @@ $generus = new generus();
                                         <div class="col-sm-4">
                                         
                                                   
-                                                  <input type="file" name="foto" required>
+                                        <label class="btn btn-info btn-file">
+                                            Cari File Foto <input type="file" name="foto" hidden>
+                                        </label>
                                                    <input type="hidden" name="date_input" value="<?php echo tglSkrg(); ?>">
                                                   <input type="hidden" name="date_update" value="">
                                                   
@@ -177,3 +179,26 @@ $generus = new generus();
                       -->
                     </div>
                 </div>
+<style type="text/css">
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+</style>

@@ -11,8 +11,7 @@ $dodol= $generus->bacaGenerus($nig);
 #cegah akses tanpa melalui login
 #close akses tanpa login
 ?>
-
-            
+           
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tabke1" data-toggle="tab">Data Diri</a></li>
@@ -162,9 +161,9 @@ $dodol= $generus->bacaGenerus($nig);
                                           <label>Foto</label>
                                         <div class="form-group">
                                         <div class="col-sm-4">
-                                        
-                                                  
-                                                  <input type="file" name="foto" required>
+                                         <label class="btn btn-info btn-file">
+                                            Cari File Foto <input type="file" name="foto" hidden>
+                                        </label>
                                                    <input type="hidden" name="date_input" value="<?php echo $dodol['date_input'] ?>">
                                                   <input type="hidden" name="date_update" value="<?php echo tglSkrg(); ?>">
                                                   
