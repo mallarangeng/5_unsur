@@ -11,13 +11,14 @@ $user = new User();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cetak Data</title>
+  <title>Sistem Informasi Generus</title>
   <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+  <link href="../../images/logo.png" rel="shortcut icon" />
 </head>
 <body>
 <div class="container">
 <div class="table-responsive">
-<h2>DATA APSENSI GENERUS</h2>
+<h3><strong>CETAK DATA GENERUS</strong></h3>
 <ol class="breadcrumb">
   <li><a href="cetak.php"><strong>Home</strong></a></li>
   <li><a href="?r=kategori">Kategori</a></li>
@@ -30,10 +31,16 @@ if ($_GET['r'] == "kategori")
    { 
 ?>
 <form class="form-inline">
-  <div class="form-group">
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="">
-  </div>
-  <button type="submit" class="btn btn-info">Tampilkan</button>
+       <div class="form-group">
+        <div class="col-sm-4">
+          <select name="jekel" class="form-control" required>
+            <option value="">Jenis Kelamin</option>
+            <option value="Laki Laki">Laki Laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+      </div>
+  <button type="submit" class="btn btn-info">Tampilkan Data</button>
 </form>
 <?php
 
